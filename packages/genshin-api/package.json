@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/genshin-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "description": "Provides some encapsulated utilities function for Genshin Impact.",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-api",
@@ -36,9 +36,9 @@
     "clean": "rm -rf lib",
     "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node"
   },
-  "peerDependencies": {
-    "@mihoyo-kit/api": "^0.1.0",
-    "@mihoyo-kit/genshin-data": "^2.1.0",
+  "dependencies": {
+    "@mihoyo-kit/api": "^0.1.1",
+    "@mihoyo-kit/genshin-data": "*",
     "undici": "^4.5.1"
   },
   "devDependencies": {
