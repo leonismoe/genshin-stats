@@ -30,11 +30,14 @@ Note: Currently only supports querying CN server.
 ## Installation
 Download and unzip the extension zip file, open the developer mode in the browser extension page, then click "load unpacked", and select the directory you just unzipped.
 
+This project does not include the `HYWenHei-85W` font file due to the restriction of font license, to get a better display, please copy `YuanShen_Data/StreamingAssets/MiHoYoSDKRes/HttpServerResources/font/zh-cn.ttf` from Genshin Impact to `assets/fonts/HYWenHei-85W.ttf` manually.  
+Or download the font file from the Internet, then place it at the path mentioned above.
+
 If you are a developer, please select the `dist` directory when loading unpacked extension (you need to compile it first).
 
 
 ## Usage
-1. Access[https://bbs.mihoyo.com/ys/, ensure you have logged in.
+1. Access https://bbs.mihoyo.com/ys/, ensure you have logged in.
 2. Click the browser action button of this extension to open the query page.
 3. Input the target UID, and then click the query button.
 
