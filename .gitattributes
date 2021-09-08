@@ -1,0 +1,10 @@
+* text=auto eol=lf
+
+yarn.lock -diff merge=ours
+package-lock.json -diff merge=ours
+
+*.jpg binary
+*.png binary
+*.mp3 binary
+*.ttf binary
+*.otf binary

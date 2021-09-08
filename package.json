@@ -1,0 +1,16 @@
+{
+  "name": "mihoyo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "lerna bootstrap --hoist",
+    "build": "tsc -b tsconfig.build.json",
+    "test": "lerna run test"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0",
+    "typescript": "^4.4.2"
+  }
+}

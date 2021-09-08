@@ -1,0 +1,14 @@
+node_modules
+*.log
+npm-debug.log*
+lerna-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+.npm
+.eslintcache
+
+/dist
+/out
+/coverage
+.env.local

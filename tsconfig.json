@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "incremental": true,
+    "declaration": true,
+    "sourceMap": true,
+    "composite": true,
+    "strict": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "baseUrl": "./packages",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
+  }
+}
