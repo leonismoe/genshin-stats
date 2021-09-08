@@ -1,0 +1,25 @@
+{
+  "name": "原神数据查询",
+  "description": "原神国服数据查询",
+  "version": "0.0.0",
+  "manifest_version": 3,
+  "icons": {
+    "128": "assets/images/paimon-128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.mihoyo.com/"
+  ],
+  "action": {
+    "default_title": "打开或截图原神数据查询页面",
+    "default_icon": "assets/images/paimon-128.png"
+  },
+  "options_page": "index.html",
+  "background": {
+    "type": "module",
+    "service_worker": "background.js"
+  }
+}

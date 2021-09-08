@@ -1,0 +1,6 @@
+node_modules/
+.snowpack/
+dist/
+src/templates/mikado/*
+!src/templates/mikado/.gitkeep
+_metadata/

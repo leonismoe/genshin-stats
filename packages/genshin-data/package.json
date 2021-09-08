@@ -1,0 +1,40 @@
+{
+  "name": "@mihoyo-kit/genshin-data",
+  "version": "2.1.0",
+  "license": "MIT",
+  "description": "Genshin Impact data",
+  "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-data",
+  "repository": "github:leonismoe/genshin-stats",
+  "type": "module",
+  "sideEffects": false,
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./lib/*": {
+      "import": "./lib/*.mjs",
+      "require": "./lib/*.js",
+      "default": "./lib/*.js"
+    },
+    "./typings": "./typings.d.ts",
+    "./roles": "./data/roles.json",
+    "./data/*": "./data/*",
+    "./*": "./data/*"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "npx tsc -m es2020 && node post-build.js mjs",
+    "build:cjs": "npx tsc -m commonjs -d && node post-build.js",
+    "update-roles-db": "node scripts/build-roles-db.js",
+    "clean": "rm -rf lib"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

@@ -1,0 +1,48 @@
+.group-sort-config {
+  margin-top: 7px;
+  padding-bottom: 8px;
+
+  .btn-sort {
+    height: 32px;
+    padding: 0 6px;
+    margin-left: 4px;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  label:not(:first-child) {
+    margin: 0 6px 0 30px;
+  }
+}
+
+.sort-config-list > .btn {
+  height: 32px;
+  font-weight: normal;
+  padding: 0 6px;
+
+  &::after {
+    color: var(--color-text-secondary);
+    margin-left: 2px;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1) color;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:disabled:after {
+    color: var(--color-text-disabled);
+  }
+}
+
+.btn-sort[data-sort="asc"]::before,
+.sort-config-list > .btn[data-sort="asc"]::after {
+  content: "\1F869";
+}
+
+.btn-sort[data-sort="desc"]::before,
+.sort-config-list > .btn[data-sort="desc"]::after {
+  content: "\1F86B";
+}

@@ -1,0 +1,510 @@
+.spiral-abyss-header {
+  margin-top: 7px;
+  padding-bottom: 8px;
+
+  h3 {
+    display: inline-block;
+    margin-right: 30px;
+    vertical-align: middle;
+  }
+
+  small {
+    display: inline-block;
+    margin-left: 30px;
+    line-height: 30px;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    font-size: 13px;
+    vertical-align: top;
+  }
+}
+
+.spiral-abyss {
+  &.full {
+    min-height: calc(100vh - var(--header-height));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .group-banner {
+    margin: -1px 0 0;
+  }
+
+  .Subhead {
+    margin: 8px auto 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  @media screen {
+    &.group-sticky-enabled {
+      .group-banner {
+        position: sticky;
+        top: var(--header-height-when-stick);
+        background-color: var(--color-background);
+        box-shadow: 0 1px 3px rgba(18,18,18,.1);
+        z-index: 85;
+      }
+
+      .Subhead {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+
+  .abyss-star {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-image: url(/assets/images/star-abyss-48.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter: contrast(0.2);
+  }
+
+  .Subhead {
+    .with-abyss-star {
+      position: relative;
+      padding-left: 28px + 6px;
+    }
+
+    .abyss-star {
+      position: absolute;
+      left: 0;
+    }
+
+    .abyss-time {
+      flex-grow: 1;
+      justify-self: flex-end;
+      text-align: right;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+      font-size: 13px;
+    }
+  }
+
+  .role-list {
+    grid-template-columns: repeat(auto-fill, 77px);
+    gap: 8px 4px;
+  }
+
+  .role-item {
+    margin: 0;
+    width: 77px;
+    height: 93.5px;
+
+    .avatar {
+      height: 77px;
+    }
+
+    .meta {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
+  .role-list,
+  .role-list > li {
+    list-style: none;
+  }
+
+  .Subhead-heading {
+    flex: 0 0 auto;
+
+    + ul {
+      flex-grow: 1;
+      margin-left: 32px;
+      margin-top: 1px;
+      display: flex;
+      align-items: center;
+      list-style: none;
+      font-size: 18px;
+      gap: 24px;
+    }
+
+    + div {
+      flex: 1 1 auto;
+      margin-left: 32px;
+      margin-top: 1px;
+      font-size: 18px;
+      align-self: center;
+    }
+  }
+
+  .abyss-summary {
+    .role-list {
+      margin-top: 8px;
+    }
+
+    .role-list > .role-item .meta::after {
+      content: " 次";
+    }
+
+    .role-list:empty,
+    .role-rank-list:empty {
+      display: block;
+      margin-top: 0;
+
+      &::before {
+        content: "暂无数据";
+        font-size: 14px;
+        color: var(--color-text-secondary);
+      }
+    }
+  }
+
+  .abyss-section {
+    margin: 8px auto 18px;
+
+    h4 {
+      font-size: 18px;
+    }
+  }
+
+  .role-rank-list {
+    margin-top: -8px;
+    list-style: none;
+
+    > li {
+      display: inline-block;
+      margin-right: 4px;
+      min-width: 64px;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 64px;
+      height: 64px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .value {
+      font-size: 16px;
+    }
+  }
+
+  .no-data {
+    color: #d3bc8d;
+    text-align: center;
+
+    img {
+      max-width: 140px;
+    }
+
+    p {
+      margin: 12px 0 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+}
+
+.abyss-floor {
+  margin-top: 16px;
+  margin-bottom: 12px;
+
+  .role-list {
+    width: 100%;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    grid-template-columns: repeat(4, 77px) 1px repeat(4, 77px) 1px repeat(4, 77px);
+    gap: 4px;
+  }
+
+  .separator {
+    grid-row: 1 / 6;
+    grid-column: 5 / 6;
+    background-color: var(--color-border-primary);
+  }
+  .separator-2 {
+    grid-column: 10 / 11;
+  }
+  .separator-3 {
+    display: none;
+  }
+
+  .level-header {
+    grid-row: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: 20px;
+    line-height: 20px;
+
+    .level-name {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .abyss-star {
+      width: 24px;
+      height: 24px;
+      margin: -0.5px 4px 0 12px;
+    }
+
+    .level-star {
+      font-size: 14px;
+    }
+  }
+
+  .abyss-battle {
+    margin-top: 6px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--color-text-secondary);
+
+    &::before {
+      content: "上半";
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+
+    &:not(:empty)::before {
+      margin-right: 8px;
+    }
+  }
+
+  .abyss-battle[data-battle="2"]::before {
+    content: "下半";
+  }
+
+  @media (min-width: 1011px) {
+    .abyss-battle[data-battle="1"] {
+      grid-row: 2;
+    }
+    .abyss-battle[data-battle="2"] {
+      grid-row: 4;
+    }
+
+    .role-item {
+      &[data-battle="1"] {
+        grid-row: 3;
+      }
+      &[data-battle="2"] {
+        grid-row: 5;
+      }
+
+      &[data-index="1"] {
+        grid-column: 1;
+      }
+      &[data-index="2"] {
+        grid-column: 2;
+      }
+      &[data-index="3"] {
+        grid-column: 3;
+      }
+      &[data-index="4"] {
+        grid-column: 4;
+      }
+    }
+
+    .level-header[data-level="1"],
+    .level-header[data-level="1"] ~ .abyss-battle {
+      grid-column: 1 / 5;
+    }
+
+    .level-header[data-level="2"],
+    .level-header[data-level="2"] ~ .abyss-battle {
+      grid-column: 6 / 10;
+    }
+
+    .level-header[data-level="3"],
+    .level-header[data-level="3"] ~ .abyss-battle {
+      grid-column: 11 / 15;
+    }
+
+    .level-header[data-level="2"] ~ .role-item {
+      &[data-index="1"] {
+        grid-column: 6;
+      }
+      &[data-index="2"] {
+        grid-column: 7;
+      }
+      &[data-index="3"] {
+        grid-column: 8;
+      }
+      &[data-index="4"] {
+        grid-column: 9;
+      }
+    }
+
+    .level-header[data-level="3"] ~ .role-item {
+      &[data-index="1"] {
+        grid-column: 11;
+      }
+      &[data-index="2"] {
+        grid-column: 12;
+      }
+      &[data-index="3"] {
+        grid-column: 13;
+      }
+      &[data-index="4"] {
+        grid-column: 14;
+      }
+    }
+  }
+
+  @media (min-width: 712px) and (max-width: 1010px) {
+    .role-list {
+      grid-template-columns: repeat(4, 77px) 1px repeat(4, 77px);
+      gap: 4px 8px;
+    }
+
+    .separator {
+      grid-row: 2 / 4;
+      grid-column: 5;
+    }
+    .separator-2 {
+      grid-row: 5 / 7;
+    }
+    .separator-3 {
+      grid-row: 8 / 10;
+      display: block;
+    }
+
+    .level-header {
+      margin-top: 18px;
+      grid-column: 1 / 10;
+      justify-content: flex-start;
+
+      &[data-level="1"] {
+        margin-top: 0;
+      }
+    }
+
+    .abyss-battle {
+      margin-top: 0;
+
+      &[data-battle="1"] {
+        grid-column: 1 / 5;
+      }
+      &[data-battle="2"] {
+        grid-column: 6 / 10;
+      }
+    }
+
+    .role-item[data-battle="1"] {
+      &[data-index="1"] {
+        grid-column: 1;
+      }
+      &[data-index="2"] {
+        grid-column: 2;
+      }
+      &[data-index="3"] {
+        grid-column: 3;
+      }
+      &[data-index="4"] {
+        grid-column: 4;
+      }
+    }
+
+    .role-item[data-battle="2"] {
+      &[data-index="1"] {
+        grid-column: 6;
+      }
+      &[data-index="2"] {
+        grid-column: 7;
+      }
+      &[data-index="3"] {
+        grid-column: 8;
+      }
+      &[data-index="4"] {
+        grid-column: 9;
+      }
+    }
+
+    .level-header[data-level="1"] {
+      grid-row: 1;
+
+      ~ .abyss-battle {
+        grid-row: 2;
+      }
+
+      ~ .role-item {
+        grid-row: 3;
+      }
+    }
+
+    .level-header[data-level="2"] {
+      grid-row: 4;
+
+      ~ .abyss-battle {
+        grid-row: 5;
+      }
+
+      ~ .role-item {
+        grid-row: 6;
+      }
+    }
+
+    .level-header[data-level="3"] {
+      grid-row: 7;
+
+      ~ .abyss-battle {
+        grid-row: 8;
+      }
+
+      ~ .role-item {
+        grid-row: 9;
+      }
+    }
+  }
+
+  @media (min-width: 850px) and (max-width: 1010px) {
+    .role-list {
+      justify-content: space-evenly;
+    }
+  }
+
+  @media (max-width: 711px) {
+    .role-list {
+      grid-template-columns: repeat(4, 77px);
+      gap: 4px 8px;
+      justify-content: space-evenly;
+    }
+
+    .separator {
+      display: none;
+    }
+
+    .level-header,
+    .abyss-battle {
+      grid-row: auto;
+      grid-column: 1 / 5;
+    }
+
+    .level-header {
+      justify-content: flex-start;
+    }
+    .level-header ~ .level-header {
+      margin-top: 24px;
+    }
+
+    .level-header + .abyss-battle {
+      margin-top: 0;
+
+      &[data-battle="1"] {
+        margin-top: -24px;
+      }
+    }
+
+    .role-item {
+      &[data-index="1"] {
+        grid-column: 1;
+      }
+      &[data-index="2"] {
+        grid-column: 2;
+      }
+      &[data-index="3"] {
+        grid-column: 3;
+      }
+      &[data-index="4"] {
+        grid-column: 4;
+      }
+    }
+  }
+}

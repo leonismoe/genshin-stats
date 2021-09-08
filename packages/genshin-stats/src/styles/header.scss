@@ -1,0 +1,90 @@
+header {
+  top: 0;
+  width: 100%;
+  background-color: var(--color-background);
+  z-index: 90;
+
+  &.sticky {
+    position: fixed;
+    box-shadow: 0 1px 3px rgba(18,18,18,.1);
+  }
+
+  @media print {
+    display: none !important;
+  }
+
+  label,
+  input {
+    vertical-align: middle;
+  }
+
+  label:first-child {
+    display: inline-block;
+    margin-right: 6px;
+    min-width: 2em;
+    text-align: right;
+  }
+
+  .UnderlineNav {
+    margin: 0 -8px;
+    padding: 0 8px;
+    overflow: visible;
+  }
+
+  .UnderlineNav-item {
+    font-size: 16px;
+  }
+
+  nav form {
+    display: inline-block;
+  }
+
+  .autocomplete-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    .autocomplete-results {
+      display: none;
+    }
+
+    &:focus-within .autocomplete-results:not(:empty) {
+      display: block;
+      z-index: 90;
+    }
+  }
+
+  .btn-submit {
+    position: relative;
+    margin: 0 16px 0 4px;
+
+    &:disabled {
+      color: transparent;
+    }
+
+    &:disabled::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 8px);
+      left: calc(50% - 8px);
+      display: block;
+      width: 16px;
+      height: 16px;
+      box-sizing: border-box;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      border-right-color: transparent;
+      border-top-color: transparent;
+      animation: rotate-keyframes .5s infinite linear;
+    }
+  }
+
+  form ~ label {
+    margin-left: 16px;
+  }
+
+  input[type=checkbox] {
+    margin-top: -1px;
+    margin-right: 2px;
+  }
+}

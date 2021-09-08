@@ -1,0 +1,251 @@
+.role-details {
+  position: absolute;
+  min-width: 334px;
+  padding: 6px 8px;
+  font-family: HYWenHei-85W, "Source Han Sans", "Source Han Sans SC", PingFangSC-Medium, "PingFang SC", "Microsoft YaHei UI", "Segoe UI", sans-serif;
+  font-display: fallback;
+  font-size: 0;
+  z-index: 98;
+  box-shadow: 0 5px 20px rgb(18 18 18 / 20%);
+
+  &,
+  &.Box {
+    background-color: var(--color-bg-overlay);
+  }
+
+  @media print {
+    display: none;
+  }
+
+  [data-popper-arrow] {
+    width: 0;
+    height: 0;
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: inline-block;
+      content: "";
+    }
+
+    &::before {
+      border: 8px solid transparent;
+    }
+
+    &::after {
+      border: 7px solid transparent;
+    }
+  }
+
+  &[data-popper-placement^=top] [data-popper-arrow],
+  &[data-popper-placement^=bottom] [data-popper-arrow] {
+    &::before {
+      margin-left: -8px;
+    }
+
+    &::after {
+      margin-left: -7px;
+    }
+  }
+
+  &[data-popper-placement^=bottom] [data-popper-arrow] {
+    top: -14px;
+
+    &::before {
+      margin-top: -2px;
+      border-bottom-color: var(--color-border-primary);
+    }
+
+    &::after {
+      border-bottom-color: var(--color-bg-overlay);
+    }
+  }
+
+  &[data-popper-placement^=top] [data-popper-arrow] {
+    bottom: 0;
+
+    &::before {
+      border-top-color: var(--color-border-primary);
+    }
+
+    &::after {
+      border-top-color: var(--color-bg-overlay);
+    }
+  }
+
+  &[data-popper-placement^=left] [data-popper-arrow],
+  &[data-popper-placement^=right] [data-popper-arrow] {
+    &::before {
+      margin-top: -8px;
+    }
+
+    &::after {
+      margin-top: -7px;
+    }
+  }
+
+  &[data-popper-placement^=left] [data-popper-arrow] {
+    right: 0;
+
+    &::before {
+      border-left-color: var(--color-border-primary);
+    }
+
+    &::after {
+      border-left-color: var(--color-bg-overlay);
+    }
+  }
+
+  &[data-popper-placement^=right] [data-popper-arrow] {
+    left: -16px;
+
+    &::before {
+      border-right-color: var(--color-border-primary);
+    }
+
+    &::after {
+      margin-left: 2px;
+      border-right-color: var(--color-bg-overlay);
+    }
+  }
+
+  .close-button {
+    position: absolute;
+    right: 6px;
+    z-index: 10;
+  }
+
+  .costumes {
+    position: absolute;
+    width: 20px;
+    right: 24px;
+    text-align: center;
+    font-size: 12px;
+    font-family: var(--font-family);
+    color: #fff;
+
+    svg {
+      position: absolute;
+      right: 0;
+      height: 16px;
+      color: #d3bc8d;
+      z-index: -1;
+    }
+  }
+
+  .star {
+    position: absolute;
+    display: block;
+    top: 48px;
+    width: 60px;
+    height: 16px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+  }
+
+  .weapon {
+    position: relative;
+
+    > img {
+      width: 60px;
+      height: 60px;
+      float: left;
+      margin-right: 8px;
+    }
+
+    .name {
+      display: block;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .affix,
+    .level {
+      font-size: 14px;
+    }
+
+    .level {
+      margin-left: 12px;
+    }
+  }
+
+  .reliquaries {
+    margin: 4px 0 0;
+    padding: 0;
+
+    > li {
+      position: relative;
+      display: inline-block;
+      margin-right: 4px;
+      width: 60px;
+      height: 60px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      border-radius: 6px;
+
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      &:nth-child(1) {
+        background-image: url(/assets/images/reliquary-flower.png);
+      }
+      &:nth-child(2) {
+        background-image: url(/assets/images/reliquary-plume.png);
+      }
+      &:nth-child(3) {
+        background-image: url(/assets/images/reliquary-sands.png);
+      }
+      &:nth-child(4) {
+        background-image: url(/assets/images/reliquary-goblet.png);
+      }
+      &:nth-child(5) {
+        margin-right: 0;
+        background-image: url(/assets/images/reliquary-circlet.png);
+      }
+
+      &.rarity-1 {
+        background-image: url(/assets/images/bg-rarity-1.png);
+      }
+      &.rarity-2 {
+        background-image: url(/assets/images/bg-rarity-2.png);
+      }
+      &.rarity-3 {
+        background-image: url(/assets/images/bg-rarity-3.png);
+      }
+      &.rarity-4 {
+        background-image: url(/assets/images/bg-rarity-4.png);
+      }
+      &.rarity-5 {
+        background-image: url(/assets/images/bg-rarity-5.png);
+      }
+    }
+
+    .level {
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      transform: scale(.75) translate(-1px, -2px);
+      text-shadow: 0px 0px 4px rgba(0,0,0,.8);
+    }
+  }
+
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: rotate .5s infinite linear;
+  }
+}

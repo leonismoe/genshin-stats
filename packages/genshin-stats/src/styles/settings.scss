@@ -1,0 +1,58 @@
+@import "@github/details-dialog-element/dist/index.css";
+
+details.settings {
+  display: inline-block;
+  margin: 0 16px 0 -12px;
+
+  .Box {
+    width: auto;
+  }
+
+  .Box-header {
+    padding: 12px 16px;
+  }
+
+  .Box-title {
+    font-size: 16px;
+  }
+
+  .Box-body {
+    padding: 0 16px;
+    overscroll-behavior: contain;
+    overflow: auto;
+  }
+
+  .Box-footer {
+    text-align: right;
+  }
+
+  .theme-options {
+    .form-group-body label {
+      margin: 0 6px 0 24px;
+      font-weight: 400;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .screenshot-options {
+    .form-group-body label {
+      margin-right: 24px;
+      font-weight: 400;
+
+      > input {
+        margin-top: -2px;
+      }
+    }
+  }
+
+  .form-group textarea.form-control {
+    margin-right: 0;
+    min-width: 440px;
+    height: auto;
+    min-height: 0;
+    resize: none;
+  }
+}

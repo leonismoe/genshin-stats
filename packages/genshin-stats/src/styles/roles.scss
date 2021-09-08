@@ -1,0 +1,320 @@
+.role-list-wrapper {
+  @media print {
+    padding: 0 12px;
+  }
+
+  .role-group {
+    margin: 16px 0;
+
+    @media print {
+      &:first-child:not([data-type=""]) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .group-banner {
+    margin: -1px 0 0;
+  }
+
+  .group-banner + .role-list {
+    margin-top: 16px;
+
+    &:empty {
+      display: block;
+      margin-top: 8px;
+      padding-bottom: 12px;
+    }
+
+    &:empty::before {
+      content: "无角色";
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+  }
+
+
+  .Subhead {
+    margin: 8px auto 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  @media screen {
+    &.group-sticky-enabled {
+      .group-banner {
+        position: sticky;
+        top: var(--header-height-when-stick);
+        background-color: var(--color-background);
+        box-shadow: 0 1px 3px rgba(18,18,18,.1);
+        z-index: 85;
+      }
+
+      .Subhead {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+}
+
+
+.role-list {
+  display: grid;
+  gap: 12px 8px;
+  grid-template-columns: repeat(auto-fill, 112px);
+  justify-content: space-between;
+  font-size: 0;
+}
+
+.role-item {
+  position: relative;
+  width: 112px;
+  height: 136px;
+  margin: 0 0 36px;
+  font-size: 0;
+  background-size: 100% 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgb(132 93 90 / 30%);
+  font-family: HYWenHei-85W, "Source Han Sans", PingFangSC-Medium, "PingFang SC", "Microsoft YaHei UI", "Segoe UI", sans-serif;
+  font-display: fallback;
+
+  &.not-owned {
+    opacity: 0.5;
+  }
+
+  &.rarity-1 {
+    background-image: url(/assets/images/role-bg-rarity-1.png);
+  }
+  &.rarity-2 {
+    background-image: url(/assets/images/role-bg-rarity-2.png);
+  }
+  &.rarity-3 {
+    background-image: url(/assets/images/role-bg-rarity-3.png);
+  }
+  &.rarity-4 {
+    background-image: url(/assets/images/role-bg-rarity-4.png);
+  }
+  &.rarity-5 {
+    background-image: url(/assets/images/role-bg-rarity-5.png);
+  }
+  &.rarity-105 {
+    background-image: url(/assets/images/role-bg-rarity-105.png);
+  }
+
+  .avatar {
+    height: 112px;
+    display: block;
+    background-color: transparent;
+    background-position: bottom center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 8px 8px 22px 0;
+    overflow: hidden;
+    box-shadow: none;
+
+    @at-root .role-list-wrapper .role-item:not(.not-owned) .avatar {
+      cursor: pointer;
+    }
+
+    @at-root .role-list-wrapper.no-details .role-item .avatar {
+      cursor: default;
+    }
+  }
+
+  .star {
+    position: absolute;
+    top: 94px;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none;
+
+    &.rarity-1 {
+      background-image: url(/assets/images/rarity-star-1.png);
+    }
+    &.rarity-2 {
+      background-image: url(/assets/images/rarity-star-2.png);
+    }
+    &.rarity-3 {
+      background-image: url(/assets/images/rarity-star-3.png);
+    }
+    &.rarity-4 {
+      background-image: url(/assets/images/rarity-star-4.png);
+    }
+    &.rarity-5 {
+      background-image: url(/assets/images/rarity-star-5.png);
+    }
+    &.rarity-105 {
+      background-image: url(/assets/images/rarity-star-5.png);
+    }
+  }
+
+  .element {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 28px;
+    height: 28px;
+    background-size: 100% 100%;
+    pointer-events: none;
+
+    &.element-pyro {
+      background-image: url(/assets/images/element-pyro.png);
+    }
+    &.element-hydro {
+      background-image: url(/assets/images/element-hydro.png);
+    }
+    &.element-anemo {
+      background-image: url(/assets/images/element-anemo.png);
+    }
+    &.element-electro {
+      background-image: url(/assets/images/element-electro.png);
+    }
+    &.element-dendro {
+      background-image: url(/assets/images/element-dendro.png);
+    }
+    &.element-cryo {
+      background-image: url(/assets/images/element-cryo.png);
+    }
+    &.element-geo {
+      background-image: url(/assets/images/element-geo.png);
+    }
+  }
+
+  .meta {
+    padding: 0 6px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
+    color: #675856;
+
+    .level {
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    .fetter {
+      float: right;
+      font-weight: 500;
+
+      &::before {
+        padding-right: 1px;
+        content: "\2665";
+        color: #fd676f;
+      }
+
+      &:empty {
+        display: none;
+      }
+    }
+  }
+
+  &.not-owned .meta {
+    text-align: center;
+  }
+
+  &[data-id="10000005"] .meta .fetter,
+  &[data-id="10000007"] .meta .fetter {
+    display: none;
+  }
+
+  .name {
+    position: absolute;
+    bottom: -32px;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--color-role-item-text);
+  }
+
+  .fate-level {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 18px;
+    height: 22px;
+    line-height: 22px;
+    color: #fff;
+    font-family: PingFangSC-Medium, "PingFang SC", "Segoe UI", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0 8px;
+
+    &:empty {
+      display: none;
+    }
+  }
+}
+
+
+.role-group[data-type=fetter] {
+  &[data-value]:not([data-value=NaN], [data-value=""]) .Subhead-heading::before {
+    content: "\2665";
+    color: #fd676f;
+    margin-right: 6px;
+  }
+}
+
+.role-group[data-type=rarity] {
+  .Subhead-heading::after {
+    content: "";
+    display: inline-block;
+    width: 100px;
+    height: 24px;
+    margin: -6px 0 0 12px;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: contain;
+    vertical-align: middle;
+  }
+
+  &[data-value="4"] .Subhead-heading::after {
+    background-image: url(/assets/images/rarity-star-4.png);
+  }
+  &[data-value="5"] .Subhead-heading::after {
+    background-image: url(/assets/images/rarity-star-5.png);
+  }
+}
+
+.role-group[data-type=element] {
+  .Subhead-heading::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin: -6px 12px 0 0;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: contain;
+    vertical-align: middle;
+  }
+
+  &[data-value=pyro] .Subhead-heading::before {
+    background-image: url(/assets/images/element-pyro.png);
+  }
+  &[data-value=hydro] .Subhead-heading::before {
+    background-image: url(/assets/images/element-hydro.png);
+  }
+  &[data-value=anemo] .Subhead-heading::before {
+    background-image: url(/assets/images/element-anemo.png);
+  }
+  &[data-value=electro] .Subhead-heading::before {
+    background-image: url(/assets/images/element-electro.png);
+  }
+  &[data-value=dendro] .Subhead-heading::before {
+    background-image: url(/assets/images/element-dendro.png);
+  }
+  &[data-value=cryo] .Subhead-heading::before {
+    background-image: url(/assets/images/element-cryo.png);
+  }
+  &[data-value=geo] .Subhead-heading::before {
+    background-image: url(/assets/images/element-geo.png);
+  }
+}

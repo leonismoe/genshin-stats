@@ -1,0 +1,7 @@
+/*.js
+/*.ts
+!*.d.ts
+
+*.tsbuildinfo
+tsconfig.json
+tsconfig.*.json

@@ -1,0 +1,13 @@
+@import "@primer/css/support";
+
+@include color-variables((
+  "background": (
+    light: #fefbf6,
+    dark: var(--color-bg-canvas)
+  ),
+
+  "role-item-text": (
+    light: #675856,
+    dark: var(--color-text-primary)
+  )
+));

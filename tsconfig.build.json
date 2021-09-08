@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/api" },
+    { "path": "packages/genshin-api" },
+    { "path": "packages/genshin-data" },
+    { "path": "packages/genshin-stats" }
+  ]
+}

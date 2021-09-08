@@ -1,0 +1,47 @@
+@import "./theme";
+@import "./primer";
+@import "./fonts";
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Source Han Sans", "Source Han Sans SC", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", "WenQuanYi Zen Hei", system-ui, "Helvetica Neue", Arial, "Segoe UI Symbol", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+html {
+  height: 100%;
+}
+
+html, body {
+  background-color: var(--color-background) !important;
+}
+
+body {
+  font-family: var(--font-family);
+  min-height: 100vh;
+  overflow-y: scroll;
+
+  @media screen {
+    padding-top: var(--header-height-when-stick, 0);
+  }
+}
+
+.container {
+  max-width: var(--max-width, 1140px);
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media print {
+    max-width: var(--max-width, 1012px);
+  }
+}
+
+@media print {
+  .toast-wrapper {
+    display: none;
+  }
+}

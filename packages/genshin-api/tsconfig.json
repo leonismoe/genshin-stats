@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "composite": true,
+    "strict": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "src",
+    "outDir": "lib"
+  },
+  "references": [
+    { "path": "../api" },
+    { "path": "../genshin-data" }
+  ],
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "lib"]
+}
