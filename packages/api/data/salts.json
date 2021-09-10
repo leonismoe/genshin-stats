@@ -14,5 +14,20 @@
     }
   },
 
-  "latest": "2.11.1"
+  "2.12.0": {
+    "1": {
+      "4": "9IWzPQ37VvLXz86pwiIJK55c8BRGF8zB"
+    }
+  },
+
+  "2.12.1": {
+    "1": {
+      "5": "48MMWHcOuxdqKSmb8OeMyiw5xdCHd1CF"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.12.1"
 }
