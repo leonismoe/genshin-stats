@@ -64,11 +64,24 @@ if (CAPTURABLE) {
         canvas.toBlob(blob => {
           if (blob) {
             if (settings.screenshot.clipboard) {
-              try {
-                navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
-                showToast('已复制页面截图到剪贴板');
-              } catch (e) {
-                showToast(e.message, { type: 'error' });
+              const copy = () => {
+                navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob as any })]).then(() => {
+                  showToast('已复制页面截图到剪贴板');
+                }, e => {
+                  showToast(e.message, { type: 'error' });
+                });
+              };
+
+              if (document.hasFocus()) {
+                copy();
+
+              } else {
+                showToast('由于浏览器限制，请点击页面任意地方以复制图像。', { timeout: 5000 });
+
+                window.addEventListener('focus', function handler() {
+                  copy();
+                  window.removeEventListener('focus', handler);
+                });
               }
             }
 
