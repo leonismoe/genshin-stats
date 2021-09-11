@@ -1,3 +1,6 @@
+/// <reference types="vite/client" />
+
+import type { RequestOptions } from '@mihoyo-kit/api';
 import { createMemo, createResource, createRoot } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { isPlayer, RoleItem } from '@mihoyo-kit/genshin-data';
@@ -29,9 +32,19 @@ interface RoleGroupListCache {
 };
 type RoleGroupListWithCache = Array<RoleGroup> & RoleGroupListCache;
 
+
+const PROXY_OPTIONS: RequestOptions | undefined = import.meta.env.PROD ? undefined : {
+  resolveUrl: url => {
+    if (typeof url == 'string') {
+      url = new URL(url);
+    }
+    return '/proxy/' + url.hostname + url.pathname + url.search;
+  },
+};
+
 function createStatStore() {
   const [stats] = createResource<GenshinGameStats | void, typeof submitSignal>(submitSignal, (args, prev) => {
-    return getGenshinGameStats(globalStore.uid).then(data => {
+    return getGenshinGameStats(globalStore.uid, PROXY_OPTIONS).then(data => {
       const unknown_roles: RoleItem[] = [];
 
       for (const role of (data.avatars as ExtendedGenshinRole[])) {
@@ -69,8 +82,8 @@ function createStatStore() {
 
   const [details] = createResource<readonly CharacterDetail[] | void | undefined, any>(() => [stats.loading, stats()], ([loading, stats]: [boolean, GenshinGameStats], prev) => {
     if (!loading && stats) {
-      return getPlayerCharacterDetails(globalStore.uid, stats.avatars).catch(e => {
-        console.error(e);
+      return getPlayerCharacterDetails(globalStore.uid, stats.avatars, PROXY_OPTIONS).catch(e => {
+        // DO NOTHING
       });
 
     } else {
@@ -81,8 +94,8 @@ function createStatStore() {
   const [abyss] = createResource<[SpiralAbyssData, SpiralAbyssData] | void | undefined, any>(() => [stats.loading, stats()], ([loading, stats]: [boolean, GenshinGameStats], prev) => {
     if (!loading && stats) {
       return Promise.all([
-        getSpiralAbyssData(globalStore.uid, SpiralAbyssScheduleType.CURRENT),
-        getSpiralAbyssData(globalStore.uid, SpiralAbyssScheduleType.PREVIOUS),
+        getSpiralAbyssData(globalStore.uid, SpiralAbyssScheduleType.CURRENT, PROXY_OPTIONS),
+        getSpiralAbyssData(globalStore.uid, SpiralAbyssScheduleType.PREVIOUS, PROXY_OPTIONS),
       ]);
 
     } else {
