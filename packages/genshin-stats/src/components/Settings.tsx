@@ -129,7 +129,7 @@ export default (props: PropsWithChildren) => {
             </div>
           </Show>
 
-          <Show when={/* @once */ (location.protocol === 'http:' || location.protocol === 'https:') && !location.hostname.endsWith('.mihoyo.com')}>
+          <Show when={/* @once */ !['pages', 'chrome-ext'].includes(import.meta.env.MODE) && (location.protocol === 'http:' || location.protocol === 'https:') && !location.hostname.endsWith('.mihoyo.com')}>
             <div class="form-group">
               <div class="form-group-header">
                 <label for="input-cookie">Cookie</label>

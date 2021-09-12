@@ -6,6 +6,7 @@
 // @updateURL    https://genshin-stats.pages.dev/genshin-stats.user.js
 // @downloadURL  https://genshin-stats.pages.dev/genshin-stats.user.js
 // @match        https://genshin-stats.pages.dev/*
+// @match        https://*.genshin-stats.pages.dev/*
 // @match        https://genshin-stats.leonis.dev/*
 // @match        https://leonismoe.github.io/genshin-stats/*
 // @connect      api-takumi.mihoyo.com
