@@ -31,7 +31,7 @@ export function show(message: string | Node | DocumentFragment, options?: ToastO
   el.innerHTML = `
     <span class="Toast-icon">${SVG[type]}</span>
     <span class="Toast-content"></span>
-    <button class="Toast-dismissButton">
+    <button class="Toast-dismissButton" data-dismiss="toast">
       <svg width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z" /></svg>
     </button>
   </div>`;
@@ -42,8 +42,6 @@ export function show(message: string | Node | DocumentFragment, options?: ToastO
 
   if (options?.dismissable === false) {
     el.querySelector('.Toast-dismissButton')!.remove();
-  } else {
-    el.querySelector('.Toast-dismissButton')!.addEventListener('click', close, false);
   }
 
   if (typeof message === 'string') {
@@ -65,6 +63,15 @@ export function show(message: string | Node | DocumentFragment, options?: ToastO
       setTimeout(() => el.remove(), 200);
     }
   }
+
+  el.addEventListener('click', e => {
+    if ((e.target as HTMLElement).closest('[data-dismiss=toast]')) {
+      if ((e.target as HTMLElement).tagName === 'A' && (e.target as HTMLAnchorElement).getAttribute('href') === '#') {
+        e.preventDefault();
+      }
+      close();
+    }
+  }, false);
 
   $container.appendChild(el);
   setTimeout(() => {

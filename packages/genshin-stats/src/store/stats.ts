@@ -1,6 +1,5 @@
 /// <reference types="vite/client" />
 
-import type { RequestOptions } from '@mihoyo-kit/api';
 import { createMemo, createResource, createRoot } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { isPlayer, RoleItem } from '@mihoyo-kit/genshin-data';
@@ -10,6 +9,7 @@ import { show as showToast } from '../utils/toast';
 import { store as globalStore, submitSignal } from './global';
 import { store as roleStore, GENSHIN_ROLES, GENSHIN_ROLE_MAPPING, addRoleData, saveRoleDataDb } from './roles';
 import { SORT, GroupableColumn, SortConfigItem } from './typings';
+import { PROXY_OPTIONS } from './proxy';
 
 export interface GenshinGameStats extends GameStats {
   avatars: ExtendedGenshinRole[];
@@ -32,15 +32,7 @@ interface RoleGroupListCache {
 };
 type RoleGroupListWithCache = Array<RoleGroup> & RoleGroupListCache;
 
-
-const PROXY_OPTIONS: RequestOptions | undefined = import.meta.env.PROD ? undefined : {
-  resolveUrl: url => {
-    if (typeof url == 'string') {
-      url = new URL(url);
-    }
-    return '/proxy/' + url.hostname + url.pathname + url.search;
-  },
-};
+export const API_ERRCODE_NOT_LOGGED_IN = 10001;
 
 function createStatStore() {
   const [stats] = createResource<GenshinGameStats | void, typeof submitSignal>(submitSignal, (args, prev) => {
@@ -76,7 +68,11 @@ function createStatStore() {
       return data as GenshinGameStats;
 
     }, error => {
-      showToast(error.message, { type: 'error' });
+      if (error.code === API_ERRCODE_NOT_LOGGED_IN) {
+        showToast('尚未登录或登录失效，请<a href="https://bbs.mihoyo.com/ys/" target="_blank" rel="noreferrer" referrerpolicy="no-referrer" data-dismiss="toast">点击此处</a>前往米油社原神社区登录，之后返回此页面查询。', { type: 'error', sticky: true, html: true });
+      } else {
+        showToast(error.message, { type: 'error' });
+      }
     });
   });
 

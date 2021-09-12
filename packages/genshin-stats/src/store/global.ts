@@ -4,6 +4,7 @@ import { getUserGameRoles } from '@mihoyo-kit/api';
 import { isValidUid, isValidCnUid } from '@mihoyo-kit/genshin-data';
 import { GlobalState, PAGE_TYPE } from './typings';
 import { show as showToast } from '../utils/toast';
+import { PROXY_OPTIONS } from './proxy';
 import * as Storage from '../utils/storage';
 
 function createGlobalStore() {
@@ -33,12 +34,16 @@ async function getUserConfig() {
   }
 
   if (!uids.length) {
-    getUserGameRoles('hk4e_cn').then(list => {
+    getUserGameRoles('hk4e_cn', PROXY_OPTIONS).then(list => {
       if (list.length && !store.uid) {
         setState({ uid: list[0].game_uid });
       }
     }, e => {
-      showToast(e.message, { type: 'error' });
+      if (e.code === -100) {
+        showToast('尚未登录或登录失效，请<a href="https://bbs.mihoyo.com/ys/" target="_blank" rel="noreferrer" referrerpolicy="no-referrer" data-dismiss="toast">点击此处</a>前往米油社原神社区登录，之后返回此页面查询。', { type: 'error', sticky: true, html: true });
+      } else {
+        showToast(e.message, { type: 'error' });
+      }
     });
   }
 
