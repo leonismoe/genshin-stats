@@ -12,11 +12,15 @@ const DISTDIR = 'dist';
 
 export default defineConfig(async ({ command, mode }) => {
 
-  const VERSION = process.env.VERSION = JSON.parse(await readFile('./package.json', { encoding: 'utf8' })).version;
+  const VERSION = JSON.parse(await readFile('./package.json', { encoding: 'utf8' })).version;
+  process.env.VERSION = process.env.VITE_USER_VERSION = VERSION;
+  process.env.COMMIT = process.env.VITE_USER_COMMIT = '';
 
   if (command === 'build') {
     const rev = spawnSync('git rev-parse --short HEAD', { shell: true });
-    process.env.COMMIT = rev.error ? '' : rev.stdout.toString().trimEnd();
+    if (!rev.error) {
+      process.env.COMMIT = process.env.VITE_USER_COMMIT = rev.stdout.toString().trimEnd();
+    }
   }
 
   const CHROME_EXT_PLUGINS: PluginOption[] = [];
