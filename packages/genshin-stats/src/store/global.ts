@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import { createStore } from 'solid-js/store';
 import { createRoot, createSignal, createEffect } from 'solid-js';
 import { getUserGameRoles } from '@mihoyo-kit/api';
@@ -39,10 +41,14 @@ async function getUserConfig() {
         setState({ uid: list[0].game_uid });
       }
     }, e => {
-      if (e.code === -100) {
+      if (import.meta.env.MODE === 'production' && e instanceof TypeError && (e.message === 'Failed to fetch' || e.message === 'NetworkError when attempting to fetch resource.')) {
+        showToast('网络请求失败，建议下载安装浏览器扩展版本，或者<a href="https://genshin-stats.pages.dev/genshin-stats.user.js" target="_blank" data-dismiss="toast">点击此处</a>安装用户脚本以便发起跨域请求。', { type: 'error', sticky: true, html: true });
+
+      } else if (e.code === -100) {
         showToast('尚未登录或登录失效，请<a href="https://bbs.mihoyo.com/ys/" target="_blank" rel="noreferrer" referrerpolicy="no-referrer" data-dismiss="toast">点击此处</a>前往米油社原神社区登录，之后返回此页面查询。', { type: 'error', sticky: true, html: true });
+
       } else {
-        showToast(e.message, { type: 'error' });
+        showToast(e.message, { type: 'error', timeout: 5000 });
       }
     });
   }

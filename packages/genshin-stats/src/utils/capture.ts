@@ -1,8 +1,10 @@
+/// <reference types="vite/client" />
+
 import sleep from './sleep';
 
 const tabs: typeof chrome.tabs = typeof chrome != 'undefined' && chrome.tabs || typeof browser != 'undefined' && browser.tabs as any;
 
-export const CAPTURABLE = !!tabs;
+export const CAPTURABLE = tabs && (import.meta.env.MODE === 'chrome-ext' || typeof tabs.captureVisibleTab != 'undefined');
 
 function rAF() {
   return new Promise(resolve => {
