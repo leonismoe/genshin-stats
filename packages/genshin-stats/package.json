@@ -1,7 +1,7 @@
 {
   "name": "@mihoyo-kit/genshin-stats",
   "license": "MIT",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "type": "module",
   "private": true,
   "scripts": {
@@ -9,27 +9,29 @@
     "dev": "vite",
     "build": "vite build",
     "build:chrome-ext": "vite build --mode=chrome-ext",
+    "build:pages": "vite build --mode=pages && cp src/genshin-stats.user.js dist/",
+    "fix-deps": "node scripts/fix-npm-deps.cjs",
     "serve": "vite preview",
     "preview": "vite preview"
   },
   "dependencies": {
     "@github/details-dialog-element": "^3.1.2",
     "@leonismoe/md5": "^1.1.0",
-    "@mihoyo-kit/api": "^0.1.1",
+    "@mihoyo-kit/api": "^0.1.3",
     "@mihoyo-kit/genshin-api": "^0.1.1",
     "@mihoyo-kit/genshin-data": "^2.1.0",
     "@popperjs/core": "^2.10.1",
-    "@primer/css": "^17.8.0",
-    "solid-js": "^1.1.2"
+    "@primer/css": "^17.9.0",
+    "solid-js": "^1.1.3"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@types/chrome": "^0.0.157",
     "@types/webextension-polyfill": "^0.8.0",
     "rollup-plugin-copy": "^3.4.0",
-    "sass": "^1.39.0",
-    "solid-ssr": "^1.1.2",
-    "typescript": "^4.4.2",
+    "sass": "^1.39.2",
+    "solid-ssr": "^1.1.3",
+    "typescript": "^4.4.3",
     "vite": "^2.5.6",
     "vite-plugin-solid": "^2.0.3"
   }

@@ -68,7 +68,7 @@ function createStatStore() {
       return data as GenshinGameStats;
 
     }, e => {
-      if (import.meta.env.MODE === 'production' && e instanceof TypeError && (e.message === 'Failed to fetch' || e.message === 'NetworkError when attempting to fetch resource.')) {
+      if (import.meta.env.MODE === 'pages' && e instanceof TypeError && (e.message === 'Failed to fetch' || e.message === 'NetworkError when attempting to fetch resource.')) {
         showToast('网络请求失败，建议下载安装浏览器扩展版本，或者<a href="https://genshin-stats.pages.dev/genshin-stats.user.js" target="_blank" data-dismiss="toast">点击此处</a>安装用户脚本以便发起跨域请求。', { type: 'error', sticky: true, html: true });
 
       } else if (e.code === API_ERRCODE_NOT_LOGGED_IN) {
