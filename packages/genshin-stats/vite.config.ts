@@ -47,13 +47,12 @@ export default defineConfig(async ({ command, mode }) => {
   }
 
   return {
-    base: '/',
+    base: process.env.BASE_URL || '/',
 
     plugins: [
       nodeResolve({ modulesOnly: true, browser: true }),
       solidPlugin(),
-
-      command === 'build' && ViteHtmlVariablePlugin(),
+      ViteHtmlVariablePlugin({ exposeViteEnv: true }),
 
       ...CHROME_EXT_PLUGINS,
     ],
