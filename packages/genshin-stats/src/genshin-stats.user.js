@@ -32,7 +32,7 @@ unsafeWindow.fetch = (url, options) => {
       data: options.body,
       headers: options.headers instanceof unsafeWindow.Headers ? Object.fromEntries(options.headers) : options.headers,
       responseType: 'blob',
-      onload: res => console.log(res) || resolve({
+      onload: res => resolve({
         ok: res.status >= 200 && res.status < 300,
         url: res.finalUrl,
         status: res.status,
@@ -40,8 +40,8 @@ unsafeWindow.fetch = (url, options) => {
         redirected: null,
         headers: transformHeaders(res.responseHeaders),
         get body() { return res.response.stream() },
-        json: () => Promise.resolve(JSON.parse(res.responseText)),
-        text: () => Promise.resolve(res.responseText),
+        json: () => res.response.text().then(JSON.parse),
+        text: () => res.response.text(),
         blob: () => res.response,
         arrayBuffer: () => res.response.arrayBuffer(),
       }),
