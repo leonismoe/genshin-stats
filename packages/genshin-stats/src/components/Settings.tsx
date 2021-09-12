@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import { PropsWithChildren, Show, onMount } from 'solid-js';
 import { get as getCookie, set as setCookie } from '../utils/cookie';
 import { show as showToast } from '../utils/toast';
@@ -113,7 +115,7 @@ export default (props: PropsWithChildren) => {
             </div>
           </div>
 
-          <Show when={/* @once */ import.meta.env.DEV || CAPTURABLE && location.hostname === (typeof chrome != 'undefined' ? chrome.runtime.id : browser.runtime.id)}>
+          <Show when={/* @once */ import.meta.env.DEV || CAPTURABLE}>
             <div class="form-group screenshot-options">
               <div class="form-group-header">
                 <label>截图选项</label>

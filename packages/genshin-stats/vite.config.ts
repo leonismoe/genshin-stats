@@ -1,3 +1,4 @@
+import { spawnSync } from 'child_process';
 import { readFile } from 'fs/promises';
 import { defineConfig, PluginOption } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
@@ -12,6 +13,11 @@ const DISTDIR = 'dist';
 export default defineConfig(async ({ command, mode }) => {
 
   const VERSION = process.env.VERSION = JSON.parse(await readFile('./package.json', { encoding: 'utf8' })).version;
+
+  if (command === 'build') {
+    const rev = spawnSync('git rev-parse --short HEAD', { shell: true });
+    process.env.COMMIT = rev.error ? '' : rev.stdout.toString().trimEnd();
+  }
 
   const CHROME_EXT_PLUGINS: PluginOption[] = [];
   if (command === 'build' && mode === 'chrome-ext') {
