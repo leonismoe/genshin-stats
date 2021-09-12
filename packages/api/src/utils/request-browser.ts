@@ -2,7 +2,6 @@ import type { APIResponse, DSOptions } from '../../typings';
 import hasOwn from './has-own';
 import { getDS, getDS2, getHTTPRequestHeaders, getUserAgent } from './get-ds';
 import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, HTTPError, RequestOptions } from './request-common';
-import { USER_AGENT_WINDOWS_CRHOME } from './user-agent';
 
 export const request = function(url: string | URL, options?: RequestOptions): Cancelable<any> {
   if (options?.prefixUrl) {
@@ -51,10 +50,6 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
     if (content_type || options.ds || options.client_type) {
       if (content_type && !headers.has('Content-Type')) {
         headers.set('Content-Type', content_type);
-      }
-
-      if (!headers.has('User-Agent')) {
-        headers.set('User-Agent', getUserAgent(options.ds || options as DSOptions) || USER_AGENT_WINDOWS_CRHOME);
       }
 
       let ds: string | undefined;
