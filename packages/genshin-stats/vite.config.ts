@@ -1,6 +1,7 @@
 import { spawnSync } from 'child_process';
 import { readFile } from 'fs/promises';
 import { defineConfig, PluginOption } from 'vite';
+import { RollupOptions, OutputOptions } from 'rollup';
 import solidPlugin from 'vite-plugin-solid';
 import copy from 'rollup-plugin-copy';
 import nodeResolve from '@rollup/plugin-node-resolve';
@@ -16,6 +17,8 @@ export default defineConfig(async ({ command, mode }) => {
   process.env.VERSION = process.env.VITE_USER_VERSION = VERSION;
   process.env.COMMIT = process.env.VITE_USER_COMMIT = '';
 
+  const rollupOptions: RollupOptions = {};
+
   if (command === 'build') {
     const rev = spawnSync('git rev-parse --short HEAD', { shell: true });
     if (!rev.error) {
@@ -25,6 +28,12 @@ export default defineConfig(async ({ command, mode }) => {
 
   const CHROME_EXT_PLUGINS: PluginOption[] = [];
   if (command === 'build' && mode === 'chrome-ext') {
+    rollupOptions.output = rollupOptions.output as OutputOptions || {};
+    rollupOptions.output.manualChunks = {};
+    rollupOptions.output.assetFileNames = 'assets/[name][extname]';
+    rollupOptions.output.chunkFileNames = '[name].js';
+    // vitejs hard coded `assets/[name].[hash].[extname]`, currently there's no way to ignore this
+
     CHROME_EXT_PLUGINS.push(ViteHtmlStripCrossOriginPlugin());
     CHROME_EXT_PLUGINS.push(ViteHtmlStripModulePlugin());
     CHROME_EXT_PLUGINS.push(copy({
@@ -63,12 +72,7 @@ export default defineConfig(async ({ command, mode }) => {
       polyfillDynamicImport: false,
       cssCodeSplit: false,
       manifest: false,
-
-      rollupOptions: {
-        output: {
-          manualChunks: {},
-        },
-      },
+      rollupOptions,
     },
 
     server: {
