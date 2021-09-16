@@ -148,6 +148,12 @@
   .weapon {
     position: relative;
 
+    &.clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
     > img {
       width: 60px;
       height: 60px;

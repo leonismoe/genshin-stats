@@ -23,8 +23,13 @@
   &.full {
     min-height: calc(100vh - var(--header-height));
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .group {
+    width: 100%;
   }
 
   .group-banner {

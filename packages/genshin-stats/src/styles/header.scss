@@ -9,6 +9,10 @@ header {
     box-shadow: 0 1px 3px rgba(18,18,18,.1);
   }
 
+  &.box-shadow-none {
+    box-shadow: none;
+  }
+
   @media print {
     display: none !important;
   }

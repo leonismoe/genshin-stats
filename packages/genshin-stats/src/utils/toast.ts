@@ -1,3 +1,5 @@
+import '../styles/toast.scss';
+
 export interface ToastOptions {
   type?: 'info' | 'success' | 'warning' | 'error' | 'loading';
   html?: boolean;
@@ -20,8 +22,7 @@ let $container: HTMLElement;
 export function show(message: string | Node | DocumentFragment, options?: ToastOptions): () => void {
   if (!$container) {
     $container = document.createElement('div');
-    $container.className = 'toast-wrapper position-fixed bottom-0 left-0 mb-3 ml-3';
-    $container.style.zIndex = '2000';
+    $container.className = 'toast-wrapper';
     document.body.appendChild($container);
   }
 
