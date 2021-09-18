@@ -4,6 +4,14 @@ details.settings {
   display: inline-block;
   margin: 0 16px 0 -12px;
 
+  > summary {
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
   .Box {
     width: auto;
   }
@@ -50,9 +58,14 @@ details.settings {
 
   .form-group textarea.form-control {
     margin-right: 0;
-    min-width: 440px;
+    width: 100%;
+    min-width: 312px;
     height: auto;
     min-height: 0;
     resize: none;
+
+    @media (min-width: 440px) {
+      min-width: 440px;
+    }
   }
 }

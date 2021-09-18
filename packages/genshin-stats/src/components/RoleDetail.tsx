@@ -1,8 +1,9 @@
 import type { CharacterDetail, Reliquary } from '@mihoyo-kit/genshin-api/typings';
-import { createEffect, createMemo, createRenderEffect, For, onCleanup, onMount, PropsWithChildren, Show } from 'solid-js';
+import { createEffect, createMemo, For, onCleanup, onMount, PropsWithChildren, Show } from 'solid-js';
 import { popperGenerator, defaultModifiers, VirtualElement } from '@popperjs/core/lib/popper-lite';
 import flip from '@popperjs/core/lib/modifiers/flip';
 import offset, { OffsetModifier } from '@popperjs/core/lib/modifiers/offset';
+import preventOverflow, { PreventOverflowModifier } from '@popperjs/core/lib/modifiers/preventOverflow';
 import arrow from '@popperjs/core/lib/modifiers/arrow';
 import '../styles/role-details.scss';
 
@@ -14,6 +15,7 @@ const createPopper = popperGenerator({
     offset,
     flip,
     arrow,
+    preventOverflow,
   ],
 });
 
@@ -36,6 +38,13 @@ export default (props: PropsWithChildren<{ detail: CharacterDetail, target: HTML
             },
           },
         } as OffsetModifier,
+
+        {
+          name: 'preventOverflow',
+          options: {
+            padding: 8,
+          },
+        } as PreventOverflowModifier,
       ],
     });
   });

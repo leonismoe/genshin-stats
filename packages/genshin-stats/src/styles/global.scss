@@ -22,6 +22,8 @@ body {
   font-family: var(--font-family);
   min-height: 100vh;
   overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   @media screen {
     padding-top: var(--header-height-when-stick, 0);

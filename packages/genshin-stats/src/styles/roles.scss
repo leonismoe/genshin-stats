@@ -204,6 +204,8 @@
         padding-right: 1px;
         content: "\2665";
         color: #fd676f;
+        font-family: octicons;
+        vertical-align: middle;
       }
 
       &:empty {
@@ -249,6 +251,58 @@
 
     &:empty {
       display: none;
+    }
+  }
+}
+
+@media (max-width: 486px) {
+  // container padding: 8px
+  // gap: 6px
+  // item max width = (486 - 2 * 8 - 3 * 6) / 4 = 113px
+  // item min width = (360 - 2 * 8 - 3 * 6) / 4 = 81.5px
+
+  .role-list {
+    grid-template-columns: repeat(auto-fill, 81.5px);
+    column-gap: 6px;
+  }
+
+  .role-item {
+    // original: 112 x 136
+    width: 81.5px;
+    height: 99px;
+
+    .avatar {
+      height: 82px;
+      border-bottom-right-radius: 17px;
+    }
+
+    .star {
+      top: 69px;
+      height: 18px;
+    }
+
+    .element {
+      width: 20px;
+      height: 20px;
+    }
+
+    .fate-level {
+      width: 14px;
+      height: 18px;
+      line-height: 18px;
+      font-size: 12px;
+    }
+
+    .meta {
+      height: 18px;
+      line-height: 18px;
+      padding-top: 1px;
+      font-size: 12px;
+    }
+
+    .name {
+      bottom: -28px;
+      font-size: 16px;
     }
   }
 }

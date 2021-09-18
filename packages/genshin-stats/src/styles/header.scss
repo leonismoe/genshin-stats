@@ -29,18 +29,55 @@ header {
     text-align: right;
   }
 
+  nav form {
+    display: inline-block;
+  }
+
+  .switches {
+    display: inline-block;
+
+    label {
+      margin-left: 12px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    #input-uid {
+      max-width: calc(100vw - 182px);
+    }
+
+    details.settings {
+      margin-right: 0;
+    }
+
+    .switches {
+      display: block;
+      margin-top: 4px;
+      text-align: center;
+    }
+  }
+
   .UnderlineNav {
     margin: 0 -8px;
     padding: 0 8px;
     overflow: visible;
+
+    @media (max-width: 756px) {
+      margin-top: 8px;
+      flex-wrap: wrap;
+
+      .UnderlineNav-body {
+        flex-basis: 100%;
+      }
+
+      .UnderlineNav-item {
+        flex-grow: 1;
+      }
+    }
   }
 
   .UnderlineNav-item {
     font-size: 16px;
-  }
-
-  nav form {
-    display: inline-block;
   }
 
   .autocomplete-wrapper {
@@ -81,10 +118,6 @@ header {
       border-top-color: transparent;
       animation: rotate-keyframes .5s infinite linear;
     }
-  }
-
-  form ~ label {
-    margin-left: 16px;
   }
 
   input[type=checkbox] {

@@ -70,28 +70,32 @@ export default (props: PropsWithChildren) => {
 
   return (
     <div class="group-sort-config">
-      <label for="group-type">分组</label>
-      <select class="form-select" id="group-type" value={store.grouping as string} onChange={handleGroupingChange}>
-        <option value="">N/A</option>
-        <For each={GROUPABLE_COLUMNS}>
-          {item => (<option value={item as string}>{COLUMN_NAME[item as Column]}</option>)}
-        </For>
-      </select>
+      <div class="grouping">
+        <label for="group-type">分组</label>
+        <select class="form-select" id="group-type" value={store.grouping as string} onChange={handleGroupingChange}>
+          <option value="">N/A</option>
+          <For each={GROUPABLE_COLUMNS}>
+            {item => (<option value={item as string}>{COLUMN_NAME[item as Column]}</option>)}
+          </For>
+        </select>
 
-      <button type="button" class="btn btn-sort" title="排序"
-        data-sort={store.grouping_sort}
-        disabled={!store.grouping || !sortable(store.grouping)}
-        onClick={toggleGroupingSort}
-      />
-
-      <label>排序</label>
-      <div class="BtnGroup sort-config-list" onClick={handleColumnSorting} onDragStart={handleDragStart} onDragOver={handleDragOver} onDrop={handleDrop}>
-        <For each={store.sorting}>
-          {item => (<button type="button" class="BtnGroup-item btn" data-column={item.column} data-sort={item.sort} draggable={true} disabled={item.column === store.grouping}>{COLUMN_NAME[item.column as Column]}</button>)}
-        </For>
+        <button type="button" class="btn btn-sort" title="排序"
+          data-sort={store.grouping_sort}
+          disabled={!store.grouping || !sortable(store.grouping)}
+          onClick={toggleGroupingSort}
+        />
       </div>
 
-      <label><input type="checkbox" checked={store.show_not_owned} onChange={() => setState({ show_not_owned: !store.show_not_owned })} />显示尚未拥有的角色</label>
+      <div class="sorting">
+        <label class="label-sort">排序</label>
+        <div class="BtnGroup sort-config-list" onClick={handleColumnSorting} onDragStart={handleDragStart} onDragOver={handleDragOver} onDrop={handleDrop}>
+          <For each={store.sorting}>
+            {item => (<button type="button" class="BtnGroup-item btn" data-column={item.column} data-sort={item.sort} draggable={true} disabled={item.column === store.grouping}>{COLUMN_NAME[item.column as Column]}</button>)}
+          </For>
+        </div>
+      </div>
+
+      <label class="switch-show-not-owned"><input type="checkbox" checked={store.show_not_owned} onChange={() => setState({ show_not_owned: !store.show_not_owned })} />显示尚未拥有的角色</label>
     </div>
   );
 }

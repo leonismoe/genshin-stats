@@ -17,9 +17,29 @@
     font-size: 13px;
     vertical-align: top;
   }
+
+  @media (max-width: 516px) {
+    display: flex;
+    flex-wrap: wrap;
+
+    h3 {
+      flex-grow: 1;
+      margin-right: 0;
+    }
+
+    small {
+      flex-basis: 100%;
+      margin-left: 0;
+      margin-top: 6px;
+      line-height: 1;
+      text-align: center;
+    }
+  }
 }
 
 .spiral-abyss {
+  width: 100%;
+
   &.full {
     min-height: calc(100vh - var(--header-height));
     display: flex;
@@ -86,6 +106,10 @@
       color: var(--color-text-secondary);
       font-weight: 400;
       font-size: 13px;
+
+      @media (max-width: 680px) {
+        display: none;
+      }
     }
   }
 
@@ -129,6 +153,21 @@
       list-style: none;
       font-size: 18px;
       gap: 24px;
+
+      @media (max-width: 468px) {
+        margin-left: 14px;
+        font-size: 14px;
+        gap: 8px;
+
+        .with-abyss-star {
+          padding-left: 24px;
+
+          .abyss-star {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
     }
 
     + div {

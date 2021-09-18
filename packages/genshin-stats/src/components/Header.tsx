@@ -79,8 +79,10 @@ export default (props: PropsWithChildren) => {
 
             <Settings />
 
-            <label><input type="checkbox" checked={store.stick_header} onChange={() => setState({ stick_header: !store.stick_header })} />固定页眉</label>
-            <label><input type="checkbox" checked={store.stick_group_banner} onChange={() => setState({ stick_group_banner: !store.stick_group_banner })} />固定组别</label>
+            <div class="switches">
+              <label><input type="checkbox" checked={store.stick_header} onChange={() => setState({ stick_header: !store.stick_header })} />固定页眉</label>
+              <label><input type="checkbox" checked={store.stick_group_banner} onChange={() => setState({ stick_group_banner: !store.stick_group_banner })} />固定组别</label>
+            </div>
           </div>
 
           <div class="UnderlineNav-body">

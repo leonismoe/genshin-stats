@@ -1,5 +1,34 @@
 @font-face {
   font-family: HYWenHei-85W;
   src: local("HYWenHei-85W"),
-       url(/assets/fonts/HYWenHei-85W.ttf) format('truetype');
+       url("/assets/fonts/HYWenHei-85W.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "octicons";
+  src:
+    url("/assets/fonts/octicons.ttf") format("truetype"),
+    url("/assets/fonts/octicons.woff") format("woff"),
+    url("/assets/fonts/octicons.svg#octicons") format("svg");
+  font-display: block;
+
+  // arrow-down 1f86b
+  // arrow-left 1f868
+  // arrow-right 1f86a
+  // arrow-switch 21c4
+  // arrow-up 1f869
+  // check 2713
+  // dash 2014
+  // download 2913
+  // grabber f58e
+  // heart 2661
+  // heart-fill 2665
+  // link 1f517
+  // link-external f35d
+  // pencil 270f
+  // plus 2b
+  // search 1f50d
+  // sync 1f504
+  // trash 1f5d1
+  // x d7
 }
