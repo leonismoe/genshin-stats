@@ -1,12 +1,41 @@
 /// <reference lib="ES2021" />
 
 import { readdir, stat, rename, unlink, readFile, writeFile } from 'fs/promises';
+import ts from 'typescript';
+
+const pkg = (await readJSON('./package.json')).name;
 
 async function rename_js_files(dir, extension) {
   for (const file of await readdir(dir)) {
     const path = `${dir}/${file}`;
     if (file.endsWith('.js')) {
-      await rename(path, `${dir}/${file.slice(0, -2)}${extension}`);
+      let shouldFixImports = false;
+
+      const source = ts.createSourceFile(path, await readFile(path, { encoding: 'utf8' }), ts.ScriptTarget.Latest);
+      source.forEachChild(node => {
+        if (node.kind === ts.SyntaxKind.ImportDeclaration || node.kind === ts.SyntaxKind.ExportDeclaration) {
+          if (node.moduleSpecifier && node.moduleSpecifier.kind === ts.SyntaxKind.StringLiteral) {
+            const imports = node.moduleSpecifier.text;
+
+            if (imports.startsWith('.') && !imports.endsWith('.json')) {
+              shouldFixImports = true;
+              node.moduleSpecifier.text = imports + '.' + extension;
+
+            } else if (file === 'index.js' && imports.startsWith('#')) {
+              shouldFixImports = true;
+              node.moduleSpecifier.text = `${pkg}/lib/${imports.slice(1)}`;
+            }
+          }
+        }
+      });
+
+      if (shouldFixImports) {
+        const printer = ts.createPrinter();
+        await writeFile(`${dir}/${file.slice(0, -2)}${extension}`, printer.printFile(source));
+
+      } else {
+        await rename(path, `${dir}/${file.slice(0, -2)}${extension}`);
+      }
 
     } else if ((await stat(path)).isDirectory()) {
       await rename_js_files(path, extension);
@@ -32,12 +61,34 @@ if (extension && extension !== 'js') {
   await rename_js_files(DIST_DIR, extension);
 
 } else {
-  const pkg = (await readJSON('./package.json')).name;
+  const fixInternalImports = async subpath => {
+    const path = `${DIST_DIR}/${subpath}`;
+    const source = ts.createSourceFile(path, await readFile(path, { encoding: 'utf8' }), ts.ScriptTarget.Latest);
+    source.forEachChild(function traverse(node) {
+      if (node.kind === ts.SyntaxKind.ImportDeclaration || node.kind === ts.SyntaxKind.ExportDeclaration) {
+        if (node.moduleSpecifier && node.moduleSpecifier.kind === ts.SyntaxKind.StringLiteral) {
+          if (node.moduleSpecifier.text.startsWith('#')) {
+            node.moduleSpecifier.text = `${pkg}/lib/${node.moduleSpecifier.text.slice(1)}`;
+          }
+        }
+      }
 
-  // NOTE: Node.js >= 16.0.0
-  const rectify = async subpath => writeFile(`${DIST_DIR}/${subpath}`, (await readFile(`${DIST_DIR}/${subpath}`, { encoding: 'utf8' })).replaceAll(`${pkg}/src/`, `${pkg}/lib/`));
+      else if (node.kind === ts.SyntaxKind.CallExpression && node.expression.kind === ts.SyntaxKind.Identifier && node.expression.escapedText === 'require') {
+        if (node.arguments.length === 1 && node.arguments[0].kind === ts.SyntaxKind.StringLiteral) {
+          if (node.arguments[0].text.startsWith('#')) {
+            node.arguments[0].text = `${pkg}/lib/${node.arguments[0].text.slice(1)}`;
+          }
+        }
+      }
 
-  await rectify('index.mjs');
-  await rectify('index.js');
-  await rectify('index.d.ts');
+      node.forEachChild(traverse);
+    });
+
+    const printer = ts.createPrinter();
+    return writeFile(path, printer.printFile(source));
+  };
+
+  await fixInternalImports('index.js');
+  await fixInternalImports('index.mjs');
+  await fixInternalImports('index.d.ts');
 }

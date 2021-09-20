@@ -10,6 +10,14 @@
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
+  "browser": {
+    "./lib/request.js": "./lib/utils/request-browser.js",
+    "./lib/request.mjs": "./lib/utils/request-browser.mjs",
+    "./lib/utils/request.js": "./lib/utils/request-browser.js",
+    "./lib/utils/request.mjs": "./lib/utils/request-browser.mjs",
+    "./lib/utils/request-node.js": "./lib/utils/request-browser.js",
+    "./lib/utils/request-node.mjs": "./lib/utils/request-browser.mjs"
+  },
   "exports": {
     ".": {
       "import": "./lib/index.mjs",
