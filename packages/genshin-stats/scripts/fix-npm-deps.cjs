@@ -93,4 +93,12 @@ async function simulate_npm_lifecycle(package, recursive) {
   }
 }
 
-simulate_npm_lifecycle(resolve(__dirname, '../../../'), true);
+(async () => {
+  if (await fileExists(resolve(__dirname, '../node_modules'))) {
+    await simulate_npm_lifecycle(resolve(__dirname, '../'), /* recursive */true);
+  }
+
+  if (await fileExists(resolve(__dirname, '../../../node_modules'))) {
+    await simulate_npm_lifecycle(resolve(__dirname, '../../../'), /* recursive */true);
+  }
+})();
