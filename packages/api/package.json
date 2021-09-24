@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/api",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "license": "MIT",
   "description": "Provides common request method for miHoYo API",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/api",
@@ -83,7 +83,11 @@
   "dependencies": {
     "@leonismoe/md5": "^1.1.0",
     "abort-controller": "^3.0.0",
-    "undici": "^4.5.1"
+    "undici": "^4.7.0"
+  },
+  "peerDependencies": {
+    "abort-controller": "^3.0.0",
+    "undici": "^4.7.0"
   },
   "devDependencies": {
     "typescript": "^4.4.3"
