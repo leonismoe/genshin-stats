@@ -1,4 +1,4 @@
-import type { DSOptions, Merge, PromiseCookieJar } from '../../typings';
+import type { DSOptions, Merge, PromiseCookieJar } from '../typings';
 import hasOwn from './has-own';
 
 interface BasicRequestOptions {

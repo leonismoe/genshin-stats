@@ -40,4 +40,4 @@ request.extend = (defaults: RequestOptions) => {
 };
 
 export default request;
-export { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler } from './request-common';
+export type { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler } from './request-common';

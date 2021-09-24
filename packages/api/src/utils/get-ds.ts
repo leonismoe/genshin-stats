@@ -1,6 +1,7 @@
 import md5 from '@leonismoe/md5';
 import SALTS from '../../data/salts.json';
-import { APIClientType, MixedValuesOfEnum, Merge, DSOptions } from '../../typings';
+import { MixedValuesOfEnum, Merge, DSOptions } from '../typings';
+import { APIClientType } from '../constants';
 import { USER_AGENT_ANDROID_WEBVIEW, USER_AGENT_WINDOWS_CRHOME } from './user-agent';
 
 export default getDS;

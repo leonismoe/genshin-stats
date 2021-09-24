@@ -24,7 +24,7 @@
       "require": "./lib/index.js",
       "default": "./lib/index.js"
     },
-    "./typings": "./typings.d.ts",
+    "./typings": "./lib/typings.d.ts",
     "./lib/request": {
       "ts-node": "./src/utils/request-node.ts",
       "node": {
@@ -77,6 +77,7 @@
     "build:esm": "npx tsc -m es2020 && node post-build.js mjs",
     "build:cjs": "npx tsc -m commonjs -d && node post-build.js",
     "clean": "rm -rf lib",
+    "node": "node --experimental-json-modules --experimental-specifier-resolution=node",
     "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import type { APIResponse, DSOptions } from '../../typings';
+import type { APIResponse, DSOptions } from '../typings';
 import { URL } from 'url';
 import { fetch, Headers, AbortController } from './fetch-undici';
 import { getDS, getDS2, getHTTPRequestHeaders, getUserAgent } from './get-ds';
@@ -176,4 +176,4 @@ request.extend = function(defaults: RequestOptions) {
 };
 
 export default request;
-export { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler } from './request-common';
+export type { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler } from './request-common';

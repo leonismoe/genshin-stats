@@ -1,5 +1,5 @@
 import { request, RequestOptions } from './request';
-import { APIClientType } from '../typings';
+import { APIClientType } from './constants';
 
 interface UserGameRole {
   game_biz: string;

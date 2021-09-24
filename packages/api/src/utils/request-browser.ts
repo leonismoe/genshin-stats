@@ -1,6 +1,6 @@
-import type { APIResponse, DSOptions } from '../../typings';
+import type { APIResponse, DSOptions } from '../typings';
 import hasOwn from './has-own';
-import { getDS, getDS2, getHTTPRequestHeaders, getUserAgent } from './get-ds';
+import { getDS, getDS2, getHTTPRequestHeaders } from './get-ds';
 import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, HTTPError, RequestOptions } from './request-common';
 
 export const request = function(url: string | URL, options?: RequestOptions): Cancelable<any> {
@@ -170,4 +170,4 @@ request.extend = function(defaults: RequestOptions) {
 };
 
 export default request;
-export { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler } from './request-common';
+export type { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler } from './request-common';

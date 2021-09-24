@@ -1,9 +1,13 @@
 /// <reference lib="ES2021" />
 
-import { readdir, stat, rename, unlink, readFile, writeFile } from 'fs/promises';
+import { readdir, stat, rename, unlink, readFile, writeFile, copyFile } from 'fs/promises';
 import ts from 'typescript';
 
 const pkg = (await readJSON('./package.json')).name;
+
+function fileExists(path) {
+  return stat(path).then(() => true, () => false);
+}
 
 async function rename_js_files(dir, extension) {
   for (const file of await readdir(dir)) {
@@ -49,7 +53,7 @@ function readJSON(path) {
 
 const DIST_DIR = 'lib';
 try {
-  if (await stat(`${DIST_DIR}/typings.js`)) {
+  if (await fileExists(`${DIST_DIR}/typings.js`)) {
     await unlink(`${DIST_DIR}/typings.js`);
   }
 } catch (e) {
@@ -91,4 +95,8 @@ if (extension && extension !== 'js') {
   await fixInternalImports('index.js');
   await fixInternalImports('index.mjs');
   await fixInternalImports('index.d.ts');
+
+  if (await fileExists('src/typings.d.ts')) {
+    await copyFile('src/typings.d.ts', `${DIST_DIR}/typings.d.ts`);
+  }
 }

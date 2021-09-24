@@ -1,3 +1,5 @@
+import type { APIClientType, DSServer } from './constants';
+
 export type ValuesOfEnum<T extends string | number> = `${T}`;
 export type MixedValuesOfEnum<T extends string | number> = T | `${T}`;
 
@@ -29,13 +31,6 @@ export type APIResponse<T> = {
   readonly retcode: number;
 }
 
-export const enum APIClientType {
-  IOS = 1,
-  ANDROID = 2,
-  WEB = 4,     // pc
-  WEBVIEW = 5, // webview in android / ios app
-}
-
 export interface DSOptions {
   client_type: MixedValuesOfEnum<APIClientType>;
   app_version: string;
@@ -43,9 +38,7 @@ export interface DSOptions {
   device_id?: string; // PC Web: [0-9a-f]{32}, Android: UUID
   salt?: string;
   ds2?: boolean;
+  server?: MixedValuesOfEnum<DSServer>;
 }
 
-export const enum GameBiz {
-  HONKAI_3RD = 'bh3_cn',
-  GENSHIN_IMPACT = 'hk4e_cn',
-}
+export type { APIClientType, DSServer };

@@ -1,5 +1,5 @@
 import { request, RequestOptions } from './request';
-import { APIClientType } from '../typings';
+import { APIClientType } from './constants';
 
 interface UserGameRecordCard {
   background_image: string;
