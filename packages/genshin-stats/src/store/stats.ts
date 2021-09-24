@@ -1,10 +1,11 @@
 /// <reference types="vite/client" />
 
+import type { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, CharacterRarity } from '@mihoyo-kit/genshin-api/lib/typings';
 import { createMemo, createResource, createRoot } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { isPlayer, RoleItem } from '@mihoyo-kit/genshin-data';
 import { getGenshinGameStats, getPlayerCharacterDetails, getSpiralAbyssData } from '@mihoyo-kit/genshin-api';
-import { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, SpiralAbyssScheduleType, CharacterRarity } from '@mihoyo-kit/genshin-api/typings';
+import { SpiralAbyssScheduleType } from '@mihoyo-kit/genshin-api';
 import { show as showToast } from '../utils/toast';
 import { store as globalStore, submitSignal } from './global';
 import { store as roleStore, GENSHIN_ROLES, GENSHIN_ROLE_MAPPING, addRoleData, saveRoleDataDb } from './roles';

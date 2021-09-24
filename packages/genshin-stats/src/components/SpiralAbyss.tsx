@@ -1,4 +1,4 @@
-import { SpiralAbyssRankItem } from '@mihoyo-kit/genshin-api/typings';
+import type { SpiralAbyssRankItem } from '@mihoyo-kit/genshin-api/lib/typings';
 import { createMemo, For, Show } from 'solid-js';
 import { store as globalStore } from '../store/global';
 import { store, setState } from '../store/stats';

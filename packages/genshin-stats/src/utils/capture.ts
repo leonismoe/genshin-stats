@@ -1,4 +1,6 @@
 /// <reference types="vite/client" />
+/// <reference types="chrome" />
+/// <reference types="webextension-polyfill" />
 
 import sleep from './sleep';
 

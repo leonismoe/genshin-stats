@@ -1,5 +1,5 @@
-import type { CharacterDetail, Reliquary } from '@mihoyo-kit/genshin-api/typings';
-import { createEffect, createMemo, createRenderEffect, For, onCleanup, onMount, PropsWithChildren, Show } from 'solid-js';
+import type { CharacterDetail, Reliquary } from '@mihoyo-kit/genshin-api/lib/typings';
+import { createEffect, createMemo, For, onCleanup, onMount, PropsWithChildren, Show } from 'solid-js';
 import { popperGenerator, defaultModifiers, VirtualElement } from '@popperjs/core/lib/popper-lite';
 import flip from '@popperjs/core/lib/modifiers/flip';
 import offset, { OffsetModifier } from '@popperjs/core/lib/modifiers/offset';

@@ -1,4 +1,4 @@
-import { Show, PropsWithChildren, createEffect, Switch, Match, For, onMount, onCleanup } from 'solid-js';
+import { PropsWithChildren, createEffect, Switch, Match, For, onMount, onCleanup } from 'solid-js';
 import { store, setState, submit } from '../store/global';
 import { PAGE_TYPE } from '../store/typings';
 import { show as showToast } from '../utils/toast';
@@ -19,7 +19,7 @@ export default (props: PropsWithChildren) => {
     try {
       submit($uid!.value);
     } catch (e) {
-      const msg = e.message;
+      const msg = (e as Error).message;
       showToast(msg, { type: 'error' });
     }
   };

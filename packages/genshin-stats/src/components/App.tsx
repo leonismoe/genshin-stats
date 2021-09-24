@@ -92,7 +92,7 @@ if (CAPTURABLE) {
         }, 'image/png');
 
       } catch (e) {
-        showToast(e.message, { type: 'error' });
+        showToast((e as Error).message, { type: 'error' });
       }
 
       disableCSSPrintMedia();

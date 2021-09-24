@@ -17,8 +17,8 @@
   "dependencies": {
     "@github/details-dialog-element": "^3.1.3",
     "@leonismoe/md5": "^1.1.0",
-    "@mihoyo-kit/api": "^0.2.0",
-    "@mihoyo-kit/genshin-api": "^0.1.1",
+    "@mihoyo-kit/api": "^0.2.1",
+    "@mihoyo-kit/genshin-api": "^0.1.2",
     "@mihoyo-kit/genshin-data": "^2.1.0",
     "@popperjs/core": "^2.10.1",
     "@primer/css": "^17.11.0",

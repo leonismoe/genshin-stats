@@ -1,3 +1,6 @@
+/// <reference types="chrome" />
+/// <reference types="webextension-polyfill" />
+
 import { hasOwn } from '@mihoyo-kit/api';
 
 const CHROME_EXT_STORAGE = typeof chrome != 'undefined' && chrome.storage || typeof browser != 'undefined' && browser.storage;
