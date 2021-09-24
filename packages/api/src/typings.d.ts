@@ -41,4 +41,4 @@ export interface DSOptions {
   server?: MixedValuesOfEnum<DSServer>;
 }
 
-export type { APIClientType, DSServer };
+export { APIClientType, DSServer };
