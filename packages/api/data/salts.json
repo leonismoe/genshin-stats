@@ -29,5 +29,15 @@
     }
   },
 
-  "latest": "2.12.1"
+  "2.13.1": {
+    "1": {
+      "4": "FEZemb6zGt8wQNStM0EtR0u8nsiQP9Do",
+      "5": "R621k3PJicyCn77wXTSGszb3U8zkBQAn"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.13.1"
 }
