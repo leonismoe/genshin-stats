@@ -90,6 +90,7 @@
     "undici": "^4.7.0"
   },
   "devDependencies": {
+    "@types/node": ">=16",
     "typescript": "^4.4.3"
   },
   "publishConfig": {

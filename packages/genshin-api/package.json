@@ -37,12 +37,17 @@
     "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node"
   },
   "dependencies": {
-    "@mihoyo-kit/api": "^0.1.1",
-    "@mihoyo-kit/genshin-data": "*",
-    "undici": "^4.5.1"
+    "@mihoyo-kit/api": "^0.2.0",
+    "@mihoyo-kit/genshin-data": ">=2.1.0",
+    "undici": "^4.7.0"
+  },
+  "peerDependencies": {
+    "@mihoyo-kit/api": "^0.2.0",
+    "@mihoyo-kit/genshin-data": ">=2.1.0",
+    "undici": "^4.7.0"
   },
   "devDependencies": {
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.3"
   },
   "publishConfig": {
     "access": "public",

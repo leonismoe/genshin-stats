@@ -15,24 +15,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@github/details-dialog-element": "^3.1.2",
+    "@github/details-dialog-element": "^3.1.3",
     "@leonismoe/md5": "^1.1.0",
-    "@mihoyo-kit/api": "^0.1.3",
+    "@mihoyo-kit/api": "^0.2.0",
     "@mihoyo-kit/genshin-api": "^0.1.1",
     "@mihoyo-kit/genshin-data": "^2.1.0",
     "@popperjs/core": "^2.10.1",
-    "@primer/css": "^17.9.0",
-    "solid-js": "^1.1.3"
+    "@primer/css": "^17.11.0",
+    "solid-js": "^1.1.5"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.0.4",
-    "@types/chrome": "^0.0.157",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "@types/chrome": "^0.0.158",
     "@types/webextension-polyfill": "^0.8.0",
     "rollup-plugin-copy": "^3.4.0",
-    "sass": "^1.39.2",
-    "solid-ssr": "^1.1.3",
+    "sass": "^1.42.1",
+    "solid-ssr": "^1.1.5",
     "typescript": "^4.4.3",
-    "vite": "^2.5.6",
+    "vite": "^2.5.10",
     "vite-plugin-solid": "^2.0.3"
   }
 }
