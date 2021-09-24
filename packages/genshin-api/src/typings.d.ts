@@ -1,18 +1,6 @@
-/**
- * 元素
- */
-export const enum Element {
-  /** 无 */ None      = 'None',
-  /** 火 */ Fire      = 'Pyro',
-  /** 水 */ Water     = 'Hydro',
-  /** 风 */ Wind      = 'Anemo',
-  /** 雷 */ Lightning = 'Electro',
-  /** 草 */ Nature    = 'Dendro',
-  /** 冰 */ Ice       = 'Cryo',
-  /** 岩 */ Earth     = 'Geo',
-}
+import type { Element, ExplorationType, ReliquaryPosition, SpiralAbyssScheduleType, WeaponType } from './constants';
 
-type CharacterRarity = 4 | 5 | 105;
+export type CharacterRarity = 4 | 5 | 105;
 export interface Character {
   /** 命座 */ actived_constellation_num: number;
   /** 元素 */ element: `${Element}`;
@@ -22,11 +10,6 @@ export interface Character {
   /** 等级 */ level: number;
   /** 姓名 */ name: string;
   /** 星级 */ rarity: CharacterRarity;
-}
-
-export const enum ExplorationType {
-  /** 声望 */ Reputation = 'Reputation',
-  /** 供奉 */ Offering   = 'Offering',
 }
 
 export interface ExplorationData {
@@ -82,11 +65,6 @@ export interface GameStats {
   /**  */         role: unknown;
   /** 游戏统计 */ stats: Statistics;
   /** 世界探索 */ world_explorations: WorldExploration[];
-}
-
-export const enum SpiralAbyssScheduleType {
-  /** 本期 */ CURRENT = 1,
-  /** 上期 */ PREVIOUS = 2,
 }
 
 /**
@@ -196,17 +174,6 @@ export interface Weapon {
 }
 
 /**
- * 原神武器类型
- */
-export const enum WeaponType {
-  /** 单手剑 */   Sword = 1,
-  /** 双手剑 */   Claymore = 11,
-  /** 长柄武器 */ Polearm = 13,
-  /** 弓 */       Bow = 12,
-  /** 法器 */     Catalyst = 10,
-}
-
-/**
  * 原神圣遗物属性
  */
 export type ReliquaryRarity = 1 | 2 | 3 | 4 | 5;
@@ -219,14 +186,6 @@ export interface Reliquary {
   /** 等级 */ level: number;
   /** 套装 */ set: ReliquarySet;
   /** 位置 */ pos_name: string;
-}
-
-export const enum ReliquaryPosition {
-  /** 生之花 */ Flower = 1,
-  /** 死之羽 */ Plume = 2,
-  /** 时之沙 */ Sands = 3,
-  /** 空之杯 */ Goblet = 4,
-  /** 理之冠 */ Circlet = 5,
 }
 
 /**
@@ -254,3 +213,5 @@ export interface Constellation {
   /** 是否已激活 */ is_activated: boolean;
   /** 第几层命座 */ pos: number;
 }
+
+export { Element, ExplorationType, ReliquaryPosition, SpiralAbyssScheduleType, WeaponType };

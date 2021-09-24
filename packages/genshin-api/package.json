@@ -16,7 +16,8 @@
       "require": "./lib/index.js",
       "default": "./lib/index.js"
     },
-    "./typings": "./typings.d.ts",
+    "./typings": "./lib/typings.d.ts",
+    "./lib/typings": "./lib/typings.d.ts",
     "./lib/*": {
       "import": "./lib/*.mjs",
       "require": "./lib/*.js",
@@ -37,12 +38,12 @@
     "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node"
   },
   "dependencies": {
-    "@mihoyo-kit/api": "^0.2.0",
+    "@mihoyo-kit/api": "^0.2.1",
     "@mihoyo-kit/genshin-data": ">=2.1.0",
     "undici": "^4.7.0"
   },
   "peerDependencies": {
-    "@mihoyo-kit/api": "^0.2.0",
+    "@mihoyo-kit/api": "^0.2.1",
     "@mihoyo-kit/genshin-data": ">=2.1.0",
     "undici": "^4.7.0"
   },

@@ -1,7 +1,8 @@
-import { APIClientType, WrapWithKey } from '@mihoyo-kit/api/typings';
+import { APIClientType, WrapWithKey } from '@mihoyo-kit/api';
 import { request, RequestOptions } from '@mihoyo-kit/api/lib/request';
 import { getServerRegionByUid } from '@mihoyo-kit/genshin-data';
-import { GameStats, SpiralAbyssScheduleType, CharacterDetail, Character, SpiralAbyssData } from '../typings';
+import { SpiralAbyssScheduleType } from './constants';
+import type { GameStats, CharacterDetail, Character, SpiralAbyssData } from './typings';
 
 /**
  * 获取原神游戏数据总览
