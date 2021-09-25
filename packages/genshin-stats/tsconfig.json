@@ -1,13 +1,18 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
     "strict": true,
+    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "types": ["vite/client"]

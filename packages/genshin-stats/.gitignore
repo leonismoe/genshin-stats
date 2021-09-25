@@ -4,3 +4,4 @@ dist/
 src/templates/mikado/*
 !src/templates/mikado/.gitkeep
 _metadata/
+vite.config.ts.js
