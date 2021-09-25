@@ -16,12 +16,13 @@
       "require": "./lib/index.js",
       "default": "./lib/index.js"
     },
+    "./lib/typings": "./lib/typings.d.ts",
     "./lib/*": {
       "import": "./lib/*.mjs",
       "require": "./lib/*.js",
       "default": "./lib/*.js"
     },
-    "./typings": "./typings.d.ts",
+    "./typings": "./lib/typings.d.ts",
     "./roles": "./data/roles.json",
     "./data/*": "./data/*",
     "./*": "./data/*"
