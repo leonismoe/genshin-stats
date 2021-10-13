@@ -109,8 +109,9 @@ export default (props: PropsWithChildren) => {
 
               <label for="input-dark-theme">暗色主题</label>
               <select class="form-select" id="input-dark-theme" ref={$dark_theme}>
-                <option value="dark_dimmed">Dimmed</option>
                 <option value="dark">Dark</option>
+                <option value="dark_dimmed">Dark Dimmed</option>
+                <option value="dark_high_contrast">Dark High Contrast</option>
               </select>
             </div>
           </div>
