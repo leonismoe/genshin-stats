@@ -998,5 +998,30 @@
     "vision": "Hydro",
     "birthday": "0222",
     "release_date": "20210921"
+  },
+  {
+    "id": 10000050,
+    "codename": "Tohma",
+    "rarity": 4,
+    "name": {
+      "chs": "托马",
+      "cht": "托馬",
+      "de": "Thoma",
+      "en": "Thoma",
+      "es": "Thoma",
+      "fr": "Thomas",
+      "id": "Thoma",
+      "jp": "トーマ",
+      "kr": "토마",
+      "pt": "Thoma",
+      "ru": "Тома",
+      "th": "Thoma",
+      "vi": "Thoma"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Polearm",
+    "vision": "Pyro",
+    "birthday": "0109",
+    "release_date": "20211102"
   }
 ]
