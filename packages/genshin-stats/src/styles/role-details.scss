@@ -10,7 +10,7 @@
 
   &,
   &.Box {
-    background-color: var(--color-bg-overlay);
+    background-color: var(--color-canvas-overlay);
   }
 
   @media print {
@@ -53,11 +53,11 @@
 
     &::before {
       margin-top: -2px;
-      border-bottom-color: var(--color-border-primary);
+      border-bottom-color: var(--color-border-default);
     }
 
     &::after {
-      border-bottom-color: var(--color-bg-overlay);
+      border-bottom-color: var(--color-canvas-overlay);
     }
   }
 
@@ -65,11 +65,11 @@
     bottom: 0;
 
     &::before {
-      border-top-color: var(--color-border-primary);
+      border-top-color: var(--color-border-default);
     }
 
     &::after {
-      border-top-color: var(--color-bg-overlay);
+      border-top-color: var(--color-canvas-overlay);
     }
   }
 
@@ -88,11 +88,11 @@
     right: 0;
 
     &::before {
-      border-left-color: var(--color-border-primary);
+      border-left-color: var(--color-border-default);
     }
 
     &::after {
-      border-left-color: var(--color-bg-overlay);
+      border-left-color: var(--color-canvas-overlay);
     }
   }
 
@@ -100,12 +100,12 @@
     left: -16px;
 
     &::before {
-      border-right-color: var(--color-border-primary);
+      border-right-color: var(--color-border-default);
     }
 
     &::after {
       margin-left: 2px;
-      border-right-color: var(--color-bg-overlay);
+      border-right-color: var(--color-canvas-overlay);
     }
   }
 
