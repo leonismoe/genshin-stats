@@ -87,11 +87,11 @@
   },
   "peerDependencies": {
     "abort-controller": "^3.0.0",
-    "undici": "^4.7.0"
+    "undici": "^4.7.1"
   },
   "devDependencies": {
     "@types/node": ">=16",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.4"
   },
   "publishConfig": {
     "access": "public",

@@ -19,20 +19,20 @@
     "@leonismoe/md5": "^1.1.0",
     "@mihoyo-kit/api": "^0.2.1",
     "@mihoyo-kit/genshin-api": "^0.1.2",
-    "@mihoyo-kit/genshin-data": "^2.1.1",
-    "@popperjs/core": "^2.10.1",
-    "@primer/css": "^17.11.0",
-    "solid-js": "^1.1.5"
+    "@mihoyo-kit/genshin-data": "^2.2.0",
+    "@popperjs/core": "^2.10.2",
+    "@primer/css": "^18.0.1",
+    "solid-js": "^1.1.6"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.5",
-    "@types/chrome": "^0.0.158",
+    "@types/chrome": "^0.0.159",
     "@types/webextension-polyfill": "^0.8.0",
     "rollup-plugin-copy": "^3.4.0",
     "sass": "^1.42.1",
-    "solid-ssr": "^1.1.5",
-    "typescript": "^4.4.3",
-    "vite": "^2.5.10",
-    "vite-plugin-solid": "^2.0.3"
+    "solid-ssr": "^1.1.6",
+    "typescript": "^4.4.4",
+    "vite": "^2.6.7",
+    "vite-plugin-solid": "^2.1.0"
   }
 }
