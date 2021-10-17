@@ -83,11 +83,11 @@
   "dependencies": {
     "@leonismoe/md5": "^1.1.0",
     "abort-controller": "^3.0.0",
-    "undici": "^4.7.0"
+    "undici": "^4.7.3"
   },
   "peerDependencies": {
     "abort-controller": "^3.0.0",
-    "undici": "^4.7.1"
+    "undici": "^4.7.3"
   },
   "devDependencies": {
     "@types/node": ">=16",
