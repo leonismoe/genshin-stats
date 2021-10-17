@@ -2,7 +2,7 @@ import { APIClientType, WrapWithKey } from '@mihoyo-kit/api';
 import { request, RequestOptions } from '@mihoyo-kit/api/lib/request';
 import { getServerRegionByUid } from '@mihoyo-kit/genshin-data';
 import { SpiralAbyssScheduleType } from './constants';
-import type { GameStats, CharacterDetail, Character, SpiralAbyssData } from './typings';
+import type { GameStats, CharacterDetail, Character, SpiralAbyssData, DailyNote } from './typings';
 
 /**
  * 获取原神游戏数据总览
@@ -74,4 +74,20 @@ export async function getPlayerCharacterDetails(role_id: number | string, data: 
   });
 
   return res.avatars;
+}
+
+/**
+ * 获取实时便笺，包括原粹树脂、每日任务、探索派遣等统计，仅自己可见，需要在米油社打开模块数据展示开关
+ * @param role_id UID
+ */
+export function getDailyNote(role_id: number | string, options?: RequestOptions): Promise<DailyNote> {
+  const server = getServerRegionByUid(role_id);
+
+  return request<GameStats>(`https://api-takumi.mihoyo.com/game_record/app/genshin/api/dailyNote?role_id=${role_id}&server=${server}`, {
+    ...options,
+    client_type: APIClientType.WEBVIEW,
+    responseType: 'json',
+    resolveBodyOnly: true,
+    ds2: true,
+  });
 }

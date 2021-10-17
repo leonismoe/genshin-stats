@@ -49,6 +49,7 @@ export interface Statistics {
   /** 精致宝箱数 */        exquisite_chest_number: number;
   /** 岩神瞳 */            geoculus_number: number;
   /** 华丽宝箱数 */        luxurious_chest_number: number;
+  /** 奇馈宝箱数 */        magic_chest_number: number;
   /** 珍贵宝箱数 */        precious_chest_number: number;
   /** 深境螺旋 最深到达 */ spiral_abyss: string;
   /** 解锁传送点 */        way_point_number: number;
@@ -212,6 +213,27 @@ export interface Constellation {
   /** 命座效果 */   effect: string;
   /** 是否已激活 */ is_activated: boolean;
   /** 第几层命座 */ pos: number;
+}
+
+/**
+ * 实时便笺
+ */
+export interface DailyNote {
+  /** 原粹树脂 */             current_resin: number;
+  /** 原粹树脂上限 */         max_resin: number;
+  /** 原粹树脂全部恢复时间 */ resin_recovery_time: string; // number
+  /** 每日委托任务完成数 */   finished_task_num: number;
+  /** 每日委托任务总数 */     total_task_num: number;
+  /** 是否收到额外任务奖励 */ is_extra_task_reward_received: boolean;
+  /** 本周剩余消耗减半次数 */ remain_resin_discount_num: number;
+  /** 树脂消耗最大减半次数 */ resin_discount_num_limit: number;
+  /** 当前探索派遣数 */       current_expedition_num: number;
+  /** 探索派遣限制 */         max_expedition_num: number;
+  /** 探索派遣列表 */         expeditions: Array<{
+    /** 角色头像 */             avatar_side_icon: string;
+    /** 探索状态 */             status: "Ongoing" | "Finished";
+    /** 剩余时间 */             remained_time: string; //number
+                              }>;
 }
 
 export { Element, ExplorationType, ReliquaryPosition, SpiralAbyssScheduleType, WeaponType };
