@@ -74,6 +74,10 @@ export default () => {
               <p class="stat-value">{store.stats!.stats.common_chest_number}</p>
               <p class="stat-title">普通宝箱数</p>
             </li>
+            <li style="grid-row: 3">
+              <p class="stat-value">{store.stats!.stats.magic_chest_number}</p>
+              <p class="stat-title">奇馈宝箱数</p>
+            </li>
           </ul>
         </div>
 
