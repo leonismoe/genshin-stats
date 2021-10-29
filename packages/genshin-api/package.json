@@ -38,14 +38,14 @@
     "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node"
   },
   "dependencies": {
-    "@mihoyo-kit/api": "^0.2.2",
+    "@mihoyo-kit/api": "^0.2.3",
     "@mihoyo-kit/genshin-data": ">=2.2.0",
-    "undici": "^4.7.3"
+    "undici": "^4.8.1"
   },
   "peerDependencies": {
-    "@mihoyo-kit/api": "^0.2.2",
+    "@mihoyo-kit/api": "^0.2.3",
     "@mihoyo-kit/genshin-data": ">=2.2.0",
-    "undici": "^4.7.3"
+    "undici": "^4.8.1"
   },
   "devDependencies": {
     "typescript": "^4.4.4"
