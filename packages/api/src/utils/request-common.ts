@@ -10,7 +10,7 @@ interface BasicRequestOptions {
   body?: string | Buffer | Blob | BufferSource | FormData | URLSearchParams | ReadableStream<Uint8Array>;
   form?: Record<string, any>;
   json?: Record<string, any>;
-  headers?: Headers;
+  headers?: Headers | Record<string, string> | [string, string][];
   signal?: AbortSignal;
   timeout?: number;
   followRedirect?: boolean;
