@@ -1023,5 +1023,55 @@
     "vision": "Pyro",
     "birthday": "0109",
     "release_date": "20211102"
+  },
+  {
+    "id": 10000055,
+    "codename": "Gorou",
+    "rarity": 4,
+    "name": {
+      "chs": "五郎",
+      "cht": "五郎",
+      "de": "Gorou",
+      "en": "Gorou",
+      "es": "Gorou",
+      "fr": "Gorou",
+      "id": "Gorou",
+      "jp": "ゴロー",
+      "kr": "고로",
+      "pt": "Gorou",
+      "ru": "Горо",
+      "th": "Gorou",
+      "vi": "Gorou"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Bow",
+    "vision": "Geo",
+    "birthday": "0518",
+    "release_date": "20211214"
+  },
+  {
+    "id": 10000057,
+    "codename": "Itto",
+    "rarity": 5,
+    "name": {
+      "chs": "荒泷一斗",
+      "cht": "荒瀧一斗",
+      "de": "Arataki Itto",
+      "en": "Arataki Itto",
+      "es": "Arataki Itto",
+      "fr": "Arataki Itto",
+      "id": "Arataki Itto",
+      "jp": "荒瀧一斗",
+      "kr": "아라타키 이토",
+      "pt": "Arataki Itto",
+      "ru": "Итто",
+      "th": "Arataki Itto",
+      "vi": "Arataki Itto"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Claymore",
+    "vision": "Geo",
+    "birthday": "0601",
+    "release_date": "20211214"
   }
 ]
