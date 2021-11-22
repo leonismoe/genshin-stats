@@ -5,7 +5,6 @@
   "description": "Provides common request method for miHoYo API",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/api",
   "repository": "github:leonismoe/genshin-stats",
-  "type": "module",
   "sideEffects": false,
   "main": "lib/index.js",
   "module": "lib/index.mjs",
@@ -74,8 +73,8 @@
   ],
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "npx tsc -m es2020 && node post-build.js mjs",
-    "build:cjs": "npx tsc -m commonjs -d && node post-build.js",
+    "build:esm": "npx tsc -m es2020 && node post-build.mjs mjs",
+    "build:cjs": "npx tsc -m commonjs -d && node post-build.mjs",
     "clean": "rm -rf lib",
     "node": "node --experimental-json-modules --experimental-specifier-resolution=node",
     "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node"

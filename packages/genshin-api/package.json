@@ -6,7 +6,6 @@
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-api",
   "repository": "github:leonismoe/genshin-stats",
   "sideEffects": false,
-  "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
@@ -32,8 +31,8 @@
   ],
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "npx tsc -m es2020 && node post-build.js mjs",
-    "build:cjs": "npx tsc -m commonjs -d && node post-build.js",
+    "build:esm": "npx tsc -m es2020 && node post-build.mjs mjs",
+    "build:cjs": "npx tsc -m commonjs -d && node post-build.mjs",
     "clean": "rm -rf lib",
     "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node"
   },
