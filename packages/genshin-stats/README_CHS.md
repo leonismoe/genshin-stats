@@ -22,7 +22,19 @@
   ![](screenshots/chrome-ext.png)
 
 
-## 安装
+## 使用
+1. 访问米油社原神社区 [https://bbs.mihoyo.com/ys/](https://bbs.mihoyo.com/ys/)，确保已登录。
+2. 打开查询界面: https://genshin-stats.pages.dev/
+3. 在本项目查询页面中输入目标 UID，点击查询按钮即可。
+
+初次使用时请确保已安装 [Tampermonkey](https://www.tampermonkey.net/) 浏览器扩展，
+并点击 https://genshin-stats.pages.dev/genshin-stats.user.js 以将适用于本项目的用户脚本安装至 Tampermonkey。
+
+该脚本仅用于支持“跨域”请求米油社 API，以便工具在无反代的环境下正常工作。
+所有数据均存储在浏览器本地，并不会上传或截取您的个人数据，若不放心可自行审计代码。
+
+
+## 安装为浏览器扩展 (不建议)
 下载并解压原神数据查询扩展包，在浏览器扩展页面中打开开发者模式，加载已解压的扩展程序，选择刚才解压的目录即可。
 
 由于字体许可限制，项目中并没有附带原神使用的 汉仪文黑-85W 字体，如需更好的显示效果，请自行从原神目录 `YuanShen_Data/StreamingAssets/MiHoYoSDKRes/HttpServerResources/font` 复制 `zh-cn.ttf` 到 `assets/fonts`，并重命名为 `HYWenHei-85W.ttf`。  
@@ -31,13 +43,7 @@
 如果您是开发者，在加载已解压的扩展程序时，请选择 `dist` 目录（需要事先编译一次）。
 
 
-## 使用
-1. 访问米油社原神社区 [https://bbs.mihoyo.com/ys/](https://bbs.mihoyo.com/ys/)，确保已登录。
-2. 单击浏览器中的原神数据查询按钮，打开查询页面。
-3. 输入目标 UID，点击查询按钮即可。
-
-
-## 更新
+## 更新 (浏览器扩展)
 直接将新版本的文件覆盖到扩展安装目录即可。
 
 

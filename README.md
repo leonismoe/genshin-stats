@@ -27,7 +27,18 @@ Note: Currently only supports querying CN server.
   ![](packages/genshin-stats/screenshots/chrome-ext.png)
 
 
-## Installation
+## Usage
+1. Access https://bbs.mihoyo.com/ys/, ensure you have logged in.
+2. Open https://genshin-stats.pages.dev/
+3. Input the target UID, and then click the query button.
+
+Make sure you have the [Tampermonkey](https://www.tampermonkey.net/) browser extension installed when using it for the first time.
+and click https://genshin-stats.pages.dev/genshin-stats.user.js to install the user script for this project to Tampermonkey.
+
+This script is only used to support cross-domain requests to the miHoYo API, all data is stored locally in your browser and no personal data is uploaded or intercepted, you can audit the code yourself.
+
+
+## Install as browser extension (unrecommend)
 Download and unzip the extension zip file, open the developer mode in the browser extension page, then click "load unpacked", and select the directory you just unzipped.
 
 This project does not include the `HYWenHei-85W` font file due to the restriction of font license, to get a better display, please copy `YuanShen_Data/StreamingAssets/MiHoYoSDKRes/HttpServerResources/font/zh-cn.ttf` from Genshin Impact to `assets/fonts/HYWenHei-85W.ttf` manually.  
@@ -36,13 +47,7 @@ Or download the font file from the Internet, then place it at the path mentioned
 If you are a developer, please select the `dist` directory when loading unpacked extension (you need to compile it first).
 
 
-## Usage
-1. Access https://bbs.mihoyo.com/ys/, ensure you have logged in.
-2. Click the browser action button of this extension to open the query page.
-3. Input the target UID, and then click the query button.
-
-
-## Upgrade
+## Upgrade (browser extension)
 Just extract the files of the new extension zip directly to the directory you previously installed.
 
 
