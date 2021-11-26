@@ -42,7 +42,7 @@ async function getUserConfig() {
       }
     }, e => {
       if (import.meta.env.MODE === 'pages' && e instanceof TypeError && (e.message === 'Failed to fetch' || e.message === 'NetworkError when attempting to fetch resource.')) {
-        showToast('网络请求失败，建议<a href="https://github.com/leonismoe/genshin-stats/releases/latest" target="_blank">下载</a>安装浏览器扩展版本，或者<a href="genshin-stats.user.js" target="_blank" data-dismiss="toast">点击此处</a>安装用户脚本（建议使用 <a href="https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank">Tampermonkey</a>）以便发起跨域请求。', { type: 'error', sticky: true, html: true });
+        showToast('网络请求失败，请<a href="genshin-stats.user.js" target="_blank" data-dismiss="toast">点击此处</a>安装用户脚本（建议使用 <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> 浏览器扩展管理）以便发起跨域请求。', { type: 'error', sticky: true, html: true });
 
       } else if (e.code === -100) {
         showToast('尚未登录或登录失效，请<a href="https://bbs.mihoyo.com/ys/" target="_blank" rel="noreferrer" referrerpolicy="no-referrer" data-dismiss="toast">点击此处</a>前往米油社原神社区登录，之后返回此页面查询。', { type: 'error', sticky: true, html: true });
