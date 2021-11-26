@@ -124,7 +124,7 @@ export default () => {
             <div class="group-banner">
               <div class="Subhead container">
                 <div class="Subhead-heading">深境螺旋 第{CARDINAL_CHN[floor.index - 1]}层</div>
-                <div class="with-abyss-star"><i class="abyss-star"></i>{floor.levels.reduce((sum, level) => sum + level.star, 0)} / {floor.levels.reduce((sum, level) => sum + level.max_star, 0)}</div>
+                <div class="with-abyss-star"><i class="abyss-star"></i>{floor.star} / {floor.max_star}</div>
               </div>
             </div>
 
