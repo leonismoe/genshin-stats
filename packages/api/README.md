@@ -45,7 +45,7 @@ interface RequestOptions {
   body?: string | Buffer | Blob | BufferSource | FormData | URLSearchParams | ReadableStream<Uint8Array>; // raw HTTP request body
   form?: Record<string, any>; // will be converted to a query string and set `Content-Type` to `application/x-www-form-urlencoded`
   json?: Record<string, any>; // will be stringified using `JSON.stringify` and set `Content-Type` to `application/json`
-  headers?: Headers;
+  headers?: Headers | Record<string, string | number>;
   signal?: AbortSignal;
   timeout?: number;          // in milliseconds, default 0, which means no timeout
   followRedirect?: boolean;  // default: true
@@ -83,6 +83,8 @@ This package currently provides 2 implementations of `request` function:
 
   Uses `undici` module to make HTTP requests, and `abort-controller` to make it cancelable.
 
+  To make `fetch` work, your Node's version should **NOT** less than 16.5.0
+
   If you're using npm below `7.0.0` or Yarn and other package managers, you may need to add `undici`, `abort-controller` as your project's dependencies explicitly.
 
 
@@ -106,7 +108,7 @@ interface PCBannerResult {
 
 const res = await request<PCBannerResult>('https://bbs-api.mihoyo.com/misc/wapi/getPCBanner?gids=2', {
   client_type: APIClientType.WEB,
-  app_version: '2.11.0',
+  app_version: '2.11.0', // <== if omitted, it'll use the latest recorded version
   responseType: 'json',
   resolveBodyOnly: true,
 });

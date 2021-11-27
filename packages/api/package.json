@@ -71,6 +71,9 @@
     "*.d.ts",
     "README.md"
   ],
+  "engines": {
+    "node": ">=16.5.0"
+  },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "npx tsc -m es2020 && node post-build.mjs mjs",
