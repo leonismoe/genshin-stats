@@ -79,5 +79,20 @@
     }
   },
 
-  "latest": "2.17.1"
+  "2.18.0": {
+    "1": {
+      "5": "RYarginIzdoujH2WnEtL65isWpVZ5V9N"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "2.18.1": {
+    "1": {
+      "4": "fVNu1bA3vYP6RQIaIpPaF68RpjOrROjN"
+    }
+  },
+
+  "latest": "2.18.0"
 }
