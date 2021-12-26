@@ -17,7 +17,7 @@ interface UserGameRecordCard {
 }
 
 export function getGameRecordCard(uid: number | string, options?: RequestOptions): Promise<UserGameRecordCard[]> {
-  return request<{ list: UserGameRecordCard[] }>(`https://api-takumi.mihoyo.com/game_record/app/card/wapi/getGameRecordCard?uid=${uid}`, {
+  return request<{ list: UserGameRecordCard[] }>(`https://api-takumi-record.mihoyo.com/game_record/app/card/wapi/getGameRecordCard?uid=${uid}`, {
     ...options,
     client_type: APIClientType.WEBVIEW,
     responseType: 'json',
