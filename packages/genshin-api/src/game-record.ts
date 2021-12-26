@@ -1,5 +1,4 @@
-import { APIClientType, WrapWithKey } from '@mihoyo-kit/api';
-import { request, RequestOptions } from '@mihoyo-kit/api/lib/request';
+import { APIClientType, WrapWithKey, request, RequestOptions } from '@mihoyo-kit/api';
 import { getServerRegionByUid } from '@mihoyo-kit/genshin-data';
 import { SpiralAbyssScheduleType } from './constants';
 import type { GameStats, CharacterDetail, Character, SpiralAbyssData, DailyNote } from './typings';
