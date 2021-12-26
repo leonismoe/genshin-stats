@@ -11,7 +11,7 @@ import type { GameStats, CharacterDetail, Character, SpiralAbyssData, DailyNote 
 export function getGenshinGameStats(role_id: number | string, options?: RequestOptions): Promise<GameStats> {
   const server = getServerRegionByUid(role_id);
 
-  return request<GameStats>(`https://api-takumi.mihoyo.com/game_record/app/genshin/api/index?server=${server}&role_id=${role_id}`, {
+  return request<GameStats>(`https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/index?server=${server}&role_id=${role_id}`, {
     ...options,
     client_type: APIClientType.WEBVIEW,
     responseType: 'json',
@@ -29,7 +29,7 @@ export function getGenshinGameStats(role_id: number | string, options?: RequestO
 export function getSpiralAbyssData(role_id: number | string, schedule_type = SpiralAbyssScheduleType.CURRENT, options?: RequestOptions): Promise<SpiralAbyssData> {
   const server = getServerRegionByUid(role_id);
 
-  return request<SpiralAbyssData>(`https://api-takumi.mihoyo.com/game_record/app/genshin/api/spiralAbyss?schedule_type=${schedule_type}&server=${server}&role_id=${role_id}`, {
+  return request<SpiralAbyssData>(`https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/spiralAbyss?schedule_type=${schedule_type}&server=${server}&role_id=${role_id}`, {
     ...options,
     client_type: APIClientType.WEBVIEW,
     responseType: 'json',
@@ -58,7 +58,7 @@ export async function getPlayerCharacterDetails(role_id: number | string, data: 
     character_ids = data.avatars.map(v => v.id);
   }
 
-  const res = await request<WrapWithKey<CharacterDetail[], 'avatars'>>('https://api-takumi.mihoyo.com/game_record/app/genshin/api/character', {
+  const res = await request<WrapWithKey<CharacterDetail[], 'avatars'>>('https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/character', {
     ...options,
     method: 'POST',
     responseType: 'json',
@@ -82,7 +82,7 @@ export async function getPlayerCharacterDetails(role_id: number | string, data: 
 export function getDailyNote(role_id: number | string, options?: RequestOptions): Promise<DailyNote> {
   const server = getServerRegionByUid(role_id);
 
-  return request<GameStats>(`https://api-takumi.mihoyo.com/game_record/app/genshin/api/dailyNote?role_id=${role_id}&server=${server}`, {
+  return request<GameStats>(`https://api-takumi-record.mihoyo.com/game_record/app/genshin/api/dailyNote?role_id=${role_id}&server=${server}`, {
     ...options,
     client_type: APIClientType.WEBVIEW,
     responseType: 'json',
