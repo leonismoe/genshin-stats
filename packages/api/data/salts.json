@@ -94,5 +94,15 @@
     }
   },
 
-  "latest": "2.18.0"
+  "2.19.1": {
+    "1": {
+      "4": "1JWmnzrckTCCsObfuHT5NDelddX4zIWw",
+      "5": "wCN9yMxmW1shLBMGSxPXRTcwpVavUYZx"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.19.1"
 }
