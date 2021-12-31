@@ -1073,5 +1073,55 @@
     "vision": "Geo",
     "birthday": "0601",
     "release_date": "20211214"
+  },
+  {
+    "id": 10000063,
+    "codename": "Shenhe",
+    "rarity": 5,
+    "name": {
+      "chs": "申鹤",
+      "cht": "申鶴",
+      "de": "Shenhe",
+      "en": "Shenhe",
+      "es": "Shenhe",
+      "fr": "Shenhe",
+      "id": "Shenhe",
+      "jp": "申鶴",
+      "kr": "신학",
+      "pt": "Shenhe",
+      "ru": "Шэнь Хэ",
+      "th": "Shenhe",
+      "vi": "Shenhe"
+    },
+    "assoc": "Liyue",
+    "weapon": "Polearm",
+    "vision": "Cryo",
+    "birthday": "0310",
+    "release_date": "20220105"
+  },
+  {
+    "id": 10000064,
+    "codename": "Yunjin",
+    "rarity": 4,
+    "name": {
+      "chs": "云堇",
+      "cht": "雲堇",
+      "de": "Yun Jin",
+      "en": "Yun Jin",
+      "es": "Yun Jin",
+      "fr": "Yun Jin",
+      "id": "Yun Jin",
+      "jp": "雲菫",
+      "kr": "운근",
+      "pt": "Yunjin",
+      "ru": "Юнь Цзинь",
+      "th": "Yun Jin",
+      "vi": "Yun Jin"
+    },
+    "assoc": "Liyue",
+    "weapon": "Polearm",
+    "vision": "Geo",
+    "birthday": "0521",
+    "release_date": "20220105"
   }
 ]
