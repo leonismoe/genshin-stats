@@ -13,7 +13,7 @@ export default defineConfig([
     external: ['undici', 'abort-controller', '@leonismoe/md5'],
     plugins: [
       resolve({
-        exportConditions: ['node', 'require', 'default'],
+        exportConditions: ['node', 'typescript', 'require', 'default'],
       }),
       typescript(),
       json(),
@@ -29,7 +29,7 @@ export default defineConfig([
     plugins: [
       resolve({
         browser: true,
-        exportConditions: ['browser', 'default'],
+        exportConditions: ['browser', 'typescript', 'default'],
       }),
       typescript(),
       json(),

@@ -57,14 +57,17 @@
     "#request": {
       "ts-node": "./src/utils/request-node.ts",
       "node": {
+        "typescript": "./src/utils/request-node.ts",
         "import": "./lib/utils/request-node.mjs",
         "require": "./lib/utils/request-node.js"
       },
       "browser": {
+        "typescript": "./src/utils/request-browser.ts",
         "import": "./lib/utils/request-browser.mjs",
         "require": "./lib/utils/request-browser.js"
       },
       "tauri": {
+        "typescript": "./src/utils/request-tauri.ts",
         "import": "./lib/utils/request-tauri.mjs",
         "require": "./lib/utils/request-tauri.js"
       }
@@ -85,7 +88,7 @@
     "build:esm": "npx tsc -m es2020 && node post-build.mjs mjs",
     "build:cjs": "npx tsc -m commonjs -d && node post-build.mjs",
     "bundle": "rollup -c rollup.config.js",
-    "clean": "rm -rf lib",
+    "clean": "rm -rf lib dist",
     "node": "node --no-warnings --experimental-specifier-resolution=node --loader=./scripts/loader.mjs",
     "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node"
   },
