@@ -10,6 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
+    "esModuleInterop": true,
     "rootDir": "src",
     "outDir": "lib"
   },
