@@ -11,10 +11,12 @@
     "build:genshin-data": "npm -w @mihoyo-kit/genshin-data run build",
     "build:genshin-api": "npm -w @mihoyo-kit/genshin-api run build",
     "build:genshin-stats": "npm -w @mihoyo-kit/genshin-stats run build",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "lerna": "^4.0.0",
-    "typescript": "^4.5.2"
+    "patch-package": "^6.4.7",
+    "typescript": "^4.5.5"
   }
 }
