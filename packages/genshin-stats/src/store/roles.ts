@@ -1,7 +1,7 @@
 import type { RoleItem } from '@mihoyo-kit/genshin-data';
 import type { Character as GenshinCharacter } from '@mihoyo-kit/genshin-api/lib/typings';
 import { createMemo, createRoot, createEffect } from 'solid-js';
-import { createStore } from 'solid-js/store';
+import { createStore, DeepReadonly } from 'solid-js/store';
 import GENSHIN_ROLES from '@mihoyo-kit/genshin-data/data/roles.json';
 import { RolePageStore, SORT, SortConfigItem } from './typings';
 import { GroupableColumn, GROUPABLE_COLUMNS } from './constants';
@@ -148,7 +148,7 @@ export const [store, setState] = createRoot(createRolePageStore);
 export default store;
 
 
-function autoSyncCache(store: RolePageStore) {
+function autoSyncCache(store: DeepReadonly<RolePageStore>) {
   createEffect(() => {
     const value = `${store.grouping},${store.grouping_sort}`;
     Storage.set('grouping', value);

@@ -51,7 +51,7 @@ export function SpiralAbyssHeader() {
 export default () => {
   const hasRankData = createMemo(() => {
     const d = store.activeAbyss;
-    const ne = (arr: unknown[]) => arr.length;
+    const ne = (arr: readonly unknown[]) => arr.length;
     return d && (ne(d.damage_rank) || ne(d.defeat_rank) || ne(d.energy_skill_rank) || ne(d.normal_skill_rank) || ne(d.reveal_rank) || ne(d.take_damage_rank));
   });
   const hasBattleData = createMemo(() => store.activeAbyss && store.activeAbyss.floors.length > 0);
