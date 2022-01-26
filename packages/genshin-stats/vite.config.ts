@@ -87,6 +87,12 @@ export default defineConfig(async ({ command, mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.slice(28),
         },
+        '/proxy/api-takumi-record.mihoyo.com': {
+          target: 'https://api-takumi-record.mihoyo.com',
+          cookieDomainRewrite: '',
+          changeOrigin: true,
+          rewrite: (path) => path.slice(35),
+        },
         '/proxy/bbs-api.mihoyo.com': {
           target: 'https://bbs-api.mihoyo.com',
           cookieDomainRewrite: '',
