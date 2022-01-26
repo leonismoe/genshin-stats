@@ -114,5 +114,15 @@
     }
   },
 
-  "latest": "2.20.1"
+  "2.21.2": {
+    "1": {
+      "4": "h8JS5YGhWo1qHq0s7W7WtqynMbH63vGx",
+      "5": "ImmsH7Ucl9yUnGFRjbiPPrY1p8Ph626m"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.21.2"
 }
