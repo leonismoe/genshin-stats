@@ -1,4 +1,4 @@
-import type { APIClientType, ValuesOfEnum } from '../typings';
+import { APIClientType, ValuesOfEnum } from '../typings';
 
 interface Salts {
   [version: string]: SaltItem;

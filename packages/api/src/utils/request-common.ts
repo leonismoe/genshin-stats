@@ -38,10 +38,9 @@ export class HTTPError extends Error {
   constructor(response: Response);
   constructor(status: number, statusText: string);
   constructor(response: Response | number, statusText?: string) {
-    const status = typeof response === 'number' ? response : response.status;
-    super(`HTTP Error ${status}`);
+    super(`HTTP Error ${typeof response === 'number' ? response : response.status}`);
 
-    this.status = status;
+    this.status = typeof response === 'number' ? response : response.status;
     this.statusText = statusText || (response as Response).statusText;
     this.response = typeof response === 'number' ? null : response;
   }
