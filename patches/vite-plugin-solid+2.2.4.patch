@@ -1,0 +1,18 @@
+diff --git a/node_modules/vite-plugin-solid/dist/esm/index.mjs b/node_modules/vite-plugin-solid/dist/esm/index.mjs
+index f767a50..e2ee1cd 100644
+--- a/node_modules/vite-plugin-solid/dist/esm/index.mjs
++++ b/node_modules/vite-plugin-solid/dist/esm/index.mjs
+@@ -2,10 +2,12 @@ import { transformAsync } from '@babel/core';
+ import ts from '@babel/preset-typescript';
+ import solid from 'babel-preset-solid';
+ import { readFileSync } from 'fs';
+-import { mergeAndConcat } from 'merge-anything';
++import mergeAnything from 'merge-anything';
+ import { createRequire } from 'module';
+ import solidRefresh from 'solid-refresh/babel.js';
+ 
++const { mergeAndConcat } = mergeAnything;
++
+ const require = createRequire(import.meta.url);
+ 
+ const runtimePublicPath = '/@solid-refresh';

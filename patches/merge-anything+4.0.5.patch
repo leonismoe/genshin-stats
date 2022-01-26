@@ -1,0 +1,14 @@
+diff --git a/node_modules/merge-anything/package.json b/node_modules/merge-anything/package.json
+index 5ff398f..538095c 100644
+--- a/node_modules/merge-anything/package.json
++++ b/node_modules/merge-anything/package.json
+@@ -8,8 +8,8 @@
+   "types": "./dist/types/index.d.ts",
+   "exports": {
+     ".": {
+-      "import": "./dist/index.es.js",
+       "require": "./dist/index.cjs",
++      "default": "./dist/index.cjs",
+       "types": "./dist/types/index.d.ts"
+     }
+   },

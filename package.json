@@ -12,7 +12,7 @@
     "build:genshin-api": "npm -w @mihoyo-kit/genshin-api run build",
     "build:genshin-stats": "npm -w @mihoyo-kit/genshin-stats run build",
     "test": "lerna run test",
-    "postinstall": "patch-package"
+    "postinstall": "npx patch-package"
   },
   "devDependencies": {
     "lerna": "^4.0.0",

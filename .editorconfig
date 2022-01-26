@@ -12,6 +12,12 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 
+[*.patch]
+trim_trailing_whitespace = false
+
+[.{nvmrc,node-version}]
+insert_final_newline = false
+
 [*.py]
 indent_size = 4
 indent_style = space
