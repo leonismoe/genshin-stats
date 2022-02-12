@@ -1,15 +1,16 @@
 // ==UserScript==
 // @name         Genshin Stats
 // @description  Make "Genshin Stats" page work without browser extension.
-// @version      1.0.0
+// @version      1.1.0
 // @homepage     https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-stats
-// @updateURL    https://genshin-stats.pages.dev/genshin-stats.user.js
-// @downloadURL  https://genshin-stats.pages.dev/genshin-stats.user.js
+// @updateURL    https://genshin-stats.leonis.dev/genshin-stats.user.js
+// @downloadURL  https://genshin-stats.leonis.dev/genshin-stats.user.js
 // @match        https://genshin-stats.pages.dev/*
 // @match        https://*.genshin-stats.pages.dev/*
 // @match        https://genshin-stats.leonis.dev/*
 // @match        https://leonismoe.github.io/genshin-stats/*
 // @connect      api-takumi.mihoyo.com
+// @connect      api-takumi-record.mihoyo.com
 // @grant        GM_xmlhttpRequest
 // @grant        unsafeWindow
 // @run-at       document-start
