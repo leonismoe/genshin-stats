@@ -91,4 +91,26 @@ header {
     margin-top: -1px;
     margin-right: 2px;
   }
+
+  .github-link {
+    margin-left: 28px;
+
+    @media (max-width: 820px) {
+      display: none;
+    }
+
+    .octicons {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+
+      &:hover {
+        filter: brightness(2);
+      }
+
+      path {
+        fill: var(--color-fg-default);
+      }
+    }
+  }
 }
