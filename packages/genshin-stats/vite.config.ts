@@ -75,6 +75,24 @@ export default defineConfig(async ({ command, mode }) => {
       rollupOptions,
     },
 
+    css: {
+      postcss: {
+        plugins: [
+          {
+            // @see https://github.com/vitejs/vite/discussions/5079#discussioncomment-1890839
+            postcssPlugin: 'internal:charset-removal',
+            AtRule: {
+              charset: (atRule) => {
+                if (atRule.name === 'charset') {
+                  atRule.remove();
+                }
+              },
+            },
+          },
+        ],
+      },
+    },
+
     server: {
       fs: {
         strict: true,
