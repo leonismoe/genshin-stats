@@ -55,6 +55,10 @@ npm run build:chrome-ext
 ```
 
 
+## Credits
+* Application icon: https://www.pixiv.net/artworks/84998107
+
+
 ### Screenshots
 Summary  
 ![](screenshots/summary.jpg)  
