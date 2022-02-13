@@ -10,6 +10,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import ViteHtmlVariablePlugin from './scripts/vite-plugin-html-variable';
 import ViteHtmlStripCrossOriginPlugin from './scripts/vite-plugin-html-strip-crossorigin';
 import ViteHtmlStripModulePlugin from './scripts/vite-plugin-html-strip-module';
+import htmlImportMinifyPlugin from './scripts/rollup-plugin-html-import-minify';
 
 const DISTDIR = 'dist';
 
@@ -69,6 +70,7 @@ export default defineConfig(async ({ command, mode }) => {
       nodeResolve({ modulesOnly: true, browser: true }),
       solidPlugin(),
       ViteHtmlVariablePlugin({ exposeViteEnv: true }),
+      htmlImportMinifyPlugin(),
       VitePWA({
         disable: mode !== 'pages' && mode !== 'development',
         strategies: 'injectManifest',

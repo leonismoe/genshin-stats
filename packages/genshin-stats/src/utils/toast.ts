@@ -1,3 +1,4 @@
+import createToastElement from './toast.tpl.html?dom&element';
 import '../styles/toast.scss';
 
 export interface ToastOptions {
@@ -27,15 +28,9 @@ export function show(message: string | Node | DocumentFragment, options?: ToastO
   }
 
   const type = options?.type || 'info';
-  const el = document.createElement('div');
-  el.className = `Toast Toast--animateIn Toast--${type}`;
-  el.innerHTML = `
-    <span class="Toast-icon">${SVG[type]}</span>
-    <span class="Toast-content"></span>
-    <button class="Toast-dismissButton" data-dismiss="toast">
-      <svg width="12" height="16" viewBox="0 0 12 16" class="octicon octicon-x" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z" /></svg>
-    </button>
-  </div>`;
+  const el = createToastElement();
+  el.classList.add(`Toast--${type}`);
+  el.querySelector('.Toast-icon')!.innerHTML = SVG[type];
 
   if (options?.className) {
     el.className += options.className;
