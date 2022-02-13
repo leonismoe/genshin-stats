@@ -1,6 +1,9 @@
+/// <reference types="vite-plugin-pwa/client" />
+
 import { render } from 'solid-js/web';
 import { show as showToast } from './utils/toast';
 import App from './components/App';
+import { registerSW } from 'virtual:pwa-register';
 
 window.addEventListener('DOMContentLoaded', () => {
   render(App, document.body);
@@ -23,3 +26,22 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+if (import.meta.env.MODE === 'pages') {
+  const updateSW = registerSW({
+    onNeedRefresh() {
+      const wrap = document.createElement('div');
+      const btn = document.createElement('a');
+      btn.textContent = '此处';
+      btn.href = '#';
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        updateSW(true);
+      });
+      wrap.appendChild(document.createTextNode('检测到版本更新，建议点击'));
+      wrap.appendChild(btn);
+      wrap.appendChild(document.createTextNode('刷新页面。'));
+      showToast(wrap, { sticky: true });
+    },
+  });
+}
