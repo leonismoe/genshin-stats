@@ -32,13 +32,16 @@ if (import.meta.env.MODE === 'pages') {
     onNeedRefresh() {
       const wrap = document.createElement('div');
       const btn = document.createElement('a');
-      btn.textContent = '此处';
+      btn.textContent = '单击此处';
       btn.href = '#';
       btn.addEventListener('click', e => {
         e.preventDefault();
+        btn.blur();
+        btn.classList.add('color-fg-subtle');
+        btn.style.pointerEvents = 'none';
         updateSW(true);
       });
-      wrap.appendChild(document.createTextNode('检测到版本更新，建议点击'));
+      wrap.appendChild(document.createTextNode('检测到版本更新，请'));
       wrap.appendChild(btn);
       wrap.appendChild(document.createTextNode('刷新页面。'));
       showToast(wrap, { sticky: true });

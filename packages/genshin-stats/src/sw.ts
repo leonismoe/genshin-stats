@@ -3,6 +3,7 @@
 /// <reference lib="ES2019" />
 /// <reference lib="WebWorker" />
 
+import { cacheNames } from 'workbox-core';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching';
@@ -11,9 +12,27 @@ import { CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
 
 declare const self: ServiceWorkerGlobalScope & typeof globalThis;
 
+const enum APP_CACHE_NAMES {
+  MHY_ASSETS = 'mhy-assets-cache',
+  CDN = 'cdn-cache',
+}
+
 self.addEventListener('message', (e) => {
-  if (e.data && e.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+  if (e.data) {
+    switch (e.data.type) {
+      case 'SKIP_WAITING':
+        self.skipWaiting();
+        break;
+
+      case 'CACHE_CLEANUP':
+        caches.delete(APP_CACHE_NAMES.MHY_ASSETS);
+        caches.delete(APP_CACHE_NAMES.CDN);
+        caches.delete(cacheNames.runtime);
+        caches.delete(cacheNames.googleAnalytics);
+        indexedDB.deleteDatabase('workbox-expiration');
+        cleanupOutdatedCaches();
+        break;
+    }
   }
 });
 
@@ -24,14 +43,15 @@ precacheAndRoute(self.__WB_MANIFEST);
 registerRoute(
   ({ url }) => url.origin === 'https://upload-bbs.mihoyo.com',
   new CacheFirst({
-    cacheName: 'mhy-assets-cache',
+    cacheName: APP_CACHE_NAMES.MHY_ASSETS,
     plugins: [
       new ExpirationPlugin({
+        maxEntries: 80,
         maxAgeSeconds: 30 * 24 * 60 * 60,
         purgeOnQuotaError: true,
       }),
       new CacheableResponsePlugin({
-        statuses: [0, 200],
+        statuses: [200],
       }),
     ],
   }),
@@ -48,14 +68,14 @@ cdnOrigins.add('https://unpkg.com');
 registerRoute(
   ({ url }) => cdnOrigins.has(url.origin),
   new CacheFirst({
-    cacheName: 'cdn-cache',
+    cacheName: APP_CACHE_NAMES.CDN,
     plugins: [
       new ExpirationPlugin({
         maxEntries: 40,
         purgeOnQuotaError: true,
       }),
       new CacheableResponsePlugin({
-        statuses: [0, 200],
+        statuses: [200],
       }),
     ],
   }),

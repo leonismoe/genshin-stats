@@ -15,6 +15,7 @@
     "noEmit": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
+    "lib": ["ES2017", "DOM"],
     "types": ["vite/client"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "**/*.d.ts"],

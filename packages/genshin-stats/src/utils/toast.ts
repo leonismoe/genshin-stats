@@ -40,14 +40,15 @@ export function show(message: string | Node | DocumentFragment, options?: ToastO
     el.querySelector('.Toast-dismissButton')!.remove();
   }
 
+  const $content = el.querySelector('.Toast-content')!;
   if (typeof message === 'string') {
     if (options?.html) {
-      el.querySelector('.Toast-content')!.innerHTML = message;
+      $content.innerHTML = message;
     } else {
-      el.querySelector('.Toast-content')!.textContent = message;
+      $content.textContent = message;
     }
   } else {
-    el.querySelector('.Toast-content')!.appendChild(message);
+    $content.appendChild(message);
   }
 
   let closed = false;
