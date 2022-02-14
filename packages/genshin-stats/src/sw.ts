@@ -64,5 +64,17 @@ registerRoute(
 // Web Analytics
 registerRoute(
   ({ url }) => url.origin === 'https://static.cloudflareinsights.com',
-  new StaleWhileRevalidate(),
+  new StaleWhileRevalidate({
+    cacheName: cacheNames.googleAnalytics,
+    plugins: [
+      {
+        async handlerDidError() {
+          return new Response(null, {
+            status: 204,
+            statusText: 'No Content',
+          });
+        },
+      },
+    ],
+  }),
 );
