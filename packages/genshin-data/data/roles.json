@@ -1123,5 +1123,30 @@
     "vision": "Geo",
     "birthday": "0521",
     "release_date": "20220105"
+  },
+  {
+    "id": 10000058,
+    "codename": "Yae",
+    "rarity": 5,
+    "name": {
+      "chs": "八重神子",
+      "cht": "八重神子",
+      "de": "Yae Miko",
+      "en": "Yae Miko",
+      "es": "Yae Miko",
+      "fr": "Yae Miko",
+      "id": "Yae Miko",
+      "jp": "八重神子",
+      "kr": "야에 미코",
+      "pt": "Yae Miko",
+      "ru": "Яэ Мико",
+      "th": "Yae Miko",
+      "vi": "Yae Miko"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Catalyst",
+    "vision": "Electro",
+    "birthday": "0627",
+    "release_date": "20220216"
   }
 ]
