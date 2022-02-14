@@ -40,9 +40,17 @@
 .btn-sort[data-sort="asc"]::before,
 .sort-config-list > .btn[data-sort="asc"]::after {
   content: "\1F869";
+
+  @at-root .mac-like & {
+    content: "\2191";
+  }
 }
 
 .btn-sort[data-sort="desc"]::before,
 .sort-config-list > .btn[data-sort="desc"]::after {
   content: "\1F86B";
+
+  @at-root .mac-like & {
+    content: "\2193";
+  }
 }

@@ -6,6 +6,10 @@ import App from './components/App';
 import { registerSW } from 'virtual:pwa-register';
 
 window.addEventListener('DOMContentLoaded', () => {
+  if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)){
+    document.body.classList.add('mac-like');
+  }
+
   render(App, document.body);
 
   if (typeof chrome !== 'undefined' && chrome.runtime?.id) {
