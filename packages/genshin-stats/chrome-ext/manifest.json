@@ -6,7 +6,9 @@
   "minimum_chrome_version": "88.0",
   "homepage_url": "https://github.com/leonismoe/genshin-stats",
   "icons": {
-    "128": "assets/images/paimon-128.png"
+    "128": "assets/images/paimon-128.png",
+    "192": "assets/images/paimon-192.jpg",
+    "512": "assets/images/paimon-512.webp"
   },
   "permissions": [
     "activeTab",
