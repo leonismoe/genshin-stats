@@ -22,7 +22,7 @@ export async function load(url, context, defaultLoad) {
     }));
   }
 
-  if (!context.format && url.startsWith('file:///') && url.endsWith('.esm.js')) {
+  if (url.startsWith('file:///') && url.endsWith('.esm.js')) {
     url = (new URL(url)).pathname.slice(1);
     return readFile(url).then(data => ({
       format: 'module',
