@@ -134,5 +134,15 @@
     }
   },
 
-  "latest": "2.22.1"
+  "2.23.1": {
+    "1": {
+      "4": "vgaTzWCErMVhz50RkUXjHfCOnZYmdVAf",
+      "5": "MuS3jRY8gGBj3POP0oHls3rd2pICh8Dg"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.23.1"
 }
