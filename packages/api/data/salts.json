@@ -144,5 +144,20 @@
     }
   },
 
-  "latest": "2.23.1"
+  "2.24.0": {
+    "1": {
+      "4": "KnihW6rRbvbBEJLQbX5F7M3bOblwBVxu"
+    }
+  },
+
+  "2.24.2": {
+    "1": {
+      "5": "qEla7MX4OncDWcZ5LIYNh3ZlBVTxvVzE"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.24.2"
 }
