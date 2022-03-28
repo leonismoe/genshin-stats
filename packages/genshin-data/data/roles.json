@@ -1148,5 +1148,30 @@
     "vision": "Electro",
     "birthday": "0627",
     "release_date": "20220216"
+  },
+  {
+    "id": 10000066,
+    "codename": "Ayato",
+    "rarity": 5,
+    "name": {
+      "chs": "神里绫人",
+      "cht": "神里綾人",
+      "de": "Kamisato Ayato",
+      "en": "Kamisato Ayato",
+      "es": "Kamisato Ayato",
+      "fr": "Kamisato Ayato",
+      "id": "Kamisato Ayato",
+      "jp": "神里綾人",
+      "kr": "카미사토 아야토",
+      "pt": "Kamisato Ayato",
+      "ru": "Аято",
+      "th": "Kamisato Ayato",
+      "vi": "Kamisato Ayato"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Sword",
+    "vision": "Hydro",
+    "birthday": "0326",
+    "release_date": "20220330"
   }
 ]
