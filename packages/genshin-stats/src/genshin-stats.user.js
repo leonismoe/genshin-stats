@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Genshin Stats
 // @description  Make "Genshin Stats" page work without browser extension.
-// @version      1.1.0
+// @version      1.2.0
 // @homepage     https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-stats
 // @updateURL    https://genshin-stats.leonis.dev/genshin-stats.user.js
 // @downloadURL  https://genshin-stats.leonis.dev/genshin-stats.user.js
@@ -60,8 +60,17 @@ unsafeWindow.fetch = (url, options) => {
 };
 
 function transformHeaders(header) {
-  return new Headers(header.trimEnd().split('\r\n').map(v => {
-    const pos = v.indexOf(':');
-    return pos < 0 ? [v, ''] : [v.slice(0, pos), v.slice(pos + 1)];
-  }));
+  const fragments = [];
+  header.trimEnd().split('\r\n').forEach(line => {
+    const offset = line.indexOf(':');
+    if (offset < 0) {
+      fragments.push([line, '']);
+    } else {
+      const header = line.slice(0, offset);
+      line.slice(offset + 1).split('\n').forEach(value => {
+        fragments.push([header, value]);
+      });
+    }
+  });
+  return new Headers(fragments);
 }
