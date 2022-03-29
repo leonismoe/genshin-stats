@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Genshin Stats
 // @description  Make "Genshin Stats" page work without browser extension.
-// @version      1.2.0
+// @version      1.2.1
 // @homepage     https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-stats
 // @updateURL    https://genshin-stats.leonis.dev/genshin-stats.user.js
 // @downloadURL  https://genshin-stats.leonis.dev/genshin-stats.user.js
@@ -41,11 +41,29 @@ unsafeWindow.fetch = (url, options) => {
         statusText: res.statusText,
         redirected: null,
         headers: transformHeaders(res.responseHeaders),
-        get body() { return res.response.stream() },
-        json: () => res.response.text().then(JSON.parse),
-        text: () => res.response.text(),
-        blob: () => res.response,
-        arrayBuffer: () => res.response.arrayBuffer(),
+        get body() {
+          return res.response.stream();
+        },
+        blob: () => res.response, // TODO: should we workaround it?
+        json: function() {
+          return this.text().then(unsafeWindow.JSON.parse);
+        },
+        text: () => res.response.text() || new Promise((resolve, reject) => {
+          // workaround for Tampermonkey 4.14
+          // @see https://github.com/Tampermonkey/tampermonkey/issues/1418
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsText(res.response);
+        }),
+        arrayBuffer: () => res.response.arrayBuffer() || new Promise((resolve, reject) => {
+          // workaround for Tampermonkey 4.14
+          // @see https://github.com/Tampermonkey/tampermonkey/issues/1418
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsArrayBuffer(res.response);
+        }),
       }),
       onabort: reject,
     });
@@ -72,5 +90,5 @@ function transformHeaders(header) {
       });
     }
   });
-  return new Headers(fragments);
+  return new unsafeWindow.Headers(fragments);
 }
