@@ -26,11 +26,11 @@
 
 ## 使用
 1. 访问米油社原神社区 [https://bbs.mihoyo.com/ys/](https://bbs.mihoyo.com/ys/)，确保已登录。
-2. 打开查询界面: https://genshin-stats.pages.dev/
+2. 打开查询界面: https://genshin-stats.leonis.dev/
 3. 在本项目查询页面中输入目标 UID，点击查询按钮即可。
 
 初次使用时请确保已安装 [Tampermonkey](https://www.tampermonkey.net/) 浏览器扩展，
-并点击 https://genshin-stats.pages.dev/genshin-stats.user.js 以将适用于本项目的用户脚本安装至 Tampermonkey。
+并点击 https://genshin-stats.leonis.dev/genshin-stats.user.js 以将适用于本项目的用户脚本安装至 Tampermonkey。
 
 该脚本仅用于支持“跨域”请求米油社 API，以便工具在无反代的环境下正常工作。
 所有数据均存储在浏览器本地，并不会上传或截取您的个人数据，若不放心可自行审计代码。
