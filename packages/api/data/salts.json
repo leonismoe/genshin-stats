@@ -159,5 +159,15 @@
     }
   },
 
-  "latest": "2.24.2"
+  "2.25.1": {
+    "1": {
+      "4": "rxYgXOsMuUJV9oWlooSI2V39gPcZj8CB",
+      "5": "7vUrKhuTsGFhGFNRuEiFqDn08JqUoZjC"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.25.1"
 }
