@@ -2,14 +2,16 @@ import type { Element, ExplorationType, ReliquaryPosition, SpiralAbyssScheduleTy
 
 export type CharacterRarity = 4 | 5 | 105;
 export interface Character {
-  /** 命座 */ actived_constellation_num: number;
-  /** 元素 */ element: `${Element}`;
-  /** 好感 */ fetter: number;
-  /**  */     id: number;
-  /** 头像 */ image: string;
-  /** 等级 */ level: number;
-  /** 姓名 */ name: string;
-  /** 星级 */ rarity: CharacterRarity;
+  /** 命座 */     actived_constellation_num: number;
+  /** 预览图 */   card_image: string;
+  /** 元素 */     element: `${Element}`;
+  /** 好感 */     fetter: number;
+  /**  */         id: number;
+  /** 头像 */     image: string;
+  /** 公开展示 */ is_chosen: boolean;
+  /** 等级 */     level: number;
+  /** 姓名 */     name: string;
+  /** 星级 */     rarity: CharacterRarity;
 }
 
 export interface ExplorationData {
@@ -24,7 +26,13 @@ export interface CityExploration extends ExplorationData {}
 
 export interface WorldExploration extends ExplorationData {
   type: `${ExplorationType}`;
-  offerings: Array<{ name: string, level: number }>;
+  offerings: Array<{ name: string, level: number, icon: string }>;
+  background_image: string;
+  cover: string;
+  inner_icon: string;
+  map_url: string;
+  parent_id: number;
+  strategy_url: string;
 }
 
 export interface Home {
@@ -221,7 +229,7 @@ export interface Constellation {
 export interface DailyNote {
   /** 原粹树脂 */             current_resin: number;
   /** 原粹树脂上限 */         max_resin: number;
-  /** 原粹树脂全部恢复时间 */ resin_recovery_time: string; // number
+  /** 原粹树脂全部恢复时间 */ resin_recovery_time: string; // number (seconds)
   /** 每日委托任务完成数 */   finished_task_num: number;
   /** 每日委托任务总数 */     total_task_num: number;
   /** 是否收到额外任务奖励 */ is_extra_task_reward_received: boolean;
@@ -232,8 +240,23 @@ export interface DailyNote {
   /** 探索派遣列表 */         expeditions: Array<{
     /** 角色头像 */             avatar_side_icon: string;
     /** 探索状态 */             status: "Ongoing" | "Finished";
-    /** 剩余时间 */             remained_time: string; //number
+    /** 剩余时间 */             remained_time: string; //number (seconds)
                               }>;
+  /** 洞天财瓮 - 洞天宝钱 */  current_home_coin: number;
+  /** 洞天宝钱存储上限 */     max_home_coin: number;
+  /** 洞天宝钱达上限时间 */   home_coin_recovery_time: string; //number (seconds)
+  /** 可刷材料 Wiki 日历 */   calendar_url: string;
+  /** 参量质变仪 */           transformer: {
+    /** 是否已获得道具 */       obtained: boolean;
+    /** 剩余冷却时间 */         recovery_time: {
+                                  Day: number;
+                                  Hour: number;
+                                  Minute: number;
+                                  Second: number;
+      /** 是否可用 */             reached: boolean;
+                                };
+                                wiki: string;
+                              };
 }
 
 export { Element, ExplorationType, ReliquaryPosition, SpiralAbyssScheduleType, WeaponType };
