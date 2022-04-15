@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/api",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "license": "MIT",
   "description": "Provides common request method for miHoYo API",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/api",
