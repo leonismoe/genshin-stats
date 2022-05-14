@@ -179,5 +179,24 @@
     }
   },
 
-  "latest": "2.26.1"
+  "2.27.2": {
+    "1": {
+      "5": "zWUvmGfuUDYtlyJixZKo4TNGkyy2eKdE"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "2.28.1": {
+    "1": {
+      "4": "yXpTPqtjzyPYQyGnN87j1EOpve9dJ23A",
+      "5": "ulInCDohgEs557j0VsPDYnQaaz6KJcv5"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.28.1"
 }
