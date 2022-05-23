@@ -1,3 +1,5 @@
+@import './mixin';
+
 .role-list-wrapper {
   @media print {
     padding: 0 12px;
@@ -316,5 +318,39 @@
   }
   &[data-value=geo] .Subhead-heading::before {
     background-image: url(/assets/images/element-geo.png);
+  }
+}
+
+.role-group[data-type=weapon] {
+  .Subhead-heading::before {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin: -6px 8px 0 0;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: contain;
+    vertical-align: middle;
+
+    @include light-theme(&, true) {
+      filter: contrast(0.2);
+    }
+  }
+
+  &[data-value=sword] .Subhead-heading::before {
+    background-image: url(/assets/images/weapon-sword.png);
+  }
+  &[data-value=bow] .Subhead-heading::before {
+    background-image: url(/assets/images/weapon-bow.png);
+  }
+  &[data-value=claymore] .Subhead-heading::before {
+    background-image: url(/assets/images/weapon-claymore.png);
+  }
+  &[data-value=catalyst] .Subhead-heading::before {
+    background-image: url(/assets/images/weapon-catalyst.png);
+  }
+  &[data-value=polearm] .Subhead-heading::before {
+    background-image: url(/assets/images/weapon-polearm.png);
   }
 }

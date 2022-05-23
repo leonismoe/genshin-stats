@@ -1,0 +1,35 @@
+@mixin light-theme($selector: &, $default: false) {
+  @media (prefers-color-scheme: light) {
+    @if $default {
+      #{$selector} {
+        @content;
+      }
+    }
+
+    @at-root [data-color-mode=auto] #{$selector} {
+      @content;
+    }
+  }
+
+  @at-root [data-color-mode=light] #{$selector} {
+    @content;
+  }
+}
+
+@mixin dark-theme($selector: &, $default: false) {
+  @media (prefers-color-scheme: dark) {
+    @if $default {
+      #{$selector} {
+        @content;
+      }
+    }
+
+    @at-root [data-color-mode=auto] #{$selector} {
+      @content;
+    }
+  }
+
+  @at-root [data-color-mode=dark] #{$selector} {
+    @content;
+  }
+}

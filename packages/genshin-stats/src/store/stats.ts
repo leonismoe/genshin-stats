@@ -3,7 +3,7 @@
 import type { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, CharacterRarity } from '@mihoyo-kit/genshin-api/lib/typings';
 import { createMemo, createResource, createRoot } from 'solid-js';
 import { createStore, DeepReadonly } from 'solid-js/store';
-import { isPlayer, RoleItem } from '@mihoyo-kit/genshin-data';
+import { GenshinElementType, GenshinWeaponType, isPlayer, RoleItem } from '@mihoyo-kit/genshin-data';
 import { getGenshinGameStats, getPlayerCharacterDetails, getSpiralAbyssData } from '@mihoyo-kit/genshin-api';
 import { SpiralAbyssScheduleType } from '@mihoyo-kit/genshin-api';
 import { show as showToast } from '../utils/toast';
@@ -18,6 +18,7 @@ export interface GenshinGameStats extends GameStats {
 export interface ExtendedGenshinRole extends GenshinCharacter {
   release_date: string;
   special_rarity: number;
+  weapon_type: GenshinWeaponType;
 }
 
 export interface RoleGroup {
@@ -44,10 +45,12 @@ function createStatStore() {
         let data = GENSHIN_ROLE_MAPPING[role.id];
         if (data) {
           role.release_date = data.release_date;
+          role.weapon_type = data.weapon;
 
         } else if (isPlayer(role.id)) {
           role.fetter = NaN;
           role.release_date = '20200915';
+          role.weapon_type = 'Sword';
 
         } else {
           const data = addRoleData({ ...role });
@@ -156,6 +159,7 @@ function createStatStore() {
             id: role.id,
             name: role.name.chs,
             element: role.vision,
+            weapon_type: role.weapon,
             rarity: role.rarity % 10 as CharacterRarity,
             special_rarity: role.rarity > 10 ? role.rarity : 0,
             level: NaN,
@@ -289,7 +293,7 @@ function groupRoles(roles: readonly ExtendedGenshinRole[], type: GroupableColumn
 
     case 'element':
     {
-      const map: Record<string, RoleGroup> = {
+      const map: Record<GenshinElementType, RoleGroup> = {
         Pyro:    { name: '火', roles: [], value: 'pyro' },
         Hydro:   { name: '水', roles: [], value: 'hydro' },
         Anemo:   { name: '风', roles: [], value: 'anemo' },
@@ -308,6 +312,25 @@ function groupRoles(roles: readonly ExtendedGenshinRole[], type: GroupableColumn
 
       if (map.None.roles.length === 0) {
         groups.pop();
+      }
+
+      break;
+    }
+
+    case 'weapon':
+    {
+      const map: Record<GenshinWeaponType, RoleGroup> = {
+        Sword:    { name: '单手剑', roles: [], value: 'sword' },
+        Bow:      { name: '弓', roles: [], value: 'bow' },
+        Claymore: { name: '双手剑', roles: [], value: 'claymore' },
+        Catalyst: { name: '法器', roles: [], value: 'catalyst' },
+        Polearm:  { name: '长柄武器', roles: [], value: 'polearm' },
+      };
+
+      groups.push(map.Sword, map.Bow, map.Claymore, map.Catalyst, map.Polearm);
+
+      for (const role of roles) {
+        map[role.weapon_type].roles.push(role);
       }
 
       break;
@@ -335,7 +358,7 @@ function groupRoles(roles: readonly ExtendedGenshinRole[], type: GroupableColumn
     }
   }
 
-  if (type && type !== 'element') {
+  if (type && type !== 'element' && type !== 'weapon') {
     sortGroups(groups, order);
   }
   return groups;
@@ -355,8 +378,8 @@ function sortGroups(groups: RoleGroup[], order: SORT) {
 function sortRoles(roles: ExtendedGenshinRole[], sorting: readonly SortConfigItem[]) {
   roles.sort((a, b) => {
     for (const item of sorting) {
-      const colA = a[item.column as keyof ExtendedGenshinRole];
-      const colB = b[item.column as keyof ExtendedGenshinRole];
+      const colA = a[item.column as keyof ExtendedGenshinRole] as string | number;
+      const colB = b[item.column as keyof ExtendedGenshinRole] as string | number;
 
       if (colA !== colB) {
         if (item.sort === SORT.ASC) {
