@@ -1,5 +1,5 @@
 import type { CharacterDetail, Reliquary } from '@mihoyo-kit/genshin-api/lib/typings';
-import { createEffect, createMemo, For, onCleanup, onMount, PropsWithChildren, Show } from 'solid-js';
+import { createEffect, createMemo, For, onCleanup, onMount, ParentProps, Show } from 'solid-js';
 import { DeepReadonly } from 'solid-js/store';
 import { popperGenerator, defaultModifiers, VirtualElement } from '@popperjs/core/lib/popper-lite';
 import flip from '@popperjs/core/lib/modifiers/flip';
@@ -18,7 +18,7 @@ const createPopper = popperGenerator({
   ],
 });
 
-export default (props: PropsWithChildren<{ detail: DeepReadonly<CharacterDetail>, target: HTMLElement | VirtualElement }>) => {
+export default (props: ParentProps<{ detail: DeepReadonly<CharacterDetail>, target: HTMLElement | VirtualElement }>) => {
   let $box: HTMLDivElement | undefined;
   let popper: ReturnType<typeof createPopper>;
 
@@ -63,7 +63,7 @@ export default (props: PropsWithChildren<{ detail: DeepReadonly<CharacterDetail>
     <div ref={$box} class="Box role-details">
       <div data-popper-arrow></div>
 
-      <button class="close-button">
+      <button class="close-button" title="Close">
         <svg width="12" height="16" viewBox="0 0 12 16" class="octicon" aria-hidden="true">
           <path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"></path>
         </svg>

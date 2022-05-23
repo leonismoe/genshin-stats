@@ -1,4 +1,4 @@
-import { PropsWithChildren, Show } from 'solid-js';
+import { ParentProps, Show } from 'solid-js';
 import { isPlayer } from '@mihoyo-kit/genshin-data';
 import '../styles/roles.scss';
 
@@ -13,7 +13,7 @@ interface RoleItemProps {
   avatar: string;
 }
 
-export default (props: PropsWithChildren<RoleItemProps>) => {
+export default (props: ParentProps<RoleItemProps>) => {
   return (
     <div
       class={`role-item rarity-${props.rarity}`}

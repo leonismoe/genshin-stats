@@ -1,4 +1,4 @@
-import { PropsWithChildren, createEffect, Switch, Match, For, onMount, onCleanup } from 'solid-js';
+import { ParentProps, createEffect, Switch, Match, For, onMount, onCleanup } from 'solid-js';
 import { store, setState, submit } from '../store/global';
 import { PAGE_TYPE } from '../store/typings';
 import { show as showToast } from '../utils/toast';
@@ -10,7 +10,7 @@ import { SpiralAbyssHeader } from './SpiralAbyss';
 import Settings from './Settings';
 import '../styles/header.scss';
 
-export default (props: PropsWithChildren) => {
+export default (props: ParentProps) => {
   let $header: HTMLElement | undefined;
   let $uid: HTMLInputElement | undefined;
 

@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-import { PropsWithChildren, Show, onMount } from 'solid-js';
+import { ParentProps, Show, onMount } from 'solid-js';
 import { get as getCookie, set as setCookie } from '../utils/cookie';
 import { show as showToast } from '../utils/toast';
 import { CAPTURABLE } from '../utils/capture';
@@ -9,7 +9,7 @@ import store, { set } from '../store/settings';
 import '@github/details-dialog-element';
 import '../styles/settings.scss';
 
-export default (props: PropsWithChildren) => {
+export default (props: ParentProps) => {
   let $details: HTMLDetailsElement | undefined;
   let $color_mode: HTMLSelectElement | undefined;
   let $dark_theme: HTMLSelectElement | undefined;

@@ -1,10 +1,10 @@
-import { For, PropsWithChildren } from 'solid-js';
+import { For, ParentProps } from 'solid-js';
 import { COLUMN_NAME, GROUPABLE_COLUMNS, SORTABLE_COLUMNS } from '../store/constants';
 import { store, setState } from '../store/roles';
 import { Column, SortableColumn, GroupableColumn, SORT, SortConfigItem } from '../store/typings';
 import '../styles/role-options.scss';
 
-export default (props: PropsWithChildren) => {
+export default (props: ParentProps) => {
   const handleGroupingChange = (e: Event) => {
     setState({ grouping: (e.target as HTMLSelectElement).value as ('' | GroupableColumn) });
   };

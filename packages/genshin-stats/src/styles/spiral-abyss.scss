@@ -12,7 +12,7 @@
     display: inline-block;
     margin-left: 30px;
     line-height: 30px;
-    color: var(--color-text-secondary);
+    color: var(--color-fg-muted);
     font-weight: 400;
     font-size: 13px;
     vertical-align: top;
@@ -83,7 +83,7 @@
       flex-grow: 1;
       justify-self: flex-end;
       text-align: right;
-      color: var(--color-text-secondary);
+      color: var(--color-fg-muted);
       font-weight: 400;
       font-size: 13px;
     }
@@ -157,7 +157,7 @@
       &::before {
         content: "暂无数据";
         font-size: 14px;
-        color: var(--color-text-secondary);
+        color: var(--color-fg-muted);
       }
     }
   }
@@ -261,11 +261,11 @@
     margin-top: 6px;
     font-size: 14px;
     text-align: center;
-    color: var(--color-text-secondary);
+    color: var(--color-fg-muted);
 
     &::before {
       content: "上半";
-      color: var(--color-text-primary);
+      color: var(--color-fg-default);
       font-weight: 500;
     }
 

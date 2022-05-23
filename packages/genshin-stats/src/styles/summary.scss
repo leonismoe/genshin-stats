@@ -36,7 +36,7 @@
 
     .stat-title {
       margin: 4px 0 0;
-      color: var(--color-text-secondary);
+      color: var(--color-fg-muted);
       font-size: 16px;
       font-weight: 400;
     }
@@ -44,7 +44,7 @@
     .stat-value {
       margin: 0;
       line-height: 1;
-      color: var(--color-text-primary);
+      color: var(--color-fg-default);
       font-size: 28px;
       font-weight: 500;
     }

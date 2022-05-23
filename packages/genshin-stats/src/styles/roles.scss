@@ -31,7 +31,7 @@
     &:empty::before {
       content: "无角色";
       font-size: 14px;
-      color: var(--color-text-secondary);
+      color: var(--color-fg-muted);
     }
   }
 
