@@ -1,4 +1,4 @@
-import { ParentProps, createEffect, Switch, Match, For, onMount, onCleanup } from 'solid-js';
+import { ParentProps, createEffect, Switch, Match, For, onMount, onCleanup, createSignal } from 'solid-js';
 import { store, setState, submit } from '../store/global';
 import { PAGE_TYPE } from '../store/typings';
 import { show as showToast } from '../utils/toast';
@@ -8,30 +8,27 @@ import roleStore from '../store/roles';
 import RoleOptions from './RoleOptions';
 import { SpiralAbyssHeader } from './SpiralAbyss';
 import Settings from './Settings';
+import UIDInput from './UIDInput';
 import '../styles/header.scss';
 
 export default (props: ParentProps) => {
   let $header: HTMLElement | undefined;
-  let $uid: HTMLInputElement | undefined;
+
+  const [uid, setUid] = createSignal<string>(store.uid);
+  createEffect(oldUid => {
+    if (oldUid !== store.uid) {
+      setUid(store.uid);
+    }
+  }, store.uid);
 
   const handleSubmit = (event: Event) => {
     event.preventDefault();
     try {
-      submit($uid!.value);
+      submit(uid());
     } catch (e) {
       const msg = (e as Error).message;
       showToast(msg, { type: 'error' });
     }
-  };
-
-  const autoSelect = (e: FocusEvent) => {
-    (e.target as HTMLInputElement).select();
-  };
-
-  const handleAutoComplete = (e: MouseEvent, value: string) => {
-    e.preventDefault();
-    $uid!.value = value;
-    (e.target as HTMLAnchorElement).blur();
   };
 
   const syncHeaderHeight = () => {
@@ -66,14 +63,7 @@ export default (props: ParentProps) => {
           <div class="UnderlineNav-actions">
             <form onSubmit={handleSubmit}>
               <label for="input-uid">UID</label>
-              <div class="autocomplete-wrapper">
-                <input type="text" class="form-control input-contrast" id="input-uid" ref={$uid} onFocus={autoSelect} value={store.uid} disabled={statStore.loading} />
-                <div class="autocomplete-results">
-                  <For each={store.uids}>{item => (
-                    <a href="#" class="autocomplete-item" onClick={e => handleAutoComplete(e, item)}>{item}</a>
-                  )}</For>
-                </div>
-              </div>
+              <UIDInput id="input-uid" value={uid()} suggestions={store.uids} onChange={setUid} />
               <button type="submit" class="btn btn-primary btn-submit" disabled={statStore.loading}>查询</button>
             </form>
 
