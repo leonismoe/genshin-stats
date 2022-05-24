@@ -36,12 +36,13 @@ if (!await fileExists(GENSHIN_DATA_ROOT)) {
 process.stdout.write('==> Reading data...\n');
 const release_dates = Object.create(null);
 for (const item of await readJSON(`${GENSHIN_DATA_ROOT}/ExcelBinOutput/AvatarCodexExcelConfigData.json`)) {
-  release_dates[item.AvatarId] = item.BeginTime.substr(0, 4) + item.BeginTime.substr(5, 2) + item.BeginTime.substr(8, 2);
+  const time = item.beginTime;
+  release_dates[item.avatarId] = time.substr(0, 4) + time.substr(5, 2) + time.substr(8, 2);
 }
 
 const fetter_info = Object.create(null);
 for (const item of await readJSON(`${GENSHIN_DATA_ROOT}/ExcelBinOutput/FetterInfoExcelConfigData.json`)) {
-  fetter_info[item.AvatarId] = item;
+  fetter_info[item.avatarId] = item;
 }
 
 process.stdout.write('==> Reading translations...\n');
@@ -70,19 +71,19 @@ const rarity_map = {
 process.stdout.write('==> Generating...\n');
 const avatars = await readJSON(`${GENSHIN_DATA_ROOT}/ExcelBinOutput/AvatarExcelConfigData.json`);
 const roles = avatars
-  .filter(avatar => release_dates[avatar.Id])
+  .filter(avatar => release_dates[avatar.id])
   .map(avatar => {
-    const info = fetter_info[avatar.Id];
+    const info = fetter_info[avatar.id];
     return {
-      id: avatar.Id,
-      codename: avatar.IconName.slice(14),
-      rarity: rarity_map[avatar.QualityType],
-      name: languages.reduce((dict, lang) => { dict[lang] = TextMap[lang][avatar.NameTextMapHash]; return dict; }, {}),
-      assoc: info.AvatarAssocType === 'ASSOC_TYPE_MAINACTOR' ? '' : ucfirst(info.AvatarAssocType.slice(11)),
-      weapon: weapon_map[avatar.WeaponType],
-      vision: TextMap.en[info.AvatarVisionBeforTextMapHash],
-      birthday: ('0' + info.InfoBirthMonth).slice(-2) + ('0' + info.InfoBirthDay).slice(-2),
-      release_date: release_dates[avatar.Id],
+      id: avatar.id,
+      codename: avatar.iconName.slice(14),
+      rarity: rarity_map[avatar.qualityType],
+      name: languages.reduce((dict, lang) => ((dict[lang] = TextMap[lang][avatar.nameTextMapHash]), dict), {}),
+      assoc: info.avatarAssocType === 'ASSOC_TYPE_MAINACTOR' ? '' : ucfirst(info.avatarAssocType.slice(11)),
+      weapon: weapon_map[avatar.weaponType],
+      vision: TextMap.en[info.avatarVisionBeforTextMapHash],
+      birthday: ('0' + info.infoBirthMonth).slice(-2) + ('0' + info.infoBirthDay).slice(-2),
+      release_date: release_dates[avatar.id],
     };
   })
   .sort((a, b) => {
