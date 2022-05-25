@@ -14,6 +14,8 @@ export interface GlobalState {
   page: PAGE_TYPE;
   stick_header: boolean;
   stick_group_banner: boolean;
+  game_uid: string;
+  nickname: string;
 }
 
 export interface RolePageStore {

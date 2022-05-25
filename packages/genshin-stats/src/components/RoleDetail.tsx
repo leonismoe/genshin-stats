@@ -1,4 +1,4 @@
-import type { CharacterDetail, Reliquary } from '@mihoyo-kit/genshin-api/lib/typings';
+import type { CharacterDetail, Reliquary } from '@mihoyo-kit/genshin-api/lib/types';
 import { createEffect, createMemo, For, onCleanup, onMount, ParentProps, Show } from 'solid-js';
 import { DeepReadonly } from 'solid-js/store';
 import { popperGenerator, defaultModifiers, VirtualElement } from '@popperjs/core/lib/popper-lite';

@@ -1,5 +1,5 @@
 import type { RoleItem } from '@mihoyo-kit/genshin-data';
-import type { Character as GenshinCharacter } from '@mihoyo-kit/genshin-api/lib/typings';
+import type { Character as GenshinCharacter } from '@mihoyo-kit/genshin-api/lib/types';
 import { createMemo, createRoot, createEffect } from 'solid-js';
 import { createStore, DeepReadonly } from 'solid-js/store';
 import GENSHIN_ROLES from '@mihoyo-kit/genshin-data/data/roles.json';

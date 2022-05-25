@@ -184,7 +184,7 @@ export default (props: ParentProps<UIDInputProps>) => {
         <For each={filteredSuggestions()}>{(item, index) => (
           <a href="#" class="autocomplete-item" aria-selected={index() === candidateItemIndex()} onPointerDown={e => handleAutoComplete(e, item[0])}>
             <span>{item[0]}</span>
-            <Show when={item[1] || item[0] === store.logged_uid}>
+            <Show when={item[1] || item[0] === store.game_uid}>
               <small>{item[1] || '(自己)'}</small>
             </Show>
             <Show when={props.onUpdateSuggestions}>

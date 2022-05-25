@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-import type { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, CharacterRarity } from '@mihoyo-kit/genshin-api/lib/typings';
+import type { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, CharacterRarity, Calculator } from '@mihoyo-kit/genshin-api/lib/types';
 import { createMemo, createResource, createRoot } from 'solid-js';
 import { createStore, DeepReadonly } from 'solid-js/store';
 import { GenshinElementType, GenshinWeaponType, isPlayer, RoleItem } from '@mihoyo-kit/genshin-data';
