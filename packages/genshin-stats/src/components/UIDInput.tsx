@@ -145,7 +145,7 @@ export default (props: ParentProps<UIDInputProps>) => {
       const suggestions = props.suggestions.slice();
       const newName = prompt(`修改 ${item[0]} 的备注 (留空表示清除备注):`, item[1]);
       if (newName !== null) {
-        suggestions[index] = [item[0], item[1] || newName];
+        suggestions[index] = [item[0], newName];
         props.onUpdateSuggestions!(suggestions as UidItem[]);
         requestAnimationFrame(() => $uid!.focus());
       }
@@ -157,9 +157,17 @@ export default (props: ParentProps<UIDInputProps>) => {
     $uid!.focus();
     const index = props.suggestions.indexOf(item);
     if (~index) {
-      const suggestions = props.suggestions.slice();
-      suggestions.splice(index, 1);
-      props.onUpdateSuggestions!(suggestions as UidItem[]);
+      let name = item[0];
+      if (item[1]) {
+        name += ` (${item[1]})`;
+      }
+
+      if (confirm(`确定要删除 ${name} 吗?`)) {
+        const suggestions = props.suggestions.slice();
+        suggestions.splice(index, 1);
+        props.onUpdateSuggestions!(suggestions as UidItem[]);
+        requestAnimationFrame(() => $uid!.focus());
+      }
     }
   };
 
