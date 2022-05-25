@@ -7,6 +7,7 @@ interface BasicRequestOptions {
   searchParams?: string | URLSearchParams | Record<string, string | number | boolean | null | undefined>;
   resolveUrl?: (url: string | URL, options?: RequestOptions) => string;
   cookieJar?: PromiseCookieJar;
+  credentials?: RequestCredentials;
   body?: string | Buffer | Blob | BufferSource | FormData | URLSearchParams | ReadableStream<Uint8Array>;
   form?: Record<string, any>;
   json?: Record<string, any>;
