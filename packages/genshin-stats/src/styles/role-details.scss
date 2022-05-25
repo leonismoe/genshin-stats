@@ -1,3 +1,5 @@
+@import './mixin';
+
 .role-details {
   position: absolute;
   min-width: 334px;
@@ -240,6 +242,42 @@
       font-weight: 500;
       transform: scale(.75) translate(-1px, -2px);
       text-shadow: 0px 0px 4px rgba(0,0,0,.8);
+    }
+  }
+
+  .skills {
+    margin: 4px 0 0;
+    padding: 0;
+
+    &::before {
+      content: "技能等级";
+      display: inline-block;
+      margin-right: 6px;
+      font-size: 16px;
+      vertical-align: middle;
+    }
+
+    > li {
+      position: relative;
+      display: inline-block;
+      margin: 0 14px;
+      vertical-align: middle;
+      text-align: center;
+
+      > img {
+        display: block;
+        width: 48px;
+        height: auto;
+        margin: 0 auto;
+
+        @include light-theme {
+          filter: drop-shadow(0 0 4px rgba(0,0,0,0.5));
+        }
+      }
+    }
+
+    .level {
+      font-size: 12px;
     }
   }
 

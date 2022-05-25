@@ -5,6 +5,7 @@ import { popperGenerator, defaultModifiers, VirtualElement } from '@popperjs/cor
 import flip from '@popperjs/core/lib/modifiers/flip';
 import offset, { OffsetModifier } from '@popperjs/core/lib/modifiers/offset';
 import arrow from '@popperjs/core/lib/modifiers/arrow';
+import store from '../store/stats';
 import '../styles/role-details.scss';
 
 const WEAPON_PROMOTE_LEVEL = [0, 20, 40, 50, 60, 70, 80];
@@ -57,8 +58,6 @@ export default (props: ParentProps<{ detail: DeepReadonly<CharacterDetail>, targ
     return result;
   });
 
-  const weapon = props.detail.weapon;
-
   return (
     <div ref={$box} class="Box role-details">
       <div data-popper-arrow></div>
@@ -101,6 +100,34 @@ export default (props: ParentProps<{ detail: DeepReadonly<CharacterDetail>, targ
           );
         }}</For>
       </ol>
+
+      <Show when={store.skills[props.detail.id].length}>
+        <ul class="skills">
+          <For each={store.skills[props.detail.id]}>{skill => {
+            if (!skill.level_current || skill.max_level <= 1) {
+              return null;
+            }
+
+            let extra_level = 0;
+            for (const { effect, is_actived } of props.detail.constellations) {
+              if (is_actived) {
+                const match = effect.match(/^\<color=#[A-F\d]{8}\>(.+?)\<\/color\>的技能等级提高(\d)级/);
+                if (match && match[1] === skill.name) {
+                  extra_level = +match[2];
+                  break;
+                }
+              }
+            }
+
+            return (
+              <li title={skill.name}>
+                <img src={skill.icon} alt={skill.name} />
+                <span class={`level${extra_level ? ' color-fg-accent' : ''}`}>Lv.{skill.level_current + extra_level}/{skill.max_level + extra_level}</span>
+              </li>
+            );
+          }}</For>
+        </ul>
+      </Show>
     </div>
   );
 }

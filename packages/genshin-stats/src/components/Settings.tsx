@@ -36,6 +36,9 @@ export default (props: ParentProps) => {
   const saveCookie = () => {
     const ltuid = getCookie('ltuid', $cookie!.value);
     const ltoken = getCookie('ltoken', $cookie!.value);
+    const account_id = getCookie('account_id', $cookie!.value) || '';
+    const cookie_token = getCookie('cookie_token', $cookie!.value) || '';
+    const login_ticket = getCookie('login_ticket', $cookie!.value) || '';
     if (!ltuid || !ltoken) {
       showToast('必须包含 ltuid 和 ltoken', { type: 'error' });
       return false;
@@ -46,6 +49,9 @@ export default (props: ParentProps) => {
     }
     setCookie('ltuid', ltuid, { expires: 365 });
     setCookie('ltoken', ltoken, { expires: 365 });
+    setCookie('account_id', account_id, { expires: 365 });
+    setCookie('cookie_token', cookie_token, { expires: 365 });
+    setCookie('login_ticket', login_ticket, { expires: 365 });
     return true;
   };
 

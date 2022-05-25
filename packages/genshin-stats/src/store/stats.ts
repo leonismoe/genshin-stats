@@ -3,9 +3,9 @@
 import type { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, CharacterRarity, Calculator } from '@mihoyo-kit/genshin-api/lib/types';
 import { createMemo, createResource, createRoot } from 'solid-js';
 import { createStore, DeepReadonly } from 'solid-js/store';
+import { APIError } from '@mihoyo-kit/api';
 import { GenshinElementType, GenshinWeaponType, isPlayer, RoleItem } from '@mihoyo-kit/genshin-data';
-import { getGenshinGameStats, getPlayerCharacterDetails, getSpiralAbyssData } from '@mihoyo-kit/genshin-api';
-import { SpiralAbyssScheduleType } from '@mihoyo-kit/genshin-api';
+import { getGenshinGameStats, getPlayerCharacterDetails, getSpiralAbyssData, getAvatarSkills, SpiralAbyssScheduleType } from '@mihoyo-kit/genshin-api';
 import { show as showToast } from '../utils/toast';
 import { store as globalStore, submitSignal } from './global';
 import { store as roleStore, GENSHIN_ROLES, GENSHIN_ROLE_MAPPING, addRoleData, saveRoleDataDb } from './roles';
@@ -80,6 +80,7 @@ function createStatStore() {
 
       } else {
         showToast(e.message, { type: 'error', timeout: 5000 });
+        console.error(e);
       }
     });
   });
@@ -94,6 +95,15 @@ function createStatStore() {
       return Promise.resolve();
     }
   });
+
+  const skillMap: Record<number | string, Calculator.SkillWithLevel[]> = {
+    '10000005': [],
+    '10000007': [],
+  };
+  GENSHIN_ROLES.forEach(role => {
+    skillMap[role.id] = [];
+  });
+  const [skills, setSkills] = createStore<Record<number | string, Calculator.SkillWithLevel[]>>(skillMap);
 
   const [abyss] = createResource<[SpiralAbyssData, SpiralAbyssData] | void | undefined, any>(() => [stats.loading, stats()], ([loading, stats]: [boolean, GenshinGameStats], prev) => {
     if (!loading && stats) {
@@ -130,6 +140,7 @@ function createStatStore() {
     get detailMap() {
       return detailMap();
     },
+    skills,
     get abysses() {
       return abyss();
     },
@@ -167,6 +178,8 @@ function createStatStore() {
             actived_constellation_num: NaN,
             release_date: role.release_date,
             image: `https://upload-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_${role.codename}.png`,
+            card_image: `https://upload-bbs.mihoyo.com/game_record/genshin/character_card_icon/UI_AvatarIcon_${role.codename}_Card.png`,
+            is_chosen: false,
           });
         }
       }
@@ -227,10 +240,10 @@ function createStatStore() {
     return state.abysses?.[state.abyssIndex];
   });
 
-  return [state, setState] as [typeof state, typeof setState];
+  return [state, setState, setSkills] as [typeof state, typeof setState, typeof setSkills];
 }
 
-export const [store, setState] = createRoot(createStatStore);
+export const [store, setState, setSkills] = createRoot(createStatStore);
 export default store;
 
 function groupRoles(roles: readonly ExtendedGenshinRole[], type: GroupableColumn, order: SORT) {
@@ -393,4 +406,18 @@ function sortRoles(roles: ExtendedGenshinRole[], sorting: readonly SortConfigIte
   });
 
   return roles;
+}
+
+let skill_relogin_prompted = false;
+export function loadSkillsForCharacter(role_id: number | string): Promise<Calculator.SkillWithLevel[]> {
+  return getAvatarSkills(role_id, globalStore.game_uid, PROXY_OPTIONS).then(skills => {
+    setSkills({ [role_id]: skills });
+    return skills;
+  }, e => {
+    if ((e as APIError).code === -100 && !skill_relogin_prompted) {
+      showToast('无法加载角色技能等级，请<a href="https://bbs.mihoyo.com/ys/" target="_blank" rel="noopener noreferrer" referrerpolicy="noreferrer" data-dismiss="toast">前往米油社原神社区</a>重新登录账号。', { type: 'error', html: true, timeout: 8000 });
+      skill_relogin_prompted = true;
+    }
+    return Promise.reject(e);
+  });
 }

@@ -1,11 +1,11 @@
 import type { VirtualElement } from '@popperjs/core';
-import { createEffect, createSignal, For, on, Show } from 'solid-js';
+import { createEffect, createSignal, For, on, onCleanup, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 import RoleItem from './RoleItem';
 import RoleDetail from './RoleDetail';
 import { store as globalStore, submitSignal } from '../store/global';
 import roleStore from '../store/roles';
-import store from '../store/stats';
+import { store, loadSkillsForCharacter } from '../store/stats';
 import '../styles/roles.scss';
 
 export default () => {
@@ -33,11 +33,27 @@ export default () => {
   });
 
   createEffect(() => {
-    window.addEventListener('click', e => {
+    const el = activeRoleItem();
+    if (el) {
+      const role_id = el.dataset.id;
+      if (role_id && globalStore.uid === globalStore.game_uid && !store.skills[role_id].length) {
+        loadSkillsForCharacter(role_id);
+      }
+    }
+  });
+
+  createEffect(() => {
+    const handler = (e: MouseEvent) => {
       const el = e.target as HTMLElement;
       if (!el.closest || el.closest('.close-button') || (!el.closest('.role-item .avatar') && !el.closest('.role-details.Box'))) {
         setActiveRoleItem();
       }
+    };
+
+    window.addEventListener('click', handler);
+
+    onCleanup(() => {
+      window.removeEventListener('click', handler);
     });
   });
 
