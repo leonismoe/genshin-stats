@@ -9,11 +9,9 @@
     "build:api": "npm -w @mihoyo-kit/api run build",
     "build:genshin-data": "npm -w @mihoyo-kit/genshin-data run build",
     "build:genshin-api": "npm -w @mihoyo-kit/genshin-api run build",
-    "build:genshin-stats": "npm -w @mihoyo-kit/genshin-stats run build",
-    "postinstall": "patch-package"
+    "build:genshin-stats": "npm -w @mihoyo-kit/genshin-stats run build"
   },
   "devDependencies": {
-    "@milahu/patch-package": "^6.4.14",
     "clean-publish": "^4.0.0",
     "typescript": "^4.7.2"
   }
