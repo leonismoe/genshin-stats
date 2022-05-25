@@ -1,4 +1,3 @@
-import type { Resource } from 'solid-js';
 import type { Column, GroupableColumn, SortableColumn } from './constants';
 
 export const enum PAGE_TYPE {
@@ -7,9 +6,11 @@ export const enum PAGE_TYPE {
   ABYSS = 'abyss',
 }
 
+export type UidItem = [uid: string, name: string];
+
 export interface GlobalState {
   uid: string;
-  uids: string[];
+  uids: UidItem[];
   page: PAGE_TYPE;
   stick_header: boolean;
   stick_group_banner: boolean;
@@ -21,9 +22,6 @@ export interface RolePageStore {
   grouping_sort: SORT;
   sorting: SortConfigItem[];
   serialized_sorting: string;
-  // stats: Resource<any>;
-  // characters: Resource<any>;
-  // spiral_abyss: Resource<any>;
 }
 
 export const enum SORT {

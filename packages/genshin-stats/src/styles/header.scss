@@ -56,6 +56,54 @@ header {
       display: block;
       z-index: 90;
     }
+
+    .autocomplete-item {
+      position: relative;
+    }
+
+    .autocomplete-item > small {
+      float: right;
+      margin-top: 1px;
+      margin-left: 8px;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--color-fg-muted);
+    }
+
+    .autocomplete-item > ul {
+      position: absolute;
+      display: none;
+      top: 1px;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+      list-style: none;
+      background-color: var(--color-accent-emphasis);
+      box-shadow: 0 0 8px var(--color-accent-emphasis);
+
+      > li {
+        display: inline-block;
+      }
+    }
+
+    .autocomplete-item:hover > ul,
+    .autocomplete-item:active > ul {
+      display: block;
+    }
+
+    .btn-octicon {
+      margin: 0;
+      color: #fff !important;
+
+      &:hover {
+        color: #ddd !important;
+      }
+    }
+
+    .btn-octicon-danger:hover {
+      color: #ffc3bd !important;
+    }
   }
 
   .btn-submit {
