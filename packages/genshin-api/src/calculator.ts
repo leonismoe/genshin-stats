@@ -53,7 +53,7 @@ export function getAvatarSkills(avatar_id: number | string, uid?: number | strin
     credentials: 'same-origin',
     responseType: 'json',
     resolveBodyOnly: true,
-  }).then(res => res.list);
+  }).then((res: WrapWithKey<Calculator.Skill[], 'list'>) => res.list);
 }
 
 async function getList<T>(url: string, payload: object, options?: RequestOptions): Promise<T[]> {

@@ -16,7 +16,7 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
   let timeout: ReturnType<typeof setTimeout> | undefined;
 
   const init: RequestInit = {
-    signal: controller.signal,
+    signal: controller.signal as any,
   };
 
   if (options) {
