@@ -1,17 +1,17 @@
-import type { Element, ExplorationType, ReliquaryPosition, SpiralAbyssScheduleType, WeaponType } from './constants';
+import type { Element, ExplorationType, ReliquaryPosition, SpiralAbyssScheduleType, WeaponType } from '../constants';
 
 export type CharacterRarity = 4 | 5 | 105;
 export interface Character {
-  /** 命座 */     actived_constellation_num: number;
-  /** 预览图 */   card_image: string;
-  /** 元素 */     element: `${Element}`;
-  /** 好感 */     fetter: number;
   /**  */         id: number;
   /** 头像 */     image: string;
-  /** 公开展示 */ is_chosen: boolean;
-  /** 等级 */     level: number;
   /** 姓名 */     name: string;
+  /** 元素 */     element: `${Element}`;
+  /** 好感 */     fetter: number;
+  /** 等级 */     level: number;
   /** 星级 */     rarity: CharacterRarity;
+  /** 命座 */     actived_constellation_num: number;
+  /** 预览图 */   card_image: string;
+  /** 公开展示 */ is_chosen: boolean;
 }
 
 export interface ExplorationData {
@@ -47,33 +47,33 @@ export interface Home {
 }
 
 export interface Statistics {
-  /** 成就达成数 */        achievement_number: number;
   /** 活跃天数 */          active_day_number: number;
-  /** 风神瞳 */            anemoculus_number: number;
-  /** 获得角色数 */        avatar_number: number;
-  /** 普通宝箱数 */        common_chest_number: number;
-  /** 解锁秘境 */          domain_number: number;
-  /** 雷神瞳 */            electroculus_number: number;
-  /** 精致宝箱数 */        exquisite_chest_number: number;
-  /** 岩神瞳 */            geoculus_number: number;
-  /** 华丽宝箱数 */        luxurious_chest_number: number;
-  /** 奇馈宝箱数 */        magic_chest_number: number;
-  /** 珍贵宝箱数 */        precious_chest_number: number;
-  /** 深境螺旋 最深到达 */ spiral_abyss: string;
-  /** 解锁传送点 */        way_point_number: number;
+  /** 成就达成数 */        achievement_number: number;
   /**  */                  win_rate: number;
+  /** 风神瞳 */            anemoculus_number: number;
+  /** 岩神瞳 */            geoculus_number: number;
+  /** 获得角色数 */        avatar_number: number;
+  /** 解锁传送点 */        way_point_number: number;
+  /** 解锁秘境 */          domain_number: number;
+  /** 深境螺旋 最深到达 */ spiral_abyss: string;
+  /** 珍贵宝箱数 */        precious_chest_number: number;
+  /** 华丽宝箱数 */        luxurious_chest_number: number;
+  /** 精致宝箱数 */        exquisite_chest_number: number;
+  /** 普通宝箱数 */        common_chest_number: number;
+  /** 雷神瞳 */            electroculus_number: number;
+  /** 奇馈宝箱数 */        magic_chest_number: number;
 }
 
 /**
  * 原神游戏数据总览
  */
 export interface GameStats {
-  /** 角色列表 */ avatars: Character[];
-  /** 主城探索 */ city_explorations: CityExploration[];
-  /** 壶中洞天 */ homes: Home[];
   /**  */         role: unknown;
+  /** 角色列表 */ avatars: Character[];
   /** 游戏统计 */ stats: Statistics;
+  /** 主城探索 */ city_explorations: CityExploration[];
   /** 世界探索 */ world_explorations: WorldExploration[];
+  /** 壶中洞天 */ homes: Home[];
 }
 
 /**
@@ -219,44 +219,6 @@ export interface Constellation {
   /** 名称 */       name: string;
   /** 图标 */       icon: string;
   /** 命座效果 */   effect: string;
-  /** 是否已激活 */ is_activated: boolean;
+  /** 是否已激活 */ is_actived: boolean;
   /** 第几层命座 */ pos: number;
 }
-
-/**
- * 实时便笺
- */
-export interface DailyNote {
-  /** 原粹树脂 */             current_resin: number;
-  /** 原粹树脂上限 */         max_resin: number;
-  /** 原粹树脂全部恢复时间 */ resin_recovery_time: string; // number (seconds)
-  /** 每日委托任务完成数 */   finished_task_num: number;
-  /** 每日委托任务总数 */     total_task_num: number;
-  /** 是否收到额外任务奖励 */ is_extra_task_reward_received: boolean;
-  /** 本周剩余消耗减半次数 */ remain_resin_discount_num: number;
-  /** 树脂消耗最大减半次数 */ resin_discount_num_limit: number;
-  /** 当前探索派遣数 */       current_expedition_num: number;
-  /** 探索派遣限制 */         max_expedition_num: number;
-  /** 探索派遣列表 */         expeditions: Array<{
-    /** 角色头像 */             avatar_side_icon: string;
-    /** 探索状态 */             status: "Ongoing" | "Finished";
-    /** 剩余时间 */             remained_time: string; //number (seconds)
-                              }>;
-  /** 洞天财瓮 - 洞天宝钱 */  current_home_coin: number;
-  /** 洞天宝钱存储上限 */     max_home_coin: number;
-  /** 洞天宝钱达上限时间 */   home_coin_recovery_time: string; //number (seconds)
-  /** 可刷材料 Wiki 日历 */   calendar_url: string;
-  /** 参量质变仪 */           transformer: {
-    /** 是否已获得道具 */       obtained: boolean;
-    /** 剩余冷却时间 */         recovery_time: {
-                                  Day: number;
-                                  Hour: number;
-                                  Minute: number;
-                                  Second: number;
-      /** 是否可用 */             reached: boolean;
-                                };
-                                wiki: string;
-                              };
-}
-
-export { Element, ExplorationType, ReliquaryPosition, SpiralAbyssScheduleType, WeaponType };

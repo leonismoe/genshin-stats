@@ -12,15 +12,24 @@ export enum Element {
   /** 岩 */ Geo     = 'Geo',
 }
 
+export enum ElementAttr {
+  /** 火 */ Pyro    = 1,
+  /** 风 */ Anemo   = 2,
+  /** 岩 */ Geo     = 3,
+  /** 雷 */ Electro = 5,
+  /** 水 */ Hydro   = 6,
+  /** 冰 */ Cryo    = 7,
+}
+
 /**
  * 武器类型
  */
 export enum WeaponType {
   /** 单手剑 */   Sword = 1,
-  /** 双手剑 */   Claymore = 11,
-  /** 长柄武器 */ Polearm = 13,
-  /** 弓 */       Bow = 12,
   /** 法器 */     Catalyst = 10,
+  /** 双手剑 */   Claymore = 11,
+  /** 弓 */       Bow = 12,
+  /** 长柄武器 */ Polearm = 13,
 }
 
 /**

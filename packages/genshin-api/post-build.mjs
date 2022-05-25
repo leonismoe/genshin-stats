@@ -1,4 +1,7 @@
 import { readdir, stat, rename, unlink, readFile, writeFile, copyFile } from 'fs/promises';
+import { dirname } from 'path';
+import { globby } from 'globby';
+import mkdirp from 'mkdirp';
 import ts from 'typescript';
 
 function fileExists(path) {
@@ -53,7 +56,9 @@ if (extension && extension !== 'js') {
   await rename_js_files(DIST_DIR, extension);
 
 } else {
-  if (await fileExists('src/typings.d.ts')) {
-    await copyFile('src/typings.d.ts', `${DIST_DIR}/typings.d.ts`);
+  const typeFiles = await globby('**/*.d.ts', { cwd: 'src' });
+  for (const path of typeFiles) {
+    await mkdirp(dirname(`${DIST_DIR}/${path}`));
+    await copyFile(`src/${path}`, `${DIST_DIR}/${path}`);
   }
 }
