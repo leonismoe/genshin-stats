@@ -2,6 +2,7 @@
 
 import { readdir, stat, rename, unlink, readFile, writeFile, copyFile } from 'fs/promises';
 import ts from 'typescript';
+import { globby } from 'globby';
 
 const pkg = (await readJSON('./package.json')).name;
 
@@ -96,7 +97,27 @@ if (extension && extension !== 'js') {
   await fixInternalImports('index.mjs');
   await fixInternalImports('index.d.ts');
 
-  if (await fileExists('src/typings.d.ts')) {
-    await copyFile('src/typings.d.ts', `${DIST_DIR}/typings.d.ts`);
+  const fixTripleSlashReferences = async path => {
+    const source = ts.createSourceFile(path, await readFile(path, { encoding: 'utf8' }), ts.ScriptTarget.Latest);
+    if (source.referencedFiles && source.referencedFiles.length) {
+      source.referencedFiles.forEach(file => {
+        file.fileName = file.fileName.replace(/^(\.\.\/)*\.\.\/src\/(.*)$/, ($0, $1, $2) => {
+          return $1 ? `${$1}${$2}` : `./${$2}`;
+        });
+      });
+
+      const printer = ts.createPrinter();
+      return writeFile(path, printer.printFile(source));
+    }
+  };
+
+  const generatedTypeFiles = await globby('lib/**/*.d.ts');
+  for (const path of generatedTypeFiles) {
+    await fixTripleSlashReferences(path);
+  }
+
+  const typeFiles = await globby('**/*.d.ts', { cwd: 'src' });
+  for (const path of typeFiles) {
+    await copyFile(`src/${path}`, `${DIST_DIR}/${path}`);
   }
 }
