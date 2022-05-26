@@ -2,7 +2,7 @@
 
 import type { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, CharacterRarity, Calculator } from '@mihoyo-kit/genshin-api/lib/types';
 import { createMemo, createResource, createRoot } from 'solid-js';
-import { createStore, DeepReadonly } from 'solid-js/store';
+import { createStore } from 'solid-js/store';
 import { APIError } from '@mihoyo-kit/api';
 import { GenshinElementType, GenshinWeaponType, isPlayer, RoleItem } from '@mihoyo-kit/genshin-data';
 import { getGenshinGameStats, getPlayerCharacterDetails, getSpiralAbyssData, getAvatarSkills, SpiralAbyssScheduleType } from '@mihoyo-kit/genshin-api';
@@ -119,8 +119,8 @@ function createStatStore() {
 
   let roles: () => readonly ExtendedGenshinRole[] = () => [];
   let groups = (() => []) as unknown as () => RoleGroupListWithCache;
-  let detailMap: () => Record<string | number, DeepReadonly<CharacterDetail> | undefined> = () => ({});
-  let activeAbyss: () => DeepReadonly<SpiralAbyssData> | void = () => {};
+  let detailMap: () => Record<string | number, CharacterDetail | undefined> = () => ({});
+  let activeAbyss: () => SpiralAbyssData | void = () => {};
   const [state, setState] = createStore({
     get loading() {
       return stats.loading;
@@ -189,7 +189,7 @@ function createStatStore() {
   });
 
   detailMap = createMemo(() => {
-    const map: Record<string | number, DeepReadonly<CharacterDetail>> = Object.create(null);
+    const map: Record<string | number, CharacterDetail> = Object.create(null);
     const roles = state.details;
     if (roles) {
       for (const role of roles) {

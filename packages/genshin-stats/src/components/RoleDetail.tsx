@@ -1,6 +1,5 @@
 import type { CharacterDetail, Reliquary } from '@mihoyo-kit/genshin-api/lib/types';
 import { createEffect, createMemo, For, onCleanup, onMount, ParentProps, Show } from 'solid-js';
-import { DeepReadonly } from 'solid-js/store';
 import { popperGenerator, defaultModifiers, VirtualElement } from '@popperjs/core/lib/popper-lite';
 import flip from '@popperjs/core/lib/modifiers/flip';
 import offset, { OffsetModifier } from '@popperjs/core/lib/modifiers/offset';
@@ -19,7 +18,7 @@ const createPopper = popperGenerator({
   ],
 });
 
-export default (props: ParentProps<{ detail: DeepReadonly<CharacterDetail>, target: HTMLElement | VirtualElement }>) => {
+export default (props: ParentProps<{ detail: CharacterDetail, target: HTMLElement | VirtualElement }>) => {
   let $box: HTMLDivElement | undefined;
   let popper: ReturnType<typeof createPopper>;
 
@@ -51,7 +50,7 @@ export default (props: ParentProps<{ detail: DeepReadonly<CharacterDetail>, targ
   });
 
   const reliquaries = createMemo(() => {
-    const result: DeepReadonly<Reliquary>[] = new Array(5);
+    const result: Reliquary[] = new Array(5);
     for (const item of props.detail.reliquaries) {
       result[item.pos - 1] = item;
     }

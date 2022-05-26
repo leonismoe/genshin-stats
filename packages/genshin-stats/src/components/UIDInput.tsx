@@ -1,5 +1,4 @@
 import { Show, ParentProps, createEffect, For, createSignal, createMemo } from 'solid-js';
-import { DeepReadonly } from 'solid-js/store';
 import { UidItem } from '../store/typings';
 import { store } from '../store/global';
 import { setTarget, onPointerUp } from '../utils/emulate-click';
@@ -9,7 +8,7 @@ interface UIDInputProps {
   id?: string;
   disabled?: boolean;
   readonly?: boolean;
-  suggestions: DeepReadonly<UidItem[]>;
+  suggestions: UidItem[];
   onChange?: (newValue: string) => void;
   onUpdateSuggestions?: (suggestions: UidItem[]) => void;
 }
@@ -28,7 +27,7 @@ export default (props: ParentProps<UIDInputProps>) => {
     return props.value;
   }, props.value);
 
-  const filteredSuggestions = createMemo<DeepReadonly<UidItem[]>>(prevSuggestions => {
+  const filteredSuggestions = createMemo<UidItem[]>(prevSuggestions => {
     if (suggestAll()) {
       return props.suggestions;
     }
@@ -143,7 +142,7 @@ export default (props: ParentProps<UIDInputProps>) => {
     }
   };
 
-  const handleNameEdit = (item: DeepReadonly<UidItem>, e: Event) => {
+  const handleNameEdit = (item: UidItem, e: Event) => {
     e.stopPropagation();
     $uid!.focus();
     const index = props.suggestions.indexOf(item);
@@ -158,7 +157,7 @@ export default (props: ParentProps<UIDInputProps>) => {
     }
   };
 
-  const removeSuggestion = (item: DeepReadonly<UidItem>, e: Event) => {
+  const removeSuggestion = (item: UidItem, e: Event) => {
     e.stopPropagation();
     $uid!.focus();
     const index = props.suggestions.indexOf(item);
