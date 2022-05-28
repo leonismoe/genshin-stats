@@ -1173,5 +1173,55 @@
     "vision": "Hydro",
     "birthday": "0326",
     "release_date": "20220330"
+  },
+  {
+    "id": 10000060,
+    "codename": "Yelan",
+    "rarity": 5,
+    "name": {
+      "chs": "夜兰",
+      "cht": "夜蘭",
+      "de": "Yelan",
+      "en": "Yelan",
+      "es": "Yelan",
+      "fr": "Yelan",
+      "id": "Yelan",
+      "jp": "夜蘭",
+      "kr": "야란",
+      "pt": "Yelan",
+      "ru": "Е Лань",
+      "th": "Yelan",
+      "vi": "Yelan"
+    },
+    "assoc": "Liyue",
+    "weapon": "Bow",
+    "vision": "Hydro",
+    "birthday": "0420",
+    "release_date": "20220531"
+  },
+  {
+    "id": 10000065,
+    "codename": "Shinobu",
+    "rarity": 4,
+    "name": {
+      "chs": "久岐忍",
+      "cht": "久岐忍",
+      "de": "Kuki Shinobu",
+      "en": "Kuki Shinobu",
+      "es": "Kuki Shinobu",
+      "fr": "Kuki Shinobu",
+      "id": "Kuki Shinobu",
+      "jp": "久岐忍",
+      "kr": "쿠키 시노부",
+      "pt": "Kuki Shinobu",
+      "ru": "Куки Синобу",
+      "th": "Kuki Shinobu",
+      "vi": "Kuki Shinobu"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Sword",
+    "vision": "Electro",
+    "birthday": "0727",
+    "release_date": "20220621"
   }
 ]
