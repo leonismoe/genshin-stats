@@ -49,7 +49,7 @@
     "postpublish": "rimraf ./pkg-temp"
   },
   "peerDependencies": {
-    "@mihoyo-kit/api": "^0.3.10",
+    "@mihoyo-kit/api": "^0.3.11",
     "@mihoyo-kit/genshin-data": "^2.6.0",
     "undici": "^5.0.0"
   },

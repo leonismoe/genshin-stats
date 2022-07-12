@@ -198,5 +198,16 @@
     }
   },
 
-  "latest": "2.28.1"
+  "2.32.1": {
+    "1": {
+      "2": "TMZzKzTLKsdoHlg9HclqPVfswKPkVc3K",
+      "4": "KFy0TMyGfNpo6CpVODnnVmtrLBWFhYee",
+      "5": "tUjkz3RmgcqT3wn3EWVRypzw55JNOcqw"
+    },
+    "2": {
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.32.1"
 }
