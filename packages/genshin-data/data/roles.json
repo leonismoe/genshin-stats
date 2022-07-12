@@ -1214,7 +1214,7 @@
       "jp": "久岐忍",
       "kr": "쿠키 시노부",
       "pt": "Kuki Shinobu",
-      "ru": "Куки Синобу",
+      "ru": "Синобу",
       "th": "Kuki Shinobu",
       "vi": "Kuki Shinobu"
     },
@@ -1223,5 +1223,30 @@
     "vision": "Electro",
     "birthday": "0727",
     "release_date": "20220621"
+  },
+  {
+    "id": 10000059,
+    "codename": "Heizo",
+    "rarity": 4,
+    "name": {
+      "chs": "鹿野院平藏",
+      "cht": "鹿野院平藏",
+      "de": "Shikanoin Heizou",
+      "en": "Shikanoin Heizou",
+      "es": "Shikanoin Heizou",
+      "fr": "Shikanoin Heizou",
+      "id": "Shikanoin Heizou",
+      "jp": "鹿野院平蔵",
+      "kr": "시카노인 헤이조",
+      "pt": "Shikanoin Heizou",
+      "ru": "Хэйдзо",
+      "th": "Shikanoin Heizou",
+      "vi": "Shikanoin Heizou"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Catalyst",
+    "vision": "Anemo",
+    "birthday": "0724",
+    "release_date": "20220713"
   }
 ]
