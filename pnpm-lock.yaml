@@ -46,10 +46,11 @@ importers:
       tslib: 2.4.0
       typescript: 4.7.4
       undici: 5.8.2
+    publishDirectory: pkg-temp
 
   packages/checkin:
     specifiers:
-      '@mihoyo-kit/api': ^0.3.12
+      '@mihoyo-kit/api': ^0.3.13
       '@types/node': ^18.7.3
       find-chrome-bin: ^1.0.2
       puppeteer-core: ^16.1.0
@@ -66,6 +67,7 @@ importers:
       '@types/node': 18.7.3
       tslib: 2.4.0
       typescript: 4.7.4
+    publishDirectory: pkg-temp
 
   packages/genshin-api:
     specifiers:
@@ -88,9 +90,11 @@ importers:
       rollup: 2.77.3
       tslib: 2.4.0
       typescript: 4.7.4
+    publishDirectory: pkg-temp
 
   packages/genshin-data:
     specifiers: {}
+    publishDirectory: pkg-temp
 
   packages/genshin-stats:
     specifiers:

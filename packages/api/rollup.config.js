@@ -7,8 +7,8 @@ export default defineConfig([
   {
     input: 'src/index.ts',
     output: [
-      { format: 'cjs', file: 'dist/index.cjs.js' },
-      { format: 'es', file: 'dist/index.esm.js' },
+      { format: 'cjs', file: 'dist/index.js' },
+      { format: 'es', file: 'dist/index.mjs' },
     ],
     external: ['undici', 'abort-controller', '@leonismoe/md5'],
     plugins: [
@@ -23,8 +23,8 @@ export default defineConfig([
   {
     input: 'src/index.ts',
     output: [
-      { format: 'es', file: 'dist/browser.esm.js' },
-      { format: 'umd', file: 'dist/brower.umd.js', name: 'miHoYoApi' },
+      { format: 'es', file: 'dist/browser.mjs' },
+      { format: 'umd', file: 'dist/brower.js', name: 'miHoYoApi' },
     ],
     plugins: [
       resolve({

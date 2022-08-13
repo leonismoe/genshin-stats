@@ -1,16 +1,18 @@
 {
-  "name": "mihoyo",
+  "name": "mihoyo-kit",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "pnpm@7.5.1",
+  "packageManager": "pnpm@7.9.0",
+  "engines": {
+    "node": ">=16.15.0",
+    "pnpm": ">=7.4.0",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm"
+  },
   "scripts": {
-    "build": "tsc -b tsconfig.build.json",
-    "build:api": "npm -w @mihoyo-kit/api run build",
-    "build:genshin-data": "npm -w @mihoyo-kit/genshin-data run build",
-    "build:genshin-api": "npm -w @mihoyo-kit/genshin-api run build",
-    "build:genshin-stats": "npm -w @mihoyo-kit/genshin-stats run build"
+    "build:packages": "pnpm -r build"
   },
   "devDependencies": {
     "@types/node": "^18.7.3",

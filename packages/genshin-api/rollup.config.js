@@ -6,8 +6,8 @@ export default defineConfig([
   {
     input: 'src/index.ts',
     output: [
-      { format: 'cjs', file: 'dist/index.cjs.js' },
-      { format: 'es', file: 'dist/index.esm.js' },
+      { format: 'cjs', file: 'dist/index.js' },
+      { format: 'es', file: 'dist/index.mjs' },
     ],
     external: ['@mihoyo-kit/api', '@genshin-data', 'undici'],
     plugins: [
@@ -21,10 +21,10 @@ export default defineConfig([
   {
     input: 'src/index.ts',
     output: [
-      { format: 'es', file: 'dist/browser.esm.js' },
+      { format: 'es', file: 'dist/browser.mjs' },
       {
         format: 'umd',
-        file: 'dist/browser.umd.js',
+        file: 'dist/browser.js',
         name: 'miHoYoGenshinApi',
         globals: {
           '@mihoyo-kit/api': 'miHoYoApi',

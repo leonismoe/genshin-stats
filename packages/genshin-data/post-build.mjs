@@ -1,3 +1,5 @@
+import { resolve } from 'path';
+import { existsSync, statSync } from 'fs';
 import { readdir, stat, rename, unlink, readFile, writeFile, copyFile } from 'fs/promises';
 import ts from 'typescript';
 
@@ -19,7 +21,13 @@ async function rename_js_files(dir, extension) {
 
             if (imports.startsWith('.') && !imports.endsWith('.json')) {
               shouldFixImports = true;
-              node.moduleSpecifier.text = imports + '.' + extension;
+
+              const target = resolve(dir, imports);
+              if (existsSync(target) && statSync(target).isDirectory()) {
+                node.moduleSpecifier.text = imports + '/index.' + extension;
+              } else {
+                node.moduleSpecifier.text = imports + '.' + extension;
+              }
             }
           }
         }
