@@ -5,5 +5,5 @@ export { getDS, calculateDS, getDS2, calculateDS2, normalizeQuery, getHTTPReques
 export { getUserGameRolesByCookie, getUserGameRolesByLtoken, getUserGameRolesByCookie as getUserGameRoles } from './basic';
 export { getGameRecordCard } from './game-record';
 
-export type { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler } from './utils/request-common';
+export type { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler, RequestCookie } from './utils/request-common';
 export type { WrapWithKey, ValuesOfEnum, MixedValuesOfEnum, PromiseCookieJar, DSOptions } from './typings';

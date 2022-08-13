@@ -1,11 +1,21 @@
 import type { DSOptions, Merge, PromiseCookieJar } from '../typings';
 import hasOwn from './has-own';
 
+export type RequestCookie =
+  | string
+  | string[]
+  | Array<[name: string, value: string | number | boolean]>
+  | Array<{ name: string; value: string | number | boolean }>
+  | PromiseCookieJar
+  | Record<string, string | number | boolean>;
+
 interface BasicRequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
   prefixUrl?: string;
   searchParams?: string | URLSearchParams | Record<string, string | number | boolean | null | undefined>;
   resolveUrl?: (url: string | URL, options?: RequestOptions) => string;
+  /** shortcut for `headers.cookie` or `cookieJar` */
+  cookie?: RequestCookie;
   cookieJar?: PromiseCookieJar;
   credentials?: RequestCredentials;
   body?: string | Buffer | Blob | BufferSource | FormData | URLSearchParams | ReadableStream<Uint8Array>;

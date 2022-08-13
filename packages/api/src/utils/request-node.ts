@@ -1,4 +1,4 @@
-import type { APIResponse, DSOptions } from '../typings';
+import type { APIResponse, DSOptions, PromiseCookieJar } from '../typings';
 import { URL } from 'url';
 import { fetch, Headers, AbortController } from './fetch-undici';
 import { getDS, getDS2, getHTTPRequestHeaders, getUserAgent } from './get-ds';
@@ -88,6 +88,47 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
 
     if (options.timeout) {
       timeout = setTimeout(() => controller.abort(), options.timeout);
+    }
+
+    if (options.cookie) {
+      let cookie: string | undefined;
+      if (typeof options.cookie === 'string') {
+        cookie = options.cookie;
+      }
+      else if (Array.isArray(options.cookie)) {
+        const tmp = options.cookie[0];
+        if (typeof tmp === 'string') {
+          cookie = options.cookie.join('; ');
+        } else if (Array.isArray(tmp)) {
+          cookie = (options.cookie as [name: string, value: string | number][])
+            .map(([name, value]) => `${encodeURIComponent(name)}=${encodeURIComponent(value)}`)
+            .join('; ');
+        } else {
+          cookie = (options.cookie as Array<{ name: string; value: string | number }>)
+            .map(({ name, value }) => `${encodeURIComponent(name)}=${encodeURIComponent(value)}`)
+            .join('; ');
+        }
+      }
+      else if (typeof options.cookie.getCookieString === 'function') {
+        options.cookieJar = options.cookie as PromiseCookieJar;
+      }
+      else {
+        const cookieMap = options.cookie as Record<string, string | number | boolean>;
+        const cookieList: string[] = [];
+        Object.keys(cookieMap).forEach(name => {
+          if (hasOwn(cookieMap, name)) {
+            cookieList.push(`${encodeURIComponent(name)}=${encodeURIComponent(cookieMap[name])}`);
+          }
+        });
+        cookie = cookieList.join('; ');
+      }
+
+      if (cookie) {
+        const original = init.headers.get('Cookie');
+        init.headers.set('Cookie', original ? `${original}; ${cookie}` : cookie);
+      }
+
+      delete options.cookie;
     }
   }
 
