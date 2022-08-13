@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/api",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "license": "MIT",
   "description": "Provides common request method for miHoYo API",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/api",
@@ -8,7 +8,7 @@
   "sideEffects": false,
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "types": "lib/index.d.ts",
+  "types": "src/index.ts",
   "browser": {
     ".": "./dist/browser.umd.js",
     "./dist": "./dist/browser.umd.js",
@@ -27,6 +27,7 @@
       "default": "./dist/browser.umd.js"
     },
     "./package.json": "./package.json",
+    "./types": "./lib/typings.d.ts",
     "./typings": "./lib/typings.d.ts",
     "./lib/request": {
       "ts-node": "./src/utils/request-node.ts",
@@ -51,6 +52,7 @@
       "require": "./lib/*.js",
       "default": "./lib/*.js"
     },
+    "./data/*": "./data/*",
     "./dist/*": "./dist/*.js",
     "./*": "./*"
   },
@@ -101,22 +103,23 @@
   },
   "peerDependencies": {
     "abort-controller": "^3.0.0",
-    "undici": "^5.0.0"
+    "undici": "^5.8.0"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.3",
-    "@types/node": "^18.0.3",
+    "@rollup/plugin-typescript": "^8.3.4",
+    "@types/node": "^18.7.3",
     "cross-env": "^7.0.3",
     "globby": "^13.1.2",
-    "rollup": "^2.76.0",
-    "ts-node": "^10.8.2",
+    "rollup": "^2.77.3",
+    "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
-    "undici": "^5.7.0"
+    "undici": "^5.8.2"
   },
   "publishConfig": {
+    "types": "lib/index.d.ts",
     "directory": "pkg-temp",
     "access": "public",
     "registry": "https://registry.npmjs.org/"
