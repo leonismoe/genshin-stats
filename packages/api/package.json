@@ -121,7 +121,6 @@
   "publishConfig": {
     "types": "lib/index.d.ts",
     "directory": "pkg-temp",
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "access": "public"
   }
 }

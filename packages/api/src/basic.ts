@@ -1,7 +1,7 @@
 import { request, RequestOptions } from './request';
 import { APIClientType } from './constants';
 
-interface UserGameRole {
+export interface UserGameRole {
   game_biz: string;
   game_uid: string;
   is_chosen: boolean;

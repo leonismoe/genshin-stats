@@ -7,3 +7,4 @@ export { getGameRecordCard } from './game-record';
 
 export type { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler, RequestCookie } from './utils/request-common';
 export type { WrapWithKey, ValuesOfEnum, MixedValuesOfEnum, PromiseCookieJar, DSOptions } from './typings';
+export type { UserGameRole } from './basic';
