@@ -2,12 +2,15 @@ import { readFile } from 'node:fs/promises';
 
 /**
  * @see https://nodejs.org/api/esm.html#resolvespecifier-context-defaultresolve
+ * @typedef {'builtin' | 'commonjs' | 'json' | 'module' | 'wasm'} LoadFormat
+ * @typedef {{ conditions: string[], format?: 'builtin' | 'commonjs' | 'json' | 'module' | 'wasm' | null, importAssertions: unknown }} LoadContext
+ * @typedef {{ format: LoadFormat, shortCircuit?: boolean, source: string | ArrayBuffer | SharedArrayBuffer | Uint8Array }} LoadResult
  * @param {string} url
- * @param {{ format: string }} context
- * @param {Function} defaultLoad
- * @returns {Promise<{ format: string, source: string | ArrayBuffer | SharedArrayBuffer | Uint8Array }>}
+ * @param {LoadContext} context
+ * @param {(specifier: string, context: LoadContext) => Promise<LoadResult>} nextLoad
+ * @returns {Promise<LoadResult>}
  */
-export async function load(url, context, defaultLoad) {
+export async function load(url, context, nextLoad) {
   if (url.endsWith('.json')) {
     if (url.startsWith('file:///')) {
       url = (new URL(url)).pathname.slice(1);
@@ -19,6 +22,7 @@ export async function load(url, context, defaultLoad) {
     return readFile(url, 'utf8').then(text => ({
       format: 'json',
       source: text,
+      shortCircuit: true,
     }));
   }
 
@@ -27,8 +31,9 @@ export async function load(url, context, defaultLoad) {
     return readFile(url).then(data => ({
       format: 'module',
       source: data,
+      shortCircuit: true,
     }));
   }
 
-  return defaultLoad(url, context, defaultLoad);
+  return nextLoad(url, context);
 }
