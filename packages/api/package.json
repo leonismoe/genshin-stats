@@ -74,6 +74,16 @@
         "import": "./lib/utils/request-tauri.mjs",
         "require": "./lib/utils/request-tauri.js"
       }
+    },
+    "#uuid": {
+      "node": {
+        "import": "./lib/utils/uuid-node.mjs",
+        "require": "./lib/utils/uuid-node.js"
+      },
+      "browser": {
+        "import": "./lib/utils/uuid-browser.mjs",
+        "require": "./lib/utils/uuid-browser.js"
+      }
     }
   },
   "files": [

@@ -6,6 +6,8 @@ export { getUserGameRolesByCookie, getUserGameRolesByLtoken, getUserGameRolesByC
 export type { UserGameRole } from './game-roles';
 export { checkCookieToken, checkLToken, checkLoginTicket } from './account';
 export type { AccountCookieInfo, AccountInfo, AccountInfoByLToken, AccountInfoResponse, CookieInfoResponse } from './account';
+export { checkCommunityLogin, communityLogin, getCommunityUserInfo } from './community';
+export type { CommunityUserInfo } from './community';
 export { getGameRecordCard } from './game-record';
 
 export type { RequestOptions, HTTPError, APIError, AbortError, UserCancelHandler, RequestCookie } from './utils/request-common';
