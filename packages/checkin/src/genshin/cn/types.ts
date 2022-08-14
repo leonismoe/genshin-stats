@@ -23,3 +23,11 @@ export interface GenshinCheckinInfo {
   readonly today: string;
   readonly total_sign_day: number;
 }
+
+export interface GeeTestResponse {
+  code: string; // empty
+  risk_code: number;
+  gt: string;
+  challenge: string;
+  success: number;
+}

@@ -1,6 +1,7 @@
 import { request, uuid, APIClientType, RequestCookie } from '@mihoyo-kit/api';
 import { MixedValuesOfEnum } from '../../common/types';
 import {
+  GeeTestResponse as GeetestResponse,
   GenshinCheckinAwardItem,
   GenshinCheckinAwards,
   GenshinCheckinInfo,
@@ -26,7 +27,7 @@ export function getCheckinInfo(cookie: RequestCookie, uid: number | string, regi
   });
 }
 
-export function checkin(cookie: RequestCookie, uid: number | string, region: MixedValuesOfEnum<GenshinServerRegion> | string = GenshinServerRegion.OFFICIAL): Promise<GenshinCheckinInfo> {
+export async function checkin(cookie: RequestCookie, uid: number | string, region: MixedValuesOfEnum<GenshinServerRegion> | string = GenshinServerRegion.OFFICIAL): Promise<GenshinCheckinInfo> {
   let mhyUuid: string;
   if (typeof cookie === 'string') {
     const match = cookie.match(/_MHYUUID=([^;]+);/);
@@ -35,7 +36,7 @@ export function checkin(cookie: RequestCookie, uid: number | string, region: Mix
     mhyUuid = uuid();
   }
 
-  return request<GenshinCheckinInfo>(`${API_PREFIX}/sign`, {
+  const result = await request<GenshinCheckinInfo>(`${API_PREFIX}/sign`, {
     method: 'POST',
     client_type: APIClientType.WEBVIEW,
     responseType: 'json',
@@ -56,4 +57,10 @@ export function checkin(cookie: RequestCookie, uid: number | string, region: Mix
       uid: '' + uid,
     },
   });
+
+  if ((result as unknown as GeetestResponse).risk_code != null) {
+    throw new Error('账号被风控');
+  }
+
+  return result;
 }
