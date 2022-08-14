@@ -1,4 +1,4 @@
-import type { APIResponse, DSOptions, PromiseCookieJar } from '../typings';
+import type { APIResponse, AccountAPIResponse, DSOptions, PromiseCookieJar } from '../typings';
 import { URL } from 'url';
 import { fetch, Headers, AbortController } from './fetch-undici';
 import { getDS, getDS2, getHTTPRequestHeaders, getUserAgent } from './get-ds';
@@ -169,12 +169,29 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
         switch (options.responseType) {
           case 'text': body = response.text(); break;
           case 'json':
-            body = response.json().then((data: APIResponse<unknown>) => {
-              if (data.retcode != null) {
-                if (data.retcode) {
-                  throw new APIError(data.message, data.retcode);
+            body = response.json().then((data: APIResponse<unknown> | AccountAPIResponse<unknown>) => {
+              if ((data as APIResponse<unknown>).retcode != null || (data as AccountAPIResponse<unknown>).code != null) {
+                if (options.throwOnApiError !== false) {
+                  if ((data as APIResponse<unknown>).retcode != null) {
+                    if ((data as APIResponse<unknown>).retcode) {
+                      throw new APIError(
+                        (data as APIResponse<unknown>).message,
+                        (data as APIResponse<unknown>).retcode,
+                      );
+                    }
+                  } else if ((data as AccountAPIResponse<unknown>).code != null) {
+                    if ((data as AccountAPIResponse<unknown>).code !== 200) {
+                      throw new APIError(
+                        (data as AccountAPIResponse<unknown>).data.msg,
+                        (data as AccountAPIResponse<unknown>).data.status,
+                      );
+                    }
+                  }
                 }
-                return data.data;
+
+                if (options.resolveApiBody !== false) {
+                  return data.data;
+                }
               }
               return data;
             });

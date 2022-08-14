@@ -1,4 +1,4 @@
-import type { APIResponse, DSOptions } from '../typings';
+import type { APIResponse, AccountAPIResponse, DSOptions } from '../typings';
 import hasOwn from './has-own';
 import { getDS, getDS2, getHTTPRequestHeaders } from './get-ds';
 import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, HTTPError, RequestOptions } from './request-common';
@@ -128,12 +128,29 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
           case 'json':
             body = response.json();
             if (isMiHoYo) {
-              body = (body as Promise<APIResponse<unknown>>).then(data => {
-                if (data.retcode != null) {
-                  if (data.retcode) {
-                    throw new APIError(data.message, data.retcode);
+              body = (body as Promise<APIResponse<unknown> | AccountAPIResponse<unknown>>).then(data => {
+                if ((data as APIResponse<unknown>).retcode != null || (data as AccountAPIResponse<unknown>).code != null) {
+                  if (options.throwOnApiError !== false) {
+                    if ((data as APIResponse<unknown>).retcode != null) {
+                      if ((data as APIResponse<unknown>).retcode) {
+                        throw new APIError(
+                          (data as APIResponse<unknown>).message,
+                          (data as APIResponse<unknown>).retcode,
+                        );
+                      }
+                    } else if ((data as AccountAPIResponse<unknown>).code != null) {
+                      if ((data as AccountAPIResponse<unknown>).code !== 200) {
+                        throw new APIError(
+                          (data as AccountAPIResponse<unknown>).data.msg,
+                          (data as AccountAPIResponse<unknown>).data.status,
+                        );
+                      }
+                    }
                   }
-                  return data.data;
+
+                  if (options.resolveApiBody !== false) {
+                    return data.data;
+                  }
                 }
                 return data;
               });

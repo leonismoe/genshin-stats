@@ -31,6 +31,14 @@ export interface APIResponse<T> {
   readonly retcode: number;
 }
 
+export interface AccountAPIResponse<T> {
+  readonly code: number;
+  readonly data: T & {
+    status: number;
+    msg: string;
+  };
+}
+
 export interface DSOptions {
   client_type: MixedValuesOfEnum<APIClientType>;
   app_version: string;

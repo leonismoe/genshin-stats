@@ -37,6 +37,10 @@ interface BasicRequestOptions {
   followRedirect?: boolean;
   throwHttpErrors?: boolean;
   resolveBodyOnly?: boolean;
+  /** default `true`, will directly return the `data` field of an API response, only available when `responseType` is `json` */
+  resolveApiBody?: boolean;
+  /** default `true`, will throw error when `retcode` is not zero or `code` is not `200`, only available when `responseType` is `json` */
+  throwOnApiError?: boolean;
   responseType?: 'text' | 'json' | 'buffer' | 'arraybuffer' | 'formdata';
   ds?: DSOptions;
   device?: DeviceInfo;
