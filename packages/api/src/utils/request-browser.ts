@@ -21,7 +21,7 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
   const miHoYo = '.mihoyo.com';
   const isMiHoYo = typeof url === 'string' ? url.includes(miHoYo) : url.hostname.endsWith(miHoYo);
 
-  const controller = new AbortController();
+  const controller = options && options.controller || new AbortController();
   let timeout: ReturnType<typeof setTimeout> | undefined;
 
   const init: RequestInit = {

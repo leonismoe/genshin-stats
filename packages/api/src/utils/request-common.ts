@@ -22,6 +22,7 @@ interface BasicRequestOptions {
   form?: Record<string, any>;
   json?: Record<string, any>;
   headers?: Headers | Record<string, string> | [string, string][];
+  controller?: AbortController;
   signal?: AbortSignal;
   timeout?: number;
   followRedirect?: boolean;

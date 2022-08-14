@@ -14,11 +14,11 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
     url = new URL(url as string, options.prefixUrl);
   }
 
-  const controller = new AbortController();
+  const controller = options && options.controller || new AbortController();
   let timeout: ReturnType<typeof setTimeout> | undefined;
 
   const init: RequestInit = {
-    signal: controller.signal as any,
+    signal: controller.signal as globalThis.AbortSignal,
   };
 
   if (options) {
