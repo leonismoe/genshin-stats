@@ -9,13 +9,13 @@ export interface GenshinCheckinResult extends GenshinCheckinInfo {
   award: GenshinCheckinAwardItem;
 }
 
-export async function checkinGenshinCN(cookie: RequestCookie): Promise<GenshinCheckinResult> {
+export async function checkinGenshinCN(cookie: RequestCookie, awards?: readonly GenshinCheckinAwardItem[]): Promise<GenshinCheckinResult> {
   const roles = await getUserGameRolesByLtoken('hk4e_cn', { cookie });
   if (!roles.length) {
     throw new Error('没有找到用户角色');
   }
 
-  await sleep(500);
+  await sleep(200);
   const role = roles[0];
   let status = await getCheckinInfo(cookie, role.game_uid, role.region);
   if (status.first_bind) {
@@ -29,8 +29,11 @@ export async function checkinGenshinCN(cookie: RequestCookie): Promise<GenshinCh
     checkedIn = true;
   }
 
-  await sleep(500);
-  const awards = await getAwards(cookie);
+  if (!awards) {
+    await sleep(500);
+    awards = await getAwards();
+  }
+
   const award = awards[status.total_sign_day - 1];
 
   return {

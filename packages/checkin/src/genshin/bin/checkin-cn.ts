@@ -2,6 +2,7 @@
 
 import { createInterface } from 'readline';
 import { checkinGenshinCN } from '../cn';
+import { getAwards } from '../cn/api';
 
 (async() => {
   const { isTTY } = process.stdout;
@@ -13,6 +14,8 @@ import { checkinGenshinCN } from '../cn';
     cookies = process.env.MIHOYO_COOKIES.split(/\n|\|/g);
   }
 
+  const awards = await getAwards();
+
   if (cookies.length) {
     for (let i = 0; i < cookies.length; ++i) {
       try {
@@ -23,14 +26,19 @@ import { checkinGenshinCN } from '../cn';
           process.stdout.write(`:: (${i + 1}/${cookies.length}) `);
         }
 
-        const res = await checkinGenshinCN(cookies[i]);
+        const res = await checkinGenshinCN(cookies[i], awards);
+        const roleText = `${res.role.nickname} (${res.role.region_name} ${res.role.game_uid})`;
+        let checkInStatusText = `${res.checkedIn ? '签到成功' : '今日已签到'}，本月共签到 ${res.total_sign_day} 天`;
+        if (res.sign_cnt_missed) {
+          checkInStatusText += `，漏签 ${res.sign_cnt_missed} 天`;
+        }
+
         if (isTTY) {
           clearLine();
-          process.stdout.write(`:: (${i + 1}/${cookies.length}) ${res.checkedIn ? '签到成功' : '今日已签到'}，本月共签到 ${res.total_sign_day} 天\n`);
+          process.stdout.write(`:: (${i + 1}/${cookies.length}) ${roleText} ${checkInStatusText}\n`);
         } else {
-          process.stdout.write(`${res.checkedIn ? '签到成功' : '今日已签到'}，本月共签到 ${res.total_sign_day} 天\n`);
+          process.stdout.write(`${roleText} ${checkInStatusText}\n`);
         }
-        process.stdout.write(`   游戏角色: ${res.role.nickname} (${res.role.region_name} ${res.role.game_uid})\n`);
         process.stdout.write(`   签到奖励: ${res.award.name} x ${res.award.cnt}\n`);
 
       } catch (e) {
@@ -40,7 +48,12 @@ import { checkinGenshinCN } from '../cn';
         } else {
           process.stdout.write('签到失败\n');
         }
-        process.stdout.write(`   ${(e as Error).message}\n`);
+        process.stdout.write(`   ${e}\n`);
+        if ((process.env.DEBUG || process.env.VERBOSE) && e instanceof Error && e.stack) {
+          e.stack.split('\n').forEach((text, lineNo) => {
+            if (lineNo) process.stdout.write(` ${text}\n`); // `text` is already prefixed with 4 spaces
+          });
+        }
         process.exitCode = 1;
       }
     }
@@ -61,12 +74,24 @@ import { checkinGenshinCN } from '../cn';
       if (!cookie || cookie.startsWith('#')) return;
       deferred = deferred.then(async() => {
         try {
-          const res = await checkinGenshinCN(cookie.trim());
-          process.stdout.write(`:: ${res.role.nickname} (${res.role.region_name} ${res.role.game_uid}) ${res.checkedIn ? '签到成功' : '今日已签到'}，本月共签到 ${res.total_sign_day} 天\n`);
+          const res = await checkinGenshinCN(cookie.trim(), awards);
+          const roleText = `${res.role.nickname} (${res.role.region_name} ${res.role.game_uid})`;
+          let checkInStatusText = `${res.checkedIn ? '签到成功' : '今日已签到'}，本月共签到 ${res.total_sign_day} 天`;
+          if (res.sign_cnt_missed) {
+            checkInStatusText += `，漏签 ${res.sign_cnt_missed} 天`;
+          }
+
+          process.stdout.write(`:: ${roleText} ${checkInStatusText}\n`);
           process.stdout.write(`   签到奖励: ${res.award.name} x ${res.award.cnt}\n`);
+
         } catch (e) {
           process.stdout.write(':: 签到失败\n');
-          process.stdout.write(`   ${(e as Error).message}\n`);
+          process.stdout.write(`   ${e}\n`);
+          if ((process.env.DEBUG || process.env.VERBOSE) && e instanceof Error && e.stack) {
+            e.stack.split('\n').forEach((text, lineNo) => {
+              if (lineNo) process.stdout.write(` ${text}\n`); // `text` is already prefixed with 4 spaces
+            });
+          }
           process.exitCode = 1;
         }
       });
