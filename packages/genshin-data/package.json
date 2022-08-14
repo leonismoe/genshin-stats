@@ -28,13 +28,16 @@
     "./*": "./data/*"
   },
   "scripts": {
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc -m es2015 && node post-build.mjs mjs",
-    "build:cjs": "tsc -m commonjs -d && node post-build.mjs",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p tsconfig.build.json && node post-build.mjs mjs",
+    "build:cjs": "tsc -p tsconfig.build.json -m commonjs -t es5 -d && node post-build.mjs",
     "update-roles-db": "node scripts/build-roles-db.mjs",
-    "clean": "rimraf lib *.tsbuildinfo",
+    "clean": "rimraf lib pkg-temp *.tsbuildinfo",
     "prepublishOnly": "rimraf ./pkg-temp && clean-publish",
     "postpublish": "rimraf ./pkg-temp"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
   },
   "publishConfig": {
     "directory": "pkg-temp",

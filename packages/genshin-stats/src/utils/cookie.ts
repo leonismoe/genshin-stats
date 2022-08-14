@@ -1,3 +1,5 @@
+/// <reference lib="DOM" />
+
 export function get(key: string, cookieString = document?.cookie): string | undefined {
   if (!cookieString) {
     return;

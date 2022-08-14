@@ -1,4 +1,5 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ES2017",
     "module": "ESNext",
@@ -13,10 +14,6 @@
     "rootDir": "src",
     "outDir": "lib"
   },
-  "references": [
-    { "path": "../api" },
-    { "path": "../genshin-data" }
-  ],
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "lib"]
 }

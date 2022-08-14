@@ -93,7 +93,10 @@ importers:
     publishDirectory: pkg-temp
 
   packages/genshin-data:
-    specifiers: {}
+    specifiers:
+      typescript: ^4.7.4
+    devDependencies:
+      typescript: 4.7.4
     publishDirectory: pkg-temp
 
   packages/genshin-stats:
