@@ -1,4 +1,4 @@
-import { request, RequestOptions } from './request';
+import { request, AbortController, RequestOptions } from './request';
 import { APIClientType } from './constants';
 
 export interface UserGameRole {
@@ -28,4 +28,29 @@ export function getUserGameRolesByLtoken(game_biz: string, options?: RequestOpti
     responseType: 'json',
     resolveBodyOnly: true,
   }).then(res => res.list);
+}
+
+export function getUserGameRolesByCookieToken(game_biz: string, options?: RequestOptions): Promise<UserGameRole[]> {
+  return request<{ list: UserGameRole[] }>(`https://api-takumi.mihoyo.com/binding/api/getUserGameRolesByCookieToken?game_biz=${game_biz}`, {
+    ...options,
+    responseType: 'json',
+    resolveBodyOnly: true,
+  }).then(res => res.list);
+}
+
+export function getUserGameRoles(game_biz: string, options?: RequestOptions): Promise<UserGameRole[]> {
+  const controller = new AbortController();
+  options = {
+    ...options,
+    controller,
+  };
+
+  return Promise.race([
+    getUserGameRolesByCookie(game_biz, options),
+    getUserGameRolesByLtoken(game_biz, options),
+    getUserGameRolesByCookieToken(game_biz, options),
+  ]).then(roles => {
+    controller.abort();
+    return roles;
+  });
 }
