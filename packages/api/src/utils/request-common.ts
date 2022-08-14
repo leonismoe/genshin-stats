@@ -9,6 +9,15 @@ export type RequestCookie =
   | PromiseCookieJar
   | Record<string, string | number | boolean>;
 
+export interface DeviceInfo {
+  readonly id: string;
+  readonly platform?: 'android' | 'ios';
+  readonly name?: string;
+  readonly version?: string;
+  readonly brand?: string;
+  readonly model?: string;
+}
+
 interface BasicRequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
   prefixUrl?: string;
@@ -30,6 +39,7 @@ interface BasicRequestOptions {
   resolveBodyOnly?: boolean;
   responseType?: 'text' | 'json' | 'buffer' | 'arraybuffer' | 'formdata';
   ds?: DSOptions;
+  device?: DeviceInfo;
 }
 
 export type RequestOptions = BasicRequestOptions & Partial<DSOptions>;

@@ -87,6 +87,17 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
       }
     }
 
+    if (options.device) {
+      init.headers.set('x-rpc-device_id', options.device.id);
+      if (options.device.version) init.headers.set('x-rpc-sys_version', options.device.version);
+      if (options.device.name)    init.headers.set('x-rpc-device_name', options.device.name);
+      if (options.device.model)   init.headers.set('x-rpc-device_model', options.device.model);
+    } else if (options.device_id) {
+      init.headers.set('x-rpc-device_id', options.device_id);
+    } else if (options.ds && options.ds.device_id) {
+      init.headers.set('x-rpc-device_id', options.ds.device_id);
+    }
+
     if (options.signal) {
       options.signal.addEventListener('abort', () => controller.abort());
     }
