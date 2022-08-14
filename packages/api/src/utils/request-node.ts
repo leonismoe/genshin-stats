@@ -2,8 +2,9 @@ import type { APIResponse, AccountAPIResponse, DSOptions, PromiseCookieJar } fro
 import { URL } from 'url';
 import { fetch, Headers, AbortController } from './fetch-undici';
 import { getDS, getDS2, getHTTPRequestHeaders, getUserAgent } from './get-ds';
-import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, HTTPError, RequestOptions } from './request-common';
+import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, getCookie, HTTPError, RequestOptions } from './request-common';
 import hasOwn from './has-own';
+import { uuid } from './uuid';
 import { USER_AGENT_WINDOWS_CRHOME } from './user-agent';
 
 export { fetch, AbortSignal, AbortController, Headers, FormData, File, Request, Response } from './fetch-undici';
@@ -84,15 +85,23 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
       }
     }
 
+    let device_id: string | undefined;
     if (options.device) {
-      init.headers.set('x-rpc-device_id', options.device.id);
+      device_id = options.device.id;
       if (options.device.version) init.headers.set('x-rpc-sys_version', options.device.version);
       if (options.device.name)    init.headers.set('x-rpc-device_name', options.device.name);
       if (options.device.model)   init.headers.set('x-rpc-device_model', options.device.model);
     } else if (options.device_id) {
-      init.headers.set('x-rpc-device_id', options.device_id);
+      device_id = options.device_id;
     } else if (options.ds && options.ds.device_id) {
-      init.headers.set('x-rpc-device_id', options.ds.device_id);
+      device_id = options.ds.device_id;
+    }
+
+    if (device_id != null) {
+      if (!device_id) {
+        device_id = options.cookie ? getCookie(options.cookie, '_MHYUUID') : uuid();
+      }
+      init.headers.set('x-rpc-device_id', device_id!);
     }
 
     if (options.signal) {
@@ -145,12 +154,12 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
     }
   }
 
-  const cancelable = (options?.cookieJar ? options.cookieJar.getCookieString(url + '') : Promise.resolve())
+  const cancelable = (options && options.cookieJar ? options.cookieJar.getCookieString(url + '') : Promise.resolve())
     .then((cookie: string | void) => {
       if (cookie) {
         (init.headers! as Headers).set('Cookie', cookie);
       }
-      if (options?.resolveUrl) {
+      if (options && options.resolveUrl) {
         url = options.resolveUrl(url, options);
       }
       return fetch(url as string, init);

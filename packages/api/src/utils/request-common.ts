@@ -219,6 +219,38 @@ export function createCancelable<T>(promise: CancelableExecutor<T> | PromiseLike
   return cancelablePromise;
 }
 
+export function getCookie(cookie: RequestCookie, name: string): string | undefined {
+  if (typeof cookie === 'string') {
+    const match = cookie.match(new RegExp(`\\b${name}=([^;]+)`));
+    if (match) return match[1];
+  }
+  else if (Array.isArray(cookie)) {
+    if (typeof cookie[0] === 'string') {
+      for (let i = 0; i < cookie.length; ++i) {
+        if ((cookie[i] as string).startsWith(`${name}=`)) {
+          return (cookie[i] as string).slice(name.length + 1);
+        }
+      }
+    }
+    else if (Array.isArray(cookie[0])) {
+      for (let i = 0; i < cookie.length; ++i) {
+        if ((cookie[i] as [string, string])[0] === name) {
+          return (cookie[i] as [string, string])[1];
+        }
+      }
+    }
+    else {
+      for (let i = 0; i < cookie.length; ++i) {
+        if ((cookie[i] as { name: string, value: string }).name === name) {
+          return (cookie[i] as { name: string, value: string }).value;
+        }
+      }
+    }
+  }
+  else {
+    return cookie[name as unknown as keyof typeof cookie] as string;
+  }
+}
 
 export function extractUrlSearchParams(url: string | URL, base?: string | URL) {
   if (typeof url === 'string') {
