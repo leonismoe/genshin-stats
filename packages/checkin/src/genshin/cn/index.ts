@@ -1,4 +1,4 @@
-import { RequestCookie, UserGameRole, getUserGameRolesByCookie, getUserGameRolesByLtoken } from '@mihoyo-kit/api';
+import { RequestCookie, UserGameRole, getUserGameRolesByLtoken } from '@mihoyo-kit/api';
 import { sleep } from '../../common/utils';
 import { GenshinCheckinInfo, GenshinCheckinAwardItem } from './types';
 import { checkin, getAwards, getCheckinInfo } from './api';
@@ -10,7 +10,7 @@ export interface GenshinCheckinResult extends GenshinCheckinInfo {
 }
 
 export async function checkinGenshinCN(cookie: RequestCookie): Promise<GenshinCheckinResult> {
-  const roles = await getUserGameRolesByCookie('hk4e_cn', { cookie });
+  const roles = await getUserGameRolesByLtoken('hk4e_cn', { cookie });
   if (!roles.length) {
     throw new Error('没有找到用户角色');
   }
@@ -31,7 +31,7 @@ export async function checkinGenshinCN(cookie: RequestCookie): Promise<GenshinCh
 
   await sleep(500);
   const awards = await getAwards(cookie);
-  const award = awards[status.total_sign_day];
+  const award = awards[status.total_sign_day - 1];
 
   return {
     checkedIn,

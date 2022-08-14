@@ -31,10 +31,10 @@
     "checkin-genshin-cn": "lib/genshin/bin/checkin-cn.mjs"
   },
   "scripts": {
-    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p tsconfig.build.json -m es2015 && node post-build.mjs mjs",
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs -t es5 -d && node post-build.mjs",
-    "clean": "rimraf lib *.tsbuildinfo",
+    "clean": "rimraf lib pkg-temp *.tsbuildinfo",
     "prepublishOnly": "rimraf ./pkg-temp && clean-publish",
     "postpublish": "rimraf ./pkg-temp"
   },
