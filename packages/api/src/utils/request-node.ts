@@ -6,6 +6,8 @@ import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFu
 import hasOwn from './has-own';
 import { USER_AGENT_WINDOWS_CRHOME } from './user-agent';
 
+export { fetch, AbortSignal, AbortController, Headers, FormData, File, Request, Response } from './fetch-undici';
+
 export const request = function(url: string | URL, options?: RequestOptions): Cancelable<any> {
   if (options?.prefixUrl) {
     // implicit type conversion

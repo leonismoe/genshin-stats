@@ -3,6 +3,15 @@ import hasOwn from './has-own';
 import { getDS, getDS2, getHTTPRequestHeaders } from './get-ds';
 import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, HTTPError, RequestOptions } from './request-common';
 
+export const fetch = window.fetch;
+export const AbortController = window.AbortController;
+export const AbortSignal = window.AbortSignal;
+export const Headers = window.Headers;
+export const FormData = window.FormData;
+export const File = window.File;
+export const Request = window.Request;
+export const Response = window.Response;
+
 export const request = function(url: string | URL, options?: RequestOptions): Cancelable<any> {
   if (options?.prefixUrl) {
     // implicit type conversion

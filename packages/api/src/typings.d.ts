@@ -25,7 +25,7 @@ export interface PromiseCookieJar {
   setCookie: (rawCookie: string, url: string) => Promise<unknown>;
 }
 
-export type APIResponse<T> = {
+export interface APIResponse<T> {
   readonly data: T;
   readonly message: string;
   readonly retcode: number;
