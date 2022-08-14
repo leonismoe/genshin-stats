@@ -39,7 +39,7 @@
     "@types/html-minifier-terser": "^6.1.0",
     "@types/webextension-polyfill": "^0.9.0",
     "html-minifier-terser": "7.0.0-beta.0",
-    "rollup": "^2.77.3",
+    "rollup": "^2.78.0",
     "rollup-plugin-copy": "^3.4.0",
     "sass": "^1.54.4",
     "solid-ssr": "^1.4.8",

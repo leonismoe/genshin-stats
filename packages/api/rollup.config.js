@@ -1,6 +1,6 @@
 import { defineConfig } from 'rollup';
 import resolve from '@rollup/plugin-node-resolve';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import json from '@rollup/plugin-json';
 
 export default defineConfig([
@@ -15,7 +15,11 @@ export default defineConfig([
       resolve({
         exportConditions: ['node', 'typescript', 'require', 'default'],
       }),
-      typescript(),
+      typescript({
+        tsconfigOverride: {
+          declaration: false,
+        },
+      }),
       json(),
     ],
   },
@@ -31,7 +35,11 @@ export default defineConfig([
         browser: true,
         exportConditions: ['browser', 'typescript', 'default'],
       }),
-      typescript(),
+      typescript({
+        tsconfigOverride: {
+          declaration: false,
+        },
+      }),
       json(),
     ],
   }

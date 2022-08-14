@@ -3,7 +3,6 @@
     "target": "ESNext",
     "module": "ESNext",
     "incremental": true,
-    "declaration": true,
     "sourceMap": true,
     "composite": true,
     "strict": true,

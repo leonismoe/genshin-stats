@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/checkin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/checkin",
   "repository": "github:leonismoe/genshin-stats",
@@ -40,7 +40,7 @@
     "postpublish": "rimraf ./pkg-temp"
   },
   "dependencies": {
-    "@mihoyo-kit/api": "^0.3.13",
+    "@mihoyo-kit/api": "workspace:^",
     "undici": "^5.8.0"
   },
   "optionalDependencies": {
@@ -48,7 +48,6 @@
     "puppeteer-core": "^16.1.0"
   },
   "devDependencies": {
-    "@mihoyo-kit/api": "workspace:^",
     "@types/node": "^18.7.3",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
