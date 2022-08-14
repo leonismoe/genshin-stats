@@ -28,6 +28,7 @@
     "README.md"
   ],
   "bin": {
+    "checkin-honkai3rd-cn": "lib/honkai3rd/bin/checkin-cn.mjs",
     "checkin-genshin-cn": "lib/genshin/bin/checkin-cn.mjs"
   },
   "scripts": {
