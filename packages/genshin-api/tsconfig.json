@@ -1,19 +1,11 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "ESNext",
     "composite": true,
-    "strict": true,
-    "allowJs": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "rootDir": "src",
-    "outDir": "lib"
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./lib"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["node_modules", "test", "dist", "lib"]
 }

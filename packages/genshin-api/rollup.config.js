@@ -9,12 +9,16 @@ export default defineConfig([
       { format: 'cjs', file: 'dist/index.js' },
       { format: 'es', file: 'dist/index.mjs' },
     ],
-    external: ['@mihoyo-kit/api', '@genshin-data', 'undici'],
+    external: ['@mihoyo-kit/api', '@mihoyo-kit/genshin-data', 'undici'],
     plugins: [
       resolve({
+        modulesOnly: true,
         exportConditions: ['node', 'require', 'default'],
       }),
       typescript({
+        check: false,
+        useTsconfigDeclarationDir: true,
+        tsconfig: 'tsconfig.build.json',
         tsconfigOverride: {
           declaration: false,
         },
@@ -39,9 +43,13 @@ export default defineConfig([
     plugins: [
       resolve({
         browser: true,
+        modulesOnly: true,
         exportConditions: ['browser', 'default'],
       }),
       typescript({
+        check: false,
+        useTsconfigDeclarationDir: true,
+        tsconfig: 'tsconfig.build.json',
         tsconfigOverride: {
           declaration: false,
         },

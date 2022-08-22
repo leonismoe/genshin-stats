@@ -10,6 +10,7 @@
   "types": "src/index.ts",
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "import": "./lib/index.mjs",
       "require": "./lib/index.js",
       "default": "./lib/index.js"
@@ -17,6 +18,7 @@
     "./package.json": "./package.json",
     "./types": "./lib/types.d.ts",
     "./lib/*": {
+      "types": "./lib/*.d.ts",
       "import": "./lib/*.mjs",
       "require": "./lib/*.js",
       "default": "./lib/*.js"
@@ -45,10 +47,10 @@
   },
   "optionalDependencies": {
     "find-chrome-bin": "^1.0.2",
-    "puppeteer-core": "^16.1.0"
+    "puppeteer-core": "^16.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.7.3",
+    "@types/node": "^18.7.11",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4"
   },

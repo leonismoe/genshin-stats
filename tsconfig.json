@@ -1,19 +1,12 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "incremental": true,
-    "sourceMap": true,
-    "composite": true,
-    "strict": true,
-    "allowJs": true,
-    "moduleResolution": "node",
-    "baseUrl": "./packages",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@mihoyo-kit/*": [
+        "./packages/*/src"
+      ]
+    }
   }
 }

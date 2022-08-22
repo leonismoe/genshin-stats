@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/api",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "license": "MIT",
   "description": "Provides common request method for miHoYo API",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/api",
@@ -21,6 +21,7 @@
   },
   "exports": {
     ".": {
+      "types": "./lib/index.d.ts",
       "browser": {
         "import": "./dist/browser.mjs",
         "require": "./dist/browser.js"
@@ -33,6 +34,7 @@
     "./types": "./lib/typings.d.ts",
     "./typings": "./lib/typings.d.ts",
     "./lib/request": {
+      "types": "./lib/request.d.ts",
       "ts-node": "./src/utils/request-node.ts",
       "node": {
         "import": "./lib/utils/request-node.mjs",
@@ -50,6 +52,7 @@
       "require": "./lib/utils/request.js"
     },
     "./lib/*": {
+      "types": "./lib/*.d.ts",
       "ts-node": "./src/*.ts",
       "import": "./lib/*.mjs",
       "require": "./lib/*.js",
@@ -108,25 +111,26 @@
     "postpublish": "rimraf ./pkg-temp"
   },
   "dependencies": {
-    "@leonismoe/md5": "^1.1.0",
+    "@leonismoe/md5": "^1.2.1",
     "abort-controller": "^3.0.0"
   },
   "peerDependencies": {
+    "@leonismoe/md5": "^1.2.1",
     "abort-controller": "^3.0.0",
     "undici": "^5.8.0"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@types/node": "^18.7.3",
+    "@types/node": "^18.7.11",
     "cross-env": "^7.0.3",
     "globby": "^13.1.2",
-    "rollup": "^2.78.0",
-    "rollup-plugin-typescript2": "^0.32.1",
+    "rollup": "^2.78.1",
+    "rollup-plugin-typescript2": "^0.33.0",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
     "typescript": "^4.7.4",
-    "undici": "^5.8.2"
+    "undici": "^5.9.1"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",

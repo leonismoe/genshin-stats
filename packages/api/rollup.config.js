@@ -16,6 +16,9 @@ export default defineConfig([
         exportConditions: ['node', 'typescript', 'require', 'default'],
       }),
       typescript({
+        check: false,
+        useTsconfigDeclarationDir: true,
+        tsconfig: 'tsconfig.build.json',
         tsconfigOverride: {
           declaration: false,
         },
@@ -36,6 +39,9 @@ export default defineConfig([
         exportConditions: ['browser', 'typescript', 'default'],
       }),
       typescript({
+        check: false,
+        useTsconfigDeclarationDir: true,
+        tsconfig: 'tsconfig.build.json',
         tsconfigOverride: {
           declaration: false,
         },

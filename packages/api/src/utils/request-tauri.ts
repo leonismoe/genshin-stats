@@ -1,5 +1,5 @@
 import { invoke } from '@tauri-apps/api/tauri';
-import { buildQueryString, Cancelable, createCancelable, ExtensibleRequestFunction, RequestFunction, RequestOptions } from './request-common';
+import { buildQueryString, Cancelable, createCancelable, ExtensibleRequestFunction, RequestOptions } from './request-common';
 
 export const request = function(url: string | URL, options?: RequestOptions): Cancelable<any> {
   if (options) {

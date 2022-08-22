@@ -48,12 +48,9 @@ interface Honkai3rdBatchCheckinBaseResult {
   index: number;
   total: number;
   role: UserGameRole;
-  roles: never;
 }
 
-export interface Honkai3rdBatchCheckinSuccessResult extends Honkai3rdBatchCheckinBaseResult, Honkai3rdCheckinResult {
-  error: null;
-}
+export interface Honkai3rdBatchCheckinSuccessResult extends Honkai3rdBatchCheckinBaseResult, Honkai3rdCheckinResult {}
 
 export interface Honkai3rdBatchCheckinFailureResult extends Honkai3rdBatchCheckinBaseResult {
   error: Error;

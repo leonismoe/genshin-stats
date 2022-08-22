@@ -3,7 +3,7 @@
 import { createInterface } from 'readline';
 import { getUserGameRolesByCookieToken } from '@mihoyo-kit/api';
 import { sleep } from '../../common/utils';
-import { checkinHonkai3rdCN, batchCheckinHonkai3rdCN, Honkai3rdBatchCheckinResult } from '../cn';
+import { checkinHonkai3rdCN, batchCheckinHonkai3rdCN, Honkai3rdBatchCheckinResult, Honkai3rdCheckinPreparation, Honkai3rdBatchCheckinFailureResult } from '../cn';
 import { getAwards } from '../cn/api';
 
 (async() => {
@@ -22,7 +22,7 @@ import { getAwards } from '../cn/api';
         process.stdout.write(`[${i + 1}/${cookies.length}]\n`);
 
         const it = batchCheckinHonkai3rdCN(cookies[i]);
-        const roles = (await it.next()).value!.roles;
+        const roles = ((await it.next()).value as Honkai3rdCheckinPreparation).roles;
 
         let roleIndex = 0;
         while (true) {
@@ -40,7 +40,7 @@ import { getAwards } from '../cn/api';
           }
 
           const result = (await it.next()).value as Honkai3rdBatchCheckinResult;
-          if (result.error) {
+          if (isErrorResult(result)) {
             if (isTTY) {
               clearLine();
               process.stdout.write(`${title} 签到失败\n`);
@@ -175,4 +175,8 @@ function clearLine(stream = process.stdout) {
     stream.clearLine(0);
     stream.write('\r');
   }
+}
+
+function isErrorResult(result: Honkai3rdBatchCheckinResult): result is Honkai3rdBatchCheckinFailureResult {
+  return !!(result as Honkai3rdBatchCheckinFailureResult).error;
 }

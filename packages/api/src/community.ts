@@ -124,7 +124,7 @@ export async function checkCommunityLogin(options?: RequestOptions | null, detai
   try {
     if (await checkLToken(options)) {
       const userInfo = await getCommunityUserInfo(options);
-      const community_info = (userInfo.user_info || {}).community_info || {};
+      const community_info: CommunityUserInfo['user_info']['community_info'] = (userInfo.user_info || ({} as any)).community_info || ({} as any);
       if (community_info.has_initialized) {
         return detail ? userInfo : true;
       }
