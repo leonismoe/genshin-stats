@@ -1248,5 +1248,80 @@
     "vision": "Anemo",
     "birthday": "0724",
     "release_date": "20220713"
+  },
+  {
+    "id": 10000067,
+    "codename": "Collei",
+    "rarity": 4,
+    "name": {
+      "chs": "柯莱",
+      "cht": "柯萊",
+      "de": "Collei",
+      "en": "Collei",
+      "es": "Collei",
+      "fr": "Collei",
+      "id": "Collei",
+      "jp": "コレイ",
+      "kr": "콜레이",
+      "pt": "Collei",
+      "ru": "Коллеи",
+      "th": "Collei",
+      "vi": "Collei"
+    },
+    "assoc": "Sumeru",
+    "weapon": "Bow",
+    "vision": "Dendro",
+    "birthday": "0508",
+    "release_date": "20220824"
+  },
+  {
+    "id": 10000069,
+    "codename": "Tighnari",
+    "rarity": 5,
+    "name": {
+      "chs": "提纳里",
+      "cht": "提納里",
+      "de": "Tighnari",
+      "en": "Tighnari",
+      "es": "Tignari",
+      "fr": "Tighnari",
+      "id": "Tighnari",
+      "jp": "ティナリ",
+      "kr": "타이나리",
+      "pt": "Tighnari",
+      "ru": "Тигнари",
+      "th": "Tighnari",
+      "vi": "Tighnari"
+    },
+    "assoc": "Sumeru",
+    "weapon": "Bow",
+    "vision": "Dendro",
+    "birthday": "1229",
+    "release_date": "20220824"
+  },
+  {
+    "id": 10000068,
+    "codename": "Dori",
+    "rarity": 4,
+    "name": {
+      "chs": "多莉",
+      "cht": "多莉",
+      "de": "Dori",
+      "en": "Dori",
+      "es": "Dori",
+      "fr": "Dori",
+      "id": "Dori",
+      "jp": "ドリー",
+      "kr": "도리",
+      "pt": "Dori",
+      "ru": "Дори",
+      "th": "Dori",
+      "vi": "Dori"
+    },
+    "assoc": "Sumeru",
+    "weapon": "Claymore",
+    "vision": "Electro",
+    "birthday": "1221",
+    "release_date": "20220909"
   }
 ]
