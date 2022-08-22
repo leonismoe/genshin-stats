@@ -232,9 +232,22 @@
       "5": "9nQiU3AV0rJSIBWgdynfoGMGKaklfbM7"
     },
     "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
       "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
     }
   },
 
-  "latest": "2.34.2"
+  "2.35.2": {
+    "1": {
+      "2": "ZSHlXeQUBis52qD1kEgKt5lUYed4b7Bb",
+      "4": "r3Di5wx8mdlHD2GFxwQU9GcPDYDL1LVS",
+      "5": "N50pqm7FSy2AkFz2B3TqtuZMJ5TOl3Ep"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.35.2"
 }
