@@ -57,6 +57,10 @@ export default () => {
               <p class="stat-value">{store.stats!.stats.electroculus_number}</p>
               <p class="stat-title">雷神瞳</p>
             </li>
+            <li style="grid-row: 2">
+              <p class="stat-value">{store.stats!.stats.dendroculus_number}</p>
+              <p class="stat-title">草神瞳</p>
+            </li>
 
             <li style="grid-row: 3">
               <p class="stat-value">{store.stats!.stats.luxurious_chest_number}</p>
