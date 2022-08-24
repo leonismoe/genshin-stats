@@ -49,9 +49,10 @@ export interface Home {
 export interface Statistics {
   /** 活跃天数 */          active_day_number: number;
   /** 成就达成数 */        achievement_number: number;
-  /**  */                  win_rate: number;
   /** 风神瞳 */            anemoculus_number: number;
   /** 岩神瞳 */            geoculus_number: number;
+  /** 雷神瞳 */            electroculus_number: number;
+  /** 草神瞳 */            dendroculus_number: number;
   /** 获得角色数 */        avatar_number: number;
   /** 解锁传送点 */        way_point_number: number;
   /** 解锁秘境 */          domain_number: number;
@@ -60,15 +61,21 @@ export interface Statistics {
   /** 华丽宝箱数 */        luxurious_chest_number: number;
   /** 精致宝箱数 */        exquisite_chest_number: number;
   /** 普通宝箱数 */        common_chest_number: number;
-  /** 雷神瞳 */            electroculus_number: number;
   /** 奇馈宝箱数 */        magic_chest_number: number;
+}
+
+export interface GameRole {
+  AvatarUrl: string;
+  level: number;
+  nickname: string;
+  region: string;
 }
 
 /**
  * 原神游戏数据总览
  */
 export interface GameStats {
-  /**  */         role: unknown;
+  /**  */         role: GameRole;
   /** 角色列表 */ avatars: Character[];
   /** 游戏统计 */ stats: Statistics;
   /** 主城探索 */ city_explorations: CityExploration[];

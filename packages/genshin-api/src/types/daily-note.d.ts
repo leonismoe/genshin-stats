@@ -27,6 +27,8 @@ interface Expedition {
 }
 
 interface TransformerStatus {
+  latest_job_id: string; // number
+  noticed: boolean;
   /** 是否已获得道具 */
   obtained: boolean;
   /** 剩余冷却时间 */
