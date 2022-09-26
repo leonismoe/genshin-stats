@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/genshin-data",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "license": "MIT",
   "description": "Genshin Impact data",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-data",
