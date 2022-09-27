@@ -14,6 +14,27 @@ export interface GenshinCheckinAwardItem {
   readonly name: string;
 }
 
+export interface GenshinCheckinExtraAwards {
+  awards: GenshinCheckinExtraAwardItem[];
+  has_short_act: boolean;
+  start_timestamp: string; // number
+  end_timestamp: string; // number
+  total_cnt: number;
+  login: boolean;
+  mc: {
+    has_month_card: boolean;
+    start_time: string;
+    open_time: string;
+    end_time: string;
+    status: string;
+  };
+}
+
+export interface GenshinCheckinExtraAwardItem extends GenshinCheckinAwardItem {
+  id: number;
+  sign_day: number;
+}
+
 export interface GenshinCheckinInfo {
   readonly first_bind: boolean;
   readonly is_sign: boolean;

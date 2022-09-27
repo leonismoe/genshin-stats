@@ -4,6 +4,7 @@ import {
   GeeTestResponse as GeetestResponse,
   GenshinCheckinAwardItem,
   GenshinCheckinAwards,
+  GenshinCheckinExtraAwards,
   GenshinCheckinInfo,
   GenshinServerRegion,
 } from './types';
@@ -17,6 +18,21 @@ export async function getAwards(): Promise<readonly GenshinCheckinAwardItem[]> {
     responseType: 'json',
     resolveBodyOnly: true,
   }).then(res => res.awards);
+}
+
+export async function getExtraAwards(): Promise<GenshinCheckinExtraAwards>;
+export async function getExtraAwards(cookie: RequestCookie, uid: number | string, region?: MixedValuesOfEnum<GenshinServerRegion> | string): Promise<GenshinCheckinExtraAwards>;
+export async function getExtraAwards(cookie?: RequestCookie, uid?: number | string, region: string = GenshinServerRegion.OFFICIAL): Promise<GenshinCheckinExtraAwards> {
+  let url = `${API_PREFIX}/extra_award?act_id=${ACT_ID}`;
+  if (cookie && uid) {
+    url += `&region=${region}&uid=${uid}`;
+  }
+
+  return request<GenshinCheckinExtraAwards>(url, {
+    responseType: 'json',
+    resolveBodyOnly: true,
+    cookie,
+  });
 }
 
 export function getCheckinInfo(cookie: RequestCookie, uid: number | string, region: MixedValuesOfEnum<GenshinServerRegion> | string = GenshinServerRegion.OFFICIAL): Promise<GenshinCheckinInfo> {

@@ -1,12 +1,14 @@
 import { RequestCookie, UserGameRole, getUserGameRolesByLtoken } from '@mihoyo-kit/api';
 import { sleep } from '../../common/utils';
-import { GenshinCheckinInfo, GenshinCheckinAwardItem } from './types';
-import { checkin, getAwards, getCheckinInfo } from './api';
+import { GenshinCheckinInfo, GenshinCheckinAwardItem, GenshinCheckinExtraAwardItem, GenshinCheckinExtraAwards } from './types';
+import { checkin, getAwards, getCheckinInfo, getExtraAwards } from './api';
 
 export interface GenshinCheckinResult extends GenshinCheckinInfo {
   checkedIn: boolean;
   role: UserGameRole;
   award: GenshinCheckinAwardItem;
+  extraAward: GenshinCheckinExtraAwardItem | null;
+  monthCard: GenshinCheckinExtraAwards['mc'] | null;
 }
 
 export async function checkinGenshinCN(cookie: RequestCookie, awards?: readonly GenshinCheckinAwardItem[]): Promise<GenshinCheckinResult> {
@@ -29,6 +31,7 @@ export async function checkinGenshinCN(cookie: RequestCookie, awards?: readonly 
       status = await checkin(cookie, role.game_uid, role.region);
     } catch (e: unknown) {
       if (e && (e as Error).message === '账号被风控') {
+        await sleep(500);
         status = await getCheckinInfo(cookie, role.game_uid, role.region);
         if (!status.is_sign) {
           throw e;
@@ -45,12 +48,22 @@ export async function checkinGenshinCN(cookie: RequestCookie, awards?: readonly 
     awards = await getAwards();
   }
 
+  let extraAward: GenshinCheckinExtraAwardItem | null = null;
+  let monthCard: GenshinCheckinExtraAwards['mc'] | null = null;
+  const extraAwards = await getExtraAwards(cookie, role.game_uid, role.region);
+  if (extraAwards.login && extraAwards.has_short_act) {
+    extraAward = extraAwards.awards[extraAwards.total_cnt - 1] || null;
+    monthCard = extraAwards.mc;
+  }
+
   const award = awards[status.total_sign_day - 1];
 
   return {
     checkedIn,
     role,
     award,
+    extraAward,
+    monthCard,
     ...status,
   };
 }

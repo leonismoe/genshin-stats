@@ -41,6 +41,10 @@ import { getAwards } from '../cn/api';
         }
         process.stdout.write(`   签到奖励: ${res.award.name} x ${res.award.cnt}\n`);
 
+        if (res.extraAward) {
+          process.stdout.write(`   额外奖励: ${res.extraAward.name} x ${res.extraAward.cnt}\n`);
+        }
+
       } catch (e) {
         if (isTTY) {
           clearLine();
@@ -83,6 +87,10 @@ import { getAwards } from '../cn/api';
 
           process.stdout.write(`:: ${roleText} ${checkInStatusText}\n`);
           process.stdout.write(`   签到奖励: ${res.award.name} x ${res.award.cnt}\n`);
+
+          if (res.extraAward) {
+            process.stdout.write(`   额外奖励: ${res.extraAward.name} x ${res.extraAward.cnt}\n`);
+          }
 
         } catch (e) {
           process.stdout.write(':: 签到失败\n');
