@@ -27,19 +27,10 @@ export async function checkinGenshinCN(cookie: RequestCookie, awards?: readonly 
   let checkedIn = false;
   if (!status.is_sign) {
     await sleep(500);
-    try {
-      status = await checkin(cookie, role.game_uid, role.region);
-    } catch (e: unknown) {
-      if (e && (e as Error).message === '账号被风控') {
-        await sleep(500);
-        status = await getCheckinInfo(cookie, role.game_uid, role.region);
-        if (!status.is_sign) {
-          throw e;
-        }
-      } else {
-        throw e;
-      }
-    }
+    await checkin(cookie, role.game_uid, role.region);
+
+    await sleep(700);
+    status = await getCheckinInfo(cookie, role.game_uid, role.region);
     checkedIn = true;
   }
 

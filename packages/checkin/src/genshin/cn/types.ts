@@ -45,10 +45,24 @@ export interface GenshinCheckinInfo {
   readonly total_sign_day: number;
 }
 
-export interface GeeTestResponse {
+export interface GeetestChallenge {
   code: string; // empty
   risk_code: number;
   gt: string;
   challenge: string;
   success: number;
 }
+
+export type GeetestValidation =
+  | {
+      result: 'success';
+      validate: string;
+      score: number;
+    }
+  | {
+      result: 'slide';
+    }
+  | {
+      result: string;
+      [name: string]: unknown;
+    };

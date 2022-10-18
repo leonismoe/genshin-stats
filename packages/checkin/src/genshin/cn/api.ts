@@ -1,7 +1,9 @@
 import { request, uuid, APIClientType, RequestCookie } from '@mihoyo-kit/api';
+import { sleep } from '../../common/utils/sleep';
 import { MixedValuesOfEnum } from '../../common/types';
 import {
-  GeeTestResponse as GeetestResponse,
+  GeetestChallenge,
+  GeetestValidation,
   GenshinCheckinAwardItem,
   GenshinCheckinAwards,
   GenshinCheckinExtraAwards,
@@ -43,7 +45,7 @@ export function getCheckinInfo(cookie: RequestCookie, uid: number | string, regi
   });
 }
 
-export async function checkin(cookie: RequestCookie, uid: number | string, region: MixedValuesOfEnum<GenshinServerRegion> | string = GenshinServerRegion.OFFICIAL): Promise<GenshinCheckinInfo> {
+export async function checkin(cookie: RequestCookie, uid: number | string, region: MixedValuesOfEnum<GenshinServerRegion> | string = GenshinServerRegion.OFFICIAL): Promise<void> {
   let mhyUuid: string;
   if (typeof cookie === 'string') {
     const match = cookie.match(/_MHYUUID=([^;]+);/);
@@ -52,7 +54,7 @@ export async function checkin(cookie: RequestCookie, uid: number | string, regio
     mhyUuid = uuid();
   }
 
-  const result = await request<GenshinCheckinInfo>(`${API_PREFIX}/sign`, {
+  const reqOptions = {
     method: 'POST',
     client_type: APIClientType.WEBVIEW,
     responseType: 'json',
@@ -72,11 +74,56 @@ export async function checkin(cookie: RequestCookie, uid: number | string, regio
       region: region,
       uid: '' + uid,
     },
-  });
+  } as const;
 
-  if ((result as unknown as GeetestResponse).risk_code != null) {
-    throw new Error('账号被风控');
+  let result = await request<GenshinCheckinInfo>(`${API_PREFIX}/sign`, reqOptions);
+
+  if ((result as unknown as GeetestChallenge).risk_code) {
+    const challenge = result as unknown as GeetestChallenge;
+    if (challenge.risk_code === 375) {
+      const callback = `geetest_${Date.now()}`;
+
+      let geetest: GeetestValidation | null = null;
+      try {
+        const response = await request('https://api.geetest.com/ajax.php', {
+          resolveBodyOnly: true,
+          responseType: 'text',
+          searchParams: {
+            gt: challenge.gt,
+            challenge: challenge.challenge,
+            lang: 'zh-cn',
+            pt: 3,
+            client_type: 'web_mobile',
+            callback,
+          },
+          headers: {
+            Origin: 'https://webstatic.mihoyo.com',
+            Referer: 'https://webstatic.mihoyo.com/',
+          },
+        });
+
+        const data = JSON.parse(response.slice(callback.length + 1, -1)) as { status: string; data: GeetestValidation };
+        if (data.status === 'success') {
+          geetest = data.data;
+        }
+      } catch (e) {
+        // DO NOTHING
+      }
+
+      if (geetest && geetest.result === 'success') {
+        reqOptions.headers['x-rpc-challenge'] = challenge.challenge;
+        reqOptions.headers['x-rpc-validate'] = geetest.validate;
+        reqOptions.headers['x-rpc-seccode'] = `${geetest.validate}|jordan`;
+
+        await sleep(2000);
+        result = await request<GenshinCheckinInfo>(`${API_PREFIX}/sign`, reqOptions);
+
+        if (!(result as unknown as GeetestChallenge).risk_code) {
+          return;
+        }
+      }
+    }
+
+    throw new Error('本次签到操作被风控');
   }
-
-  return result;
 }
