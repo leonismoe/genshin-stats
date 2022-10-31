@@ -1398,5 +1398,55 @@
     "vision": "Hydro",
     "birthday": "1203",
     "release_date": "20221014"
+  },
+  {
+    "id": 10000073,
+    "codename": "Nahida",
+    "rarity": 5,
+    "name": {
+      "chs": "纳西妲",
+      "cht": "納西妲",
+      "de": "Nahida",
+      "en": "Nahida",
+      "es": "Nahida",
+      "fr": "Nahida",
+      "id": "Nahida",
+      "jp": "ナヒーダ",
+      "kr": "나히다",
+      "pt": "Nahida",
+      "ru": "Нахида",
+      "th": "Nahida",
+      "vi": "Nahida"
+    },
+    "assoc": "Sumeru",
+    "weapon": "Catalyst",
+    "vision": "Dendro",
+    "birthday": "1027",
+    "release_date": "20221101"
+  },
+  {
+    "id": 10000074,
+    "codename": "Layla",
+    "rarity": 4,
+    "name": {
+      "chs": "莱依拉",
+      "cht": "萊依拉",
+      "de": "Layla",
+      "en": "Layla",
+      "es": "Laila",
+      "fr": "Layla",
+      "id": "Layla",
+      "jp": "レイラ",
+      "kr": "레일라",
+      "pt": "Layla",
+      "ru": "Лайла",
+      "th": "Layla",
+      "vi": "Layla"
+    },
+    "assoc": "Sumeru",
+    "weapon": "Sword",
+    "vision": "Cryo",
+    "birthday": "1219",
+    "release_date": "20221118"
   }
 ]
