@@ -273,5 +273,22 @@
     }
   },
 
-  "latest": "2.38.1"
+  "2.40.0": {
+    "1": {
+      "4": "ophLRcagGk4CIZ1jAzfwUTcA2XWYYico"
+    }
+  },
+
+  "2.40.1": {
+    "1": {
+      "2": "fdv0fY9My9eA7MR0NpjGP9RjueFvjUSQ",
+      "5": "jEpJb9rRARU2rXDA9qYbZ3selxkuct9a"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.40.1"
 }
