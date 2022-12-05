@@ -1448,5 +1448,55 @@
     "vision": "Cryo",
     "birthday": "1219",
     "release_date": "20221118"
+  },
+  {
+    "id": 10000075,
+    "codename": "Wanderer",
+    "rarity": 5,
+    "name": {
+      "chs": "流浪者",
+      "cht": "流浪者",
+      "de": "Wanderer",
+      "en": "Wanderer",
+      "es": "Trotamundos",
+      "fr": "Nomade",
+      "id": "Wanderer",
+      "jp": "放浪者",
+      "kr": "방랑자",
+      "pt": "Andarilho",
+      "ru": "Странник",
+      "th": "ผู้พเนจร",
+      "vi": "Kẻ Lang Thang"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Catalyst",
+    "vision": "Anemo",
+    "birthday": "0103",
+    "release_date": "20221207"
+  },
+  {
+    "id": 10000076,
+    "codename": "Faruzan",
+    "rarity": 4,
+    "name": {
+      "chs": "珐露珊",
+      "cht": "琺露珊",
+      "de": "Faruzan",
+      "en": "Faruzan",
+      "es": "Faruzán",
+      "fr": "Faruzan",
+      "id": "Faruzan",
+      "jp": "ファルザン",
+      "kr": "파루잔",
+      "pt": "Faruzan",
+      "ru": "Фарузан",
+      "th": "Faruzan",
+      "vi": "Faruzan"
+    },
+    "assoc": "Sumeru",
+    "weapon": "Bow",
+    "vision": "Anemo",
+    "birthday": "0820",
+    "release_date": "20221207"
   }
 ]
