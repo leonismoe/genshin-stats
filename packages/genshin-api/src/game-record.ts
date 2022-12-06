@@ -1,6 +1,6 @@
 import { APIClientType, WrapWithKey, request, RequestOptions } from '@mihoyo-kit/api';
 import { getServerRegionByUid } from '@mihoyo-kit/genshin-data';
-import { SpiralAbyssScheduleType } from './constants';
+import { MIHOYO_COMMUNITY_GAME_RECORDS_VERSION, SpiralAbyssScheduleType } from './constants';
 import { GameStats, CharacterDetail, Character, SpiralAbyssData } from './types';
 
 /**
@@ -17,6 +17,9 @@ export function getGenshinGameStats(role_id: number | string, options?: RequestO
     responseType: 'json',
     resolveBodyOnly: true,
     ds2: true,
+    headers: {
+      'x-rpc-page': `${MIHOYO_COMMUNITY_GAME_RECORDS_VERSION}_#/ys`,
+    },
   });
 }
 
@@ -35,6 +38,9 @@ export function getSpiralAbyssData(role_id: number | string, schedule_type = Spi
     responseType: 'json',
     resolveBodyOnly: true,
     ds2: true,
+    headers: {
+      'x-rpc-page': `${MIHOYO_COMMUNITY_GAME_RECORDS_VERSION}_#/ys`,
+    },
   });
 }
 
@@ -65,6 +71,9 @@ export async function getPlayerCharacterDetails(role_id: number | string, data: 
     resolveBodyOnly: true,
     client_type: APIClientType.WEBVIEW,
     ds2: true,
+    headers: {
+      'x-rpc-page': `${MIHOYO_COMMUNITY_GAME_RECORDS_VERSION}_#/ys`,
+    },
     json: {
       character_ids: character_ids,
       role_id: '' + role_id,

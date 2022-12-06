@@ -58,3 +58,5 @@ export enum SpiralAbyssScheduleType {
   /** 本期 */ CURRENT = 1,
   /** 上期 */ PREVIOUS = 2,
 }
+
+export const MIHOYO_COMMUNITY_GAME_RECORDS_VERSION = '3.1.3';
