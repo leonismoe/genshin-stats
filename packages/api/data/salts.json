@@ -290,5 +290,34 @@
     }
   },
 
-  "latest": "2.40.1"
+  "2.41.2": {
+    "1": {
+      "2": "TsmyHpZg8gFAVKTtlPaL6YwMldzxZJxQ",
+      "4": "e1CNGQ6Ez8UuuIfOF9FtY7CUizUUOcEY",
+      "5": "osgT0DljLarYxgebPPHJFjdaxPfoiHGt"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "2.43.0": {
+    "1": {
+      "4": "mY3gFXveuH8Viwp9Ltvq90GZZubsI9xw"
+    }
+  },
+
+  "2.43.1": {
+    "1": {
+      "2": "ODzG1Jrn6zebX19VRmaJwjFI2CDvBUGq",
+      "5": "V1PYbXKQY7ysdx3MNCcNbsE1LtY2QZpW"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.43.1"
 }
