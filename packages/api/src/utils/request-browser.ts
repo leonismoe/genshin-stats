@@ -2,8 +2,20 @@ import type { APIResponse, AccountAPIResponse, DSOptions } from '../typings';
 import hasOwn from './has-own';
 import { getDS, getDS2, getHTTPRequestHeaders } from './get-ds';
 import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, HTTPError, RequestOptions } from './request-common';
+import sleep from './sleep';
 
-export const fetch = window.fetch;
+export const fetch: typeof globalThis['fetch'] = function(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+  if (!/\.(mihoyo|hoyolab)\.com|localhost$/.test(window.location.hostname) && window.fetch.toString().includes('native code')) {
+    return sleep(1000).then(() => {
+      if (window.fetch.toString().includes('native code')) {
+        return Promise.reject(new TypeError('Failed to fetch'));
+      } else {
+        return window.fetch(input, init);
+      }
+    });
+  }
+  return window.fetch(input, init);
+};
 export const AbortController = window.AbortController;
 export const AbortSignal = window.AbortSignal;
 export const Headers = window.Headers;
@@ -40,6 +52,13 @@ export const request = function(url: string | URL, options?: RequestOptions): Ca
 
     if (options.followRedirect === false) {
       init.redirect = 'manual';
+    }
+
+    if (options.referrer) {
+      init.referrer = options.referrer;
+    }
+    if (options.referrerPolicy) {
+      init.referrerPolicy = options.referrerPolicy;
     }
 
     let content_type: string | undefined;

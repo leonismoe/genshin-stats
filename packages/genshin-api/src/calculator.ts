@@ -18,7 +18,7 @@ export function getAvatarsFromCalculator(uid?: number | string | RequestOptions,
     return getList<Calculator.Avatar>(`${BASE_URL}/avatar/list`, payload, options);
 
   } else {
-    payload.uid = '' + uid;
+    payload.uid = `${uid}`;
     payload.region = getServerRegionByUid(uid);
     return getList<Calculator.AvatarWithLevel>(`${BASE_URL}/sync/avatar/list`, payload, options);
   }
@@ -32,6 +32,11 @@ export function getAvatarDetailFromCalculator(uid: number | string, avatar_id: n
       uid,
       region: getServerRegionByUid(uid),
     },
+    headers: {
+      Origin: 'https://webstatic.mihoyo.com',
+      Referer: 'https://webstatic.mihoyo.com/',
+    },
+    referrer: 'https://webstatic.mihoyo.com/',
     credentials: 'same-origin',
     responseType: 'json',
     resolveBodyOnly: true,
@@ -50,6 +55,11 @@ export function getAvatarSkills(avatar_id: number | string, uid?: number | strin
     searchParams: {
       avatar_id,
     },
+    headers: {
+      Origin: 'https://webstatic.mihoyo.com',
+      Referer: 'https://webstatic.mihoyo.com/',
+    },
+    referrer: 'https://webstatic.mihoyo.com/',
     credentials: 'same-origin',
     responseType: 'json',
     resolveBodyOnly: true,
@@ -69,6 +79,11 @@ async function getList<T>(url: string, payload: object, options?: RequestOptions
       credentials: 'same-origin',
       responseType: 'json',
       resolveBodyOnly: true,
+      referrer: 'https://webstatic.mihoyo.com/',
+      headers: {
+        Origin: 'https://webstatic.mihoyo.com',
+        Referer: 'https://webstatic.mihoyo.com/',
+      },
       json: {
         ...payload,
         page: ++page,
