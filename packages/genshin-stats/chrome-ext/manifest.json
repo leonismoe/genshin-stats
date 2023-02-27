@@ -12,11 +12,19 @@
   },
   "permissions": [
     "activeTab",
+    "declarativeNetRequest",
     "storage"
   ],
   "host_permissions": [
     "*://*.mihoyo.com/"
   ],
+  "declarative_net_request" : {
+    "rule_resources" : [{
+      "id": "api-takumi",
+      "enabled": true,
+      "path": "rules-api-takumi.json"
+    }]
+  },
   "action": {
     "default_title": "打开或截图原神数据查询页面",
     "default_icon": "assets/images/paimon-128.png"

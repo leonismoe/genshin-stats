@@ -5,7 +5,7 @@ import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFu
 import sleep from './sleep';
 
 export const fetch: typeof globalThis['fetch'] = function(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
-  if (!/\.(mihoyo|hoyolab)\.com|localhost$/.test(window.location.hostname) && window.fetch.toString().includes('native code')) {
+  if (/^https?/.test(window.location.protocol) && !/\.(mihoyo|hoyolab)\.com|localhost$/.test(window.location.hostname) && window.fetch.toString().includes('native code')) {
     return sleep(1000).then(() => {
       if (window.fetch.toString().includes('native code')) {
         return Promise.reject(new TypeError('Failed to fetch'));

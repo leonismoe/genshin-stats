@@ -1,0 +1,16 @@
+[
+  {
+    "id" : 1,
+    "priority": 1,
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { "operation": "set", "header": "Origin", "value": "https://webstatic.mihoyo.com" },
+        { "operation": "set", "header": "Referer", "value": "https://webstatic.mihoyo.com/" }
+      ]
+    },
+    "condition": {
+      "requestDomains": ["api-takumi.mihoyo.com", "api-takumi-record.mihoyo.com"]
+    }
+  }
+]
