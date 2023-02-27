@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/genshin-data",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "license": "MIT",
   "description": "Genshin Impact data",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-data",
@@ -39,7 +39,7 @@
     "postpublish": "rimraf ./pkg-temp"
   },
   "devDependencies": {
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   },
   "publishConfig": {
     "directory": "pkg-temp",

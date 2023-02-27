@@ -1672,5 +1672,59 @@
     "vision": "Dendro",
     "birthday": "0211",
     "release_date": "20230117"
+  },
+  {
+    "id": 10000079,
+    "codename": "Dehya",
+    "rarity": 5,
+    "name": {
+      "chs": "迪希雅",
+      "cht": "迪希雅",
+      "de": "Dehya",
+      "en": "Dehya",
+      "es": "Dehya",
+      "fr": "Dehya",
+      "id": "Dehya",
+      "it": "Dehya",
+      "jp": "ディシア",
+      "kr": "데히야",
+      "pt": "Dehya",
+      "ru": "Дэхья",
+      "th": "Dehya",
+      "tr": "Dehya",
+      "vi": "Dehya"
+    },
+    "assoc": "Sumeru",
+    "weapon": "Claymore",
+    "vision": "Pyro",
+    "birthday": "0407",
+    "release_date": "20230228"
+  },
+  {
+    "id": 10000080,
+    "codename": "Mika",
+    "rarity": 4,
+    "name": {
+      "chs": "米卡",
+      "cht": "米卡",
+      "de": "Mika",
+      "en": "Mika",
+      "es": "Mika",
+      "fr": "Mika",
+      "id": "Mika",
+      "it": "Mika",
+      "jp": "ミカ",
+      "kr": "미카",
+      "pt": "Mika",
+      "ru": "Мика",
+      "th": "Mika",
+      "tr": "Mika",
+      "vi": "Mika"
+    },
+    "assoc": "Mondstadt",
+    "weapon": "Polearm",
+    "vision": "Cryo",
+    "birthday": "0811",
+    "release_date": "20230321"
   }
 ]
