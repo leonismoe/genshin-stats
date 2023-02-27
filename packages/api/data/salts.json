@@ -319,5 +319,16 @@
     }
   },
 
-  "latest": "2.43.1"
+  "2.44.1": {
+    "1": {
+      "2": "dZAwGk4e9aC0MXXItkwnHamjA1x30IYw",
+      "5": "IEIZiKYaput2OCKQprNuGsog1NZc1FkS"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.44.1"
 }
