@@ -38,11 +38,9 @@
     "prepublishOnly": "rimraf ./pkg-temp && clean-publish",
     "postpublish": "rimraf ./pkg-temp"
   },
-  "devDependencies": {
-    "typescript": "^4.9.5"
-  },
   "publishConfig": {
     "directory": "pkg-temp",
+    "linkDirectory": false,
     "access": "public"
   }
 }

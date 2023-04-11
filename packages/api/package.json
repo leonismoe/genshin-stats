@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/api",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "license": "MIT",
   "description": "Provides common request method for miHoYo API",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/api",
@@ -121,20 +121,21 @@
   },
   "devDependencies": {
     "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@types/node": "^18.14.2",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@types/node": "^18.15.11",
     "cross-env": "^7.0.3",
-    "globby": "^13.1.3",
-    "rollup": "^3.17.3",
+    "globby": "^13.1.4",
+    "rollup": "^3.20.2",
     "rollup-plugin-typescript2": "^0.34.1",
     "ts-node": "^10.9.1",
     "tslib": "^2.5.0",
-    "typescript": "^4.9.5",
-    "undici": "^5.20.0"
+    "typescript": "^5.0.4",
+    "undici": "^5.21.2"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",
     "directory": "pkg-temp",
+    "linkDirectory": false,
     "access": "public"
   }
 }

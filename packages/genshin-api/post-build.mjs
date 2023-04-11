@@ -2,7 +2,7 @@ import { existsSync, statSync } from 'fs';
 import { readdir, stat, rename, unlink, readFile, writeFile, copyFile } from 'fs/promises';
 import { dirname, resolve } from 'path';
 import { globby } from 'globby';
-import mkdirp from 'mkdirp';
+import { mkdirp } from 'mkdirp';
 import ts from 'typescript';
 
 function fileExists(path) {
@@ -26,9 +26,9 @@ async function rename_js_files(dir, extension) {
 
               const target = resolve(dir, imports);
               if (existsSync(target) && statSync(target).isDirectory()) {
-                node.moduleSpecifier.text = imports + '/index.' + extension;
+                node.moduleSpecifier.text = `${imports}/index.${extension}`;
               } else {
-                node.moduleSpecifier.text = imports + '.' + extension;
+                node.moduleSpecifier.text = `${imports}.${extension}`;
               }
             }
           }
