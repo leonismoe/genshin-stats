@@ -1726,5 +1726,59 @@
     "vision": "Cryo",
     "birthday": "0811",
     "release_date": "20230321"
+  },
+  {
+    "id": 10000081,
+    "codename": "Kaveh",
+    "rarity": 4,
+    "name": {
+      "chs": "卡维",
+      "cht": "卡維",
+      "de": "Kaveh",
+      "en": "Kaveh",
+      "es": "Kaveh",
+      "fr": "Kaveh",
+      "id": "Kaveh",
+      "it": "Kaveh",
+      "jp": "カーヴェ",
+      "kr": "카베",
+      "pt": "Kaveh",
+      "ru": "Кавех",
+      "th": "Kaveh",
+      "tr": "Kaveh",
+      "vi": "Kaveh"
+    },
+    "assoc": "Sumeru",
+    "weapon": "Claymore",
+    "vision": "Dendro",
+    "birthday": "0709",
+    "release_date": "20230502"
+  },
+  {
+    "id": 10000082,
+    "codename": "Baizhuer",
+    "rarity": 5,
+    "name": {
+      "chs": "白术",
+      "cht": "白朮",
+      "de": "Baizhu",
+      "en": "Baizhu",
+      "es": "Baizhu",
+      "fr": "Baizhu",
+      "id": "Baizhu",
+      "it": "Baizhu",
+      "jp": "白朮",
+      "kr": "백출",
+      "pt": "Baizhu",
+      "ru": "Бай Чжу",
+      "th": "Baizhu",
+      "tr": "Baizhu",
+      "vi": "Baizhu"
+    },
+    "assoc": "Liyue",
+    "weapon": "Catalyst",
+    "vision": "Dendro",
+    "birthday": "0425",
+    "release_date": "20230502"
   }
 ]
