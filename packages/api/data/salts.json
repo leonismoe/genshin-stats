@@ -33,5 +33,17 @@
     }
   },
 
-  "latest": "2.48.1"
+  "2.50.1": {
+    "1": {
+      "2": "A4lPYtN0KGRVwE5M5Fm0DqQiC5VVMVM3",
+      "4": "8zVbyOsH5ldvcwJcOdc2Bu82Hb3UkBeb",
+      "5": "kkFiNdhyHqZ1VnDRHnU1podIvO4eiHcs"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.50.1"
 }
