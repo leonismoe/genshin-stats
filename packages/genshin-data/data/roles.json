@@ -1780,5 +1780,32 @@
     "vision": "Dendro",
     "birthday": "0425",
     "release_date": "20230502"
+  },
+  {
+    "id": 10000061,
+    "codename": "Momoka",
+    "rarity": 4,
+    "name": {
+      "chs": "绮良良",
+      "cht": "綺良良",
+      "de": "Kirara",
+      "en": "Kirara",
+      "es": "Kirara",
+      "fr": "Kirara",
+      "id": "Kirara",
+      "it": "Kirara",
+      "jp": "綺良々",
+      "kr": "키라라",
+      "pt": "Kirara",
+      "ru": "Кирара",
+      "th": "Kirara",
+      "tr": "Kirara",
+      "vi": "Kirara"
+    },
+    "assoc": "Inazuma",
+    "weapon": "Sword",
+    "vision": "Dendro",
+    "birthday": "0122",
+    "release_date": "20230523"
   }
 ]
