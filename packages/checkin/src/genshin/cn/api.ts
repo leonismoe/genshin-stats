@@ -72,7 +72,7 @@ export async function checkin(cookie: RequestCookie, uid: number | string, regio
     json: {
       act_id: ACT_ID,
       region: region,
-      uid: '' + uid,
+      uid: `${uid}`,
     },
   } as const;
 
