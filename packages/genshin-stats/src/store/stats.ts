@@ -177,7 +177,7 @@ function createStatStore() {
             fetter: NaN,
             actived_constellation_num: NaN,
             release_date: role.release_date,
-            image: `https://upload-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_${role.codename}.png`,
+            image: role.avatar || `https://upload-bbs.mihoyo.com/game_record/genshin/character_icon/UI_AvatarIcon_${role.codename}.png`,
             card_image: `https://upload-bbs.mihoyo.com/game_record/genshin/character_card_icon/UI_AvatarIcon_${role.codename}_Card.png`,
             is_chosen: false,
           });

@@ -27,4 +27,5 @@ export interface RoleItem {
   weapon: GenshinWeaponType;
   birthday: string;
   release_date: string;
+  avatar: string;
 }

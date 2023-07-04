@@ -24,7 +24,8 @@
     "weapon": "Sword",
     "vision": "Anemo",
     "birthday": "0314",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://uploadstatic.mihoyo.com/hk4e/e20200928calculate/common/qin_a66a25719b062d5e0f8a7271649a6be9.png"
   },
   {
     "id": 10000006,
@@ -51,7 +52,8 @@
     "weapon": "Catalyst",
     "vision": "Electro",
     "birthday": "0609",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/6b3c867bb0fc0fe98cbe71c03fa044c1.png"
   },
   {
     "id": 10000014,
@@ -78,7 +80,8 @@
     "weapon": "Catalyst",
     "vision": "Hydro",
     "birthday": "0705",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/cdbf53aa7df8199337d8aa63170bf994.png"
   },
   {
     "id": 10000015,
@@ -105,7 +108,8 @@
     "weapon": "Sword",
     "vision": "Cryo",
     "birthday": "1130",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/220dbf384d95b6b9dcce4bbf7c9d5316.png"
   },
   {
     "id": 10000016,
@@ -132,7 +136,8 @@
     "weapon": "Claymore",
     "vision": "Pyro",
     "birthday": "0430",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/6d4007f8305ebdd688431eb852f09167.png"
   },
   {
     "id": 10000020,
@@ -159,7 +164,8 @@
     "weapon": "Claymore",
     "vision": "Electro",
     "birthday": "0909",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/df3a50fede62ba707cc7087d0378a8be.png"
   },
   {
     "id": 10000021,
@@ -186,7 +192,8 @@
     "weapon": "Bow",
     "vision": "Pyro",
     "birthday": "0810",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://uploadstatic.mihoyo.com/hk4e/e20200928calculate/common/ambor_48e38b5882f6f03c35aa39aa34c4736b.png"
   },
   {
     "id": 10000022,
@@ -213,7 +220,8 @@
     "weapon": "Bow",
     "vision": "Anemo",
     "birthday": "0616",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/49e3dbad898dbfbef8f7fa4594e6cf85.png"
   },
   {
     "id": 10000023,
@@ -240,7 +248,8 @@
     "weapon": "Polearm",
     "vision": "Pyro",
     "birthday": "1102",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/b7e1bda8e836cd7af5b191c056f0a03d.png"
   },
   {
     "id": 10000024,
@@ -267,7 +276,8 @@
     "weapon": "Claymore",
     "vision": "Electro",
     "birthday": "0214",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/a485de170fc967c1da70dfa242e639c5.png"
   },
   {
     "id": 10000025,
@@ -294,7 +304,8 @@
     "weapon": "Sword",
     "vision": "Hydro",
     "birthday": "1009",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/56531fe27f0ff38a11f258c7f8096cc7.png"
   },
   {
     "id": 10000027,
@@ -321,7 +332,8 @@
     "weapon": "Catalyst",
     "vision": "Geo",
     "birthday": "0826",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/95436a891847898702b01e8fb2076972.png"
   },
   {
     "id": 10000029,
@@ -348,7 +360,8 @@
     "weapon": "Catalyst",
     "vision": "Pyro",
     "birthday": "0727",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/70a2303ce10906bc294f4e8be68d9b67.png"
   },
   {
     "id": 10000031,
@@ -375,7 +388,8 @@
     "weapon": "Bow",
     "vision": "Electro",
     "birthday": "0527",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/21f9d02d525812682065cab0d15420f2.png"
   },
   {
     "id": 10000032,
@@ -402,7 +416,8 @@
     "weapon": "Sword",
     "vision": "Pyro",
     "birthday": "0229",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/3e2c2cb6334e85281e3db4273bca4b6e.png"
   },
   {
     "id": 10000034,
@@ -429,7 +444,8 @@
     "weapon": "Claymore",
     "vision": "Geo",
     "birthday": "0321",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/f803955d29e1ad139528ce18d6c3c98b.png"
   },
   {
     "id": 10000035,
@@ -456,7 +472,8 @@
     "weapon": "Sword",
     "vision": "Cryo",
     "birthday": "0303",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/a4642da073a9eac8f685e47993b90ad2.png"
   },
   {
     "id": 10000036,
@@ -483,7 +500,8 @@
     "weapon": "Claymore",
     "vision": "Cryo",
     "birthday": "0907",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/1497a9098a58f1b1e0722c8e743d6bf9.png"
   },
   {
     "id": 10000041,
@@ -510,7 +528,8 @@
     "weapon": "Catalyst",
     "vision": "Hydro",
     "birthday": "0831",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://uploadstatic.mihoyo.com/hk4e/e20200928calculate/common/mona_8aa370eb786178163aeac539e2776ca3.png"
   },
   {
     "id": 10000042,
@@ -537,7 +556,8 @@
     "weapon": "Sword",
     "vision": "Electro",
     "birthday": "1120",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/115db53bc4965e0d74498e793a2d6914.png"
   },
   {
     "id": 10000043,
@@ -564,7 +584,8 @@
     "weapon": "Catalyst",
     "vision": "Anemo",
     "birthday": "1126",
-    "release_date": "20200915"
+    "release_date": "20200915",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/637f72681d1db6c67d5b214e67156d2c.png"
   },
   {
     "id": 10000033,
@@ -591,7 +612,8 @@
     "weapon": "Bow",
     "vision": "Hydro",
     "birthday": "0720",
-    "release_date": "20201111"
+    "release_date": "20201111",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/a75b3424ae7260ac9bc319964f4d7f85.png"
   },
   {
     "id": 10000039,
@@ -618,7 +640,8 @@
     "weapon": "Bow",
     "vision": "Cryo",
     "birthday": "0118",
-    "release_date": "20201111"
+    "release_date": "20201111",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/a1ae51f93c9820655f0e156710f8c166.png"
   },
   {
     "id": 10000030,
@@ -645,7 +668,8 @@
     "weapon": "Polearm",
     "vision": "Geo",
     "birthday": "1231",
-    "release_date": "20201202"
+    "release_date": "20201202",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/ac27cea0f78ae81a0cf9971770139c5b.png"
   },
   {
     "id": 10000044,
@@ -672,7 +696,8 @@
     "weapon": "Claymore",
     "vision": "Pyro",
     "birthday": "1016",
-    "release_date": "20201202"
+    "release_date": "20201202",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/df2c19bc080f96dcd409944483595226.png"
   },
   {
     "id": 10000038,
@@ -699,7 +724,8 @@
     "weapon": "Sword",
     "vision": "Geo",
     "birthday": "0913",
-    "release_date": "20201222"
+    "release_date": "20201222",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/539d7b022bc83822e6f738d1fb5ffaf6.png"
   },
   {
     "id": 10000037,
@@ -726,7 +752,8 @@
     "weapon": "Bow",
     "vision": "Cryo",
     "birthday": "1202",
-    "release_date": "20210112"
+    "release_date": "20210112",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/4eaa84a5fc917189ce7b97a0f730adce.png"
   },
   {
     "id": 10000026,
@@ -753,7 +780,8 @@
     "weapon": "Polearm",
     "vision": "Anemo",
     "birthday": "0417",
-    "release_date": "20210202"
+    "release_date": "20210202",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/066fd24f5a5a744b11e56ec08a86f0da.png"
   },
   {
     "id": 10000046,
@@ -780,7 +808,8 @@
     "weapon": "Polearm",
     "vision": "Pyro",
     "birthday": "0715",
-    "release_date": "20210302"
+    "release_date": "20210302",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/fa6be47b486ff2d04e74014112c730fe.png"
   },
   {
     "id": 10000045,
@@ -807,7 +836,8 @@
     "weapon": "Polearm",
     "vision": "Cryo",
     "birthday": "0124",
-    "release_date": "20210406"
+    "release_date": "20210406",
+    "avatar": "https://uploadstatic.mihoyo.com/hk4e/e20200928calculate/common/rosaria_623de3bc25a21b6e516ea0489ddd11f8.png"
   },
   {
     "id": 10000048,
@@ -834,7 +864,8 @@
     "weapon": "Catalyst",
     "vision": "Pyro",
     "birthday": "0728",
-    "release_date": "20210427"
+    "release_date": "20210427",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/d7d166897e22eef5ab7caa842bcde24e.png"
   },
   {
     "id": 10000051,
@@ -861,7 +892,8 @@
     "weapon": "Claymore",
     "vision": "Cryo",
     "birthday": "1025",
-    "release_date": "20210518"
+    "release_date": "20210518",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/4bebe56fedbdcd66b8968a6cd5447a3b.png"
   },
   {
     "id": 10000047,
@@ -888,7 +920,8 @@
     "weapon": "Sword",
     "vision": "Anemo",
     "birthday": "1029",
-    "release_date": "20210629"
+    "release_date": "20210629",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/21a498ca4f123a96d4256002ad1cd31a.png"
   },
   {
     "id": 10000002,
@@ -915,7 +948,8 @@
     "weapon": "Sword",
     "vision": "Cryo",
     "birthday": "0928",
-    "release_date": "20210721"
+    "release_date": "20210721",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/e58f89bc1a100a06715ac40baa47a721.png"
   },
   {
     "id": 10000049,
@@ -942,7 +976,8 @@
     "weapon": "Bow",
     "vision": "Pyro",
     "birthday": "0621",
-    "release_date": "20210810"
+    "release_date": "20210810",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/6682e54aeae346c99f0a85ce12df1af7.png"
   },
   {
     "id": 10000053,
@@ -969,7 +1004,8 @@
     "weapon": "Claymore",
     "vision": "Anemo",
     "birthday": "1019",
-    "release_date": "20210810"
+    "release_date": "20210810",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/794ff66af08e2536b15f091f86edcbbf.png"
   },
   {
     "id": 10000052,
@@ -996,7 +1032,8 @@
     "weapon": "Polearm",
     "vision": "Electro",
     "birthday": "0626",
-    "release_date": "20210901"
+    "release_date": "20210901",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/2acb1e1fa956277d3d4ec0d6bb1da5d8.png"
   },
   {
     "id": 10000056,
@@ -1023,7 +1060,8 @@
     "weapon": "Bow",
     "vision": "Electro",
     "birthday": "0714",
-    "release_date": "20210901"
+    "release_date": "20210901",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/c1a17d549a21b89ad76147fe3f46936f.png"
   },
   {
     "id": 10000062,
@@ -1050,7 +1088,8 @@
     "weapon": "Bow",
     "vision": "Cryo",
     "birthday": "0404",
-    "release_date": "20210901"
+    "release_date": "20210901",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/15175b234f3e181d1158ac1dd5c0dcee.png"
   },
   {
     "id": 10000054,
@@ -1077,7 +1116,8 @@
     "weapon": "Catalyst",
     "vision": "Hydro",
     "birthday": "0222",
-    "release_date": "20210921"
+    "release_date": "20210921",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/c8fc25c8b7fd9f8d98584e1bfd1d822a.png"
   },
   {
     "id": 10000050,
@@ -1104,7 +1144,8 @@
     "weapon": "Polearm",
     "vision": "Pyro",
     "birthday": "0109",
-    "release_date": "20211102"
+    "release_date": "20211102",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/e27f8c71639c9730fdbe74287adf4c3a.png"
   },
   {
     "id": 10000055,
@@ -1131,7 +1172,8 @@
     "weapon": "Bow",
     "vision": "Geo",
     "birthday": "0518",
-    "release_date": "20211214"
+    "release_date": "20211214",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/8810718fce059df13a620234ae72625a.png"
   },
   {
     "id": 10000057,
@@ -1158,7 +1200,8 @@
     "weapon": "Claymore",
     "vision": "Geo",
     "birthday": "0601",
-    "release_date": "20211214"
+    "release_date": "20211214",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/99e0fc37a5131c7f4355ccbefeacc4a0.png"
   },
   {
     "id": 10000063,
@@ -1185,7 +1228,8 @@
     "weapon": "Polearm",
     "vision": "Cryo",
     "birthday": "0310",
-    "release_date": "20220105"
+    "release_date": "20220105",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/b065bac7ecdfa2d595b43d51643d2fe9.png"
   },
   {
     "id": 10000064,
@@ -1212,7 +1256,8 @@
     "weapon": "Polearm",
     "vision": "Geo",
     "birthday": "0521",
-    "release_date": "20220105"
+    "release_date": "20220105",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/7e3968cf1102bd0d645cbcdc360f0540.png"
   },
   {
     "id": 10000058,
@@ -1239,7 +1284,8 @@
     "weapon": "Catalyst",
     "vision": "Electro",
     "birthday": "0627",
-    "release_date": "20220216"
+    "release_date": "20220216",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/5ac20320ea959808c4d96acf398ca416.png"
   },
   {
     "id": 10000066,
@@ -1266,7 +1312,8 @@
     "weapon": "Sword",
     "vision": "Hydro",
     "birthday": "0326",
-    "release_date": "20220330"
+    "release_date": "20220330",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/2626000aac92c597b9b91e40ab858038.png"
   },
   {
     "id": 10000060,
@@ -1293,7 +1340,8 @@
     "weapon": "Bow",
     "vision": "Hydro",
     "birthday": "0420",
-    "release_date": "20220531"
+    "release_date": "20220531",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/b38bf216d21a7ef27e5ff5201e3c35fc.png"
   },
   {
     "id": 10000065,
@@ -1320,7 +1368,8 @@
     "weapon": "Sword",
     "vision": "Electro",
     "birthday": "0727",
-    "release_date": "20220621"
+    "release_date": "20220621",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/139e37068d901971b1ce33fe8e91dbba.png"
   },
   {
     "id": 10000059,
@@ -1347,7 +1396,8 @@
     "weapon": "Catalyst",
     "vision": "Anemo",
     "birthday": "0724",
-    "release_date": "20220713"
+    "release_date": "20220713",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/6ffe9611a2a63d5df666eca413fb1028.png"
   },
   {
     "id": 10000067,
@@ -1374,7 +1424,8 @@
     "weapon": "Bow",
     "vision": "Dendro",
     "birthday": "0508",
-    "release_date": "20220824"
+    "release_date": "20220824",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/9f7b11a6d49b79ad33903946bba72952.png"
   },
   {
     "id": 10000069,
@@ -1401,7 +1452,8 @@
     "weapon": "Bow",
     "vision": "Dendro",
     "birthday": "1229",
-    "release_date": "20220824"
+    "release_date": "20220824",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/584456ed315d44d62d7fd7ee21ee9a23.png"
   },
   {
     "id": 10000068,
@@ -1428,7 +1480,8 @@
     "weapon": "Claymore",
     "vision": "Electro",
     "birthday": "1221",
-    "release_date": "20220909"
+    "release_date": "20220909",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/b242649a21f06a1204d92beda2d95c6f.png"
   },
   {
     "id": 10000071,
@@ -1455,7 +1508,8 @@
     "weapon": "Polearm",
     "vision": "Electro",
     "birthday": "0623",
-    "release_date": "20220927"
+    "release_date": "20220927",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/5879e97c342175986fdbe1eb3ca54c1c.png"
   },
   {
     "id": 10000072,
@@ -1482,7 +1536,8 @@
     "weapon": "Polearm",
     "vision": "Hydro",
     "birthday": "0503",
-    "release_date": "20220927"
+    "release_date": "20220927",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/680798d8844241e4794b8823b2571885.png"
   },
   {
     "id": 10000070,
@@ -1509,7 +1564,8 @@
     "weapon": "Sword",
     "vision": "Hydro",
     "birthday": "1203",
-    "release_date": "20221014"
+    "release_date": "20221014",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/0fec4b5601cc8781f003f7c7760a6f6f.png"
   },
   {
     "id": 10000073,
@@ -1536,7 +1592,8 @@
     "weapon": "Catalyst",
     "vision": "Dendro",
     "birthday": "1027",
-    "release_date": "20221101"
+    "release_date": "20221101",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/ebf7c34916c26b753e452a73831418c0.png"
   },
   {
     "id": 10000074,
@@ -1563,7 +1620,8 @@
     "weapon": "Sword",
     "vision": "Cryo",
     "birthday": "1219",
-    "release_date": "20221118"
+    "release_date": "20221118",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/e15edd71c31d9a5e36885ba24f5dcc56.png"
   },
   {
     "id": 10000075,
@@ -1590,7 +1648,8 @@
     "weapon": "Catalyst",
     "vision": "Anemo",
     "birthday": "0103",
-    "release_date": "20221206"
+    "release_date": "20221206",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/48ef409c7ba742e4f7ed7a49a0f97d66.png"
   },
   {
     "id": 10000076,
@@ -1617,7 +1676,8 @@
     "weapon": "Bow",
     "vision": "Anemo",
     "birthday": "0820",
-    "release_date": "20221206"
+    "release_date": "20221206",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/75da2bc249ed7990b8785ef1b9f06731.png"
   },
   {
     "id": 10000077,
@@ -1644,7 +1704,8 @@
     "weapon": "Polearm",
     "vision": "Dendro",
     "birthday": "0306",
-    "release_date": "20230117"
+    "release_date": "20230117",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/ec807dc64462b03515a69ee221bb5769.png"
   },
   {
     "id": 10000078,
@@ -1671,7 +1732,8 @@
     "weapon": "Sword",
     "vision": "Dendro",
     "birthday": "0211",
-    "release_date": "20230117"
+    "release_date": "20230117",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/2c978d36a2fa41314e8e56e30b9e2f3c.png"
   },
   {
     "id": 10000079,
@@ -1698,7 +1760,8 @@
     "weapon": "Claymore",
     "vision": "Pyro",
     "birthday": "0407",
-    "release_date": "20230228"
+    "release_date": "20230228",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/806de4c1661df89dc31a3500e1cdd270.png"
   },
   {
     "id": 10000080,
@@ -1725,7 +1788,8 @@
     "weapon": "Polearm",
     "vision": "Cryo",
     "birthday": "0811",
-    "release_date": "20230321"
+    "release_date": "20230321",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/993a726877b5b555265ba991ee636dd7.png"
   },
   {
     "id": 10000081,
@@ -1752,7 +1816,8 @@
     "weapon": "Claymore",
     "vision": "Dendro",
     "birthday": "0709",
-    "release_date": "20230502"
+    "release_date": "20230502",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/24830cba82c1af30440c87456298ae12.png"
   },
   {
     "id": 10000082,
@@ -1779,7 +1844,8 @@
     "weapon": "Catalyst",
     "vision": "Dendro",
     "birthday": "0425",
-    "release_date": "20230502"
+    "release_date": "20230502",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/efeea1b676d331e3cb01684af3c312be.png"
   },
   {
     "id": 10000061,
@@ -1806,6 +1872,7 @@
     "weapon": "Sword",
     "vision": "Dendro",
     "birthday": "0122",
-    "release_date": "20230523"
+    "release_date": "20230523",
+    "avatar": "https://act-webstatic.mihoyo.com/hk4e/e20200928calculate/item_icon_u82ase/09f16853b42c95407e2071af70953556.png"
   }
 ]
