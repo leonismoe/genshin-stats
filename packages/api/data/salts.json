@@ -85,5 +85,27 @@
     }
   },
 
-  "latest": "2.53.1"
+  "2.54.1": {
+    "1": {
+      "2": "HwppTvPwIAKGTG7DhnwQRHhQ1LP3oR3S",
+      "5": "6opzJn4gevA62u3g6arFwLKu8Hvq9kdP"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "2.55.1": {
+    "1": {
+      "2": "xc1lzZFOBGU0lz8ZkPgcrWZArZzEVMbA",
+      "5": "F6tsiCZEIcL9Mor64OXVJEKRRQ6BpOZa"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.55.1"
 }
