@@ -2,6 +2,7 @@
 /*.ts
 !*.d.ts
 
+*.map
 *.tsbuildinfo
 tsconfig.json
 tsconfig.*.json

@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/genshin-api",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "license": "MIT",
   "description": "Provides some encapsulated utilities function for Genshin Impact.",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-api",
@@ -25,8 +25,14 @@
       "default": "./dist/browser.js"
     },
     "./package.json": "./package.json",
-    "./types": "./lib/types/index.d.ts",
-    "./typings": "./lib/types/index.d.ts",
+    "./types": {
+      "typescript": "./src/types/index.d.ts",
+      "default": "./lib/types/index.d.ts"
+    },
+    "./typings": {
+      "typescript": "./src/types/index.d.ts",
+      "default": "./lib/types/index.d.ts"
+    },
     "./lib/types": "./lib/types/index.d.ts",
     "./lib/typings": "./lib/types/index.d.ts",
     "./lib/*": {
@@ -50,7 +56,7 @@
     "build:cjs": "tsc -p tsconfig.build.json -m commonjs -t es5 -d && node post-build.mjs",
     "bundle": "rollup -c rollup.config.mjs",
     "clean": "rimraf lib dist pkg-temp .rollup.cache *.tsbuildinfo node_modules/.cache",
-    "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node",
+    "ts-node": "node --loader tsx/esm --conditions=typescript --experimental-specifier-resolution=node",
     "prepublishOnly": "rimraf ./pkg-temp && clean-publish",
     "postpublish": "rimraf ./pkg-temp"
   },
@@ -62,13 +68,13 @@
   "devDependencies": {
     "@mihoyo-kit/api": "workspace:^",
     "@mihoyo-kit/genshin-data": "workspace:^",
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "globby": "^13.1.4",
-    "mkdirp": "^3.0.0",
-    "rollup": "^3.20.2",
-    "rollup-plugin-typescript2": "^0.34.1",
-    "tslib": "^2.5.0",
-    "typescript": "^5.0.4"
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "globby": "^13.2.2",
+    "mkdirp": "^3.0.1",
+    "rollup": "^3.29.3",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/api",
-  "version": "0.4.13",
+  "version": "0.4.14",
   "license": "MIT",
   "description": "Provides common request method for miHoYo API",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/api",
@@ -35,7 +35,7 @@
     "./typings": "./lib/typings.d.ts",
     "./lib/request": {
       "types": "./lib/request.d.ts",
-      "ts-node": "./src/utils/request-node.ts",
+      "typescript": "./src/utils/request-node.ts",
       "node": {
         "import": "./lib/utils/request-node.mjs",
         "require": "./lib/utils/request-node.js"
@@ -53,7 +53,7 @@
     },
     "./lib/*": {
       "types": "./lib/*.d.ts",
-      "ts-node": "./src/*.ts",
+      "typescript": "./src/*.ts",
       "import": "./lib/*.mjs",
       "require": "./lib/*.js",
       "default": "./lib/*.js"
@@ -64,7 +64,7 @@
   },
   "imports": {
     "#request": {
-      "ts-node": "./src/utils/request-node.ts",
+      "typescript": "./src/utils/request-node.ts",
       "node": {
         "import": "./lib/utils/request-node.mjs",
         "require": "./lib/utils/request-node.js"
@@ -106,7 +106,7 @@
     "bundle": "rollup -c rollup.config.mjs",
     "clean": "rimraf lib dist pkg-temp .rollup.cache *.tsbuildinfo",
     "node": "node --no-warnings --experimental-specifier-resolution=node --loader=./scripts/loader.mjs",
-    "ts-node": "node --loader ts-node/esm --conditions=ts-node --experimental-specifier-resolution=node",
+    "ts-node": "node --loader tsx/esm --conditions=typescript --experimental-specifier-resolution=node",
     "prepublishOnly": "rimraf ./pkg-temp && clean-publish",
     "postpublish": "rimraf ./pkg-temp"
   },
@@ -119,18 +119,22 @@
     "abort-controller": "^3.0.0",
     "undici": "^5.8.0"
   },
+  "peerDependenciesMeta": {
+    "abort-controller": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.2",
-    "@types/node": "^18.15.11",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@types/node": "^20.7.0",
     "cross-env": "^7.0.3",
-    "globby": "^13.1.4",
-    "rollup": "^3.20.2",
-    "rollup-plugin-typescript2": "^0.34.1",
-    "ts-node": "^10.9.1",
-    "tslib": "^2.5.0",
-    "typescript": "^5.0.4",
-    "undici": "^5.21.2"
+    "globby": "^13.2.2",
+    "rollup": "^3.29.3",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "undici": "^5.25.2"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",

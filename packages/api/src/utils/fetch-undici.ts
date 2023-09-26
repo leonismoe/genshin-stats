@@ -1,14 +1,12 @@
-// @ts-nocheck
-
-import undici from 'undici';
+import * as undici from 'undici';
 import * as AbortControllerPonyFill from 'abort-controller';
 
-const undiciFetch = undici.fetch as typeof fetch;
+const undiciFetch = undici.fetch as unknown as typeof fetch;
 const undiciHeaders = undici.Headers as typeof Headers;
-const undiciRequest = undici.Request as typeof Request;
-const undiciResponse = undici.Response as typeof Response;
+const undiciRequest = undici.Request as unknown as typeof Request;
+const undiciResponse = undici.Response as unknown as typeof Response;
 const undiciFormData = undici.FormData as typeof FormData;
-const undiciFile = undici.File as typeof File;
+const undiciFile = undici.File as unknown as typeof File;
 
 const actualAbortController = typeof AbortController !== 'undefined' ? AbortController : AbortControllerPonyFill.AbortController;
 const actualAbortSignal = typeof AbortSignal !== 'undefined' ? AbortSignal : AbortControllerPonyFill.AbortSignal;

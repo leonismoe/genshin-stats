@@ -36,7 +36,7 @@ export default defineConfig([
     plugins: [
       resolve({
         browser: true,
-        exportConditions: ['browser', 'typescript', 'default'],
+        exportConditions: ['browser', 'default'],
       }),
       typescript({
         check: false,
