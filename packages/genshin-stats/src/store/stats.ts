@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-import type { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, CharacterRarity, Calculator } from '@mihoyo-kit/genshin-api/lib/types';
+import type { GameStats, Character as GenshinCharacter, CharacterDetail, SpiralAbyssData, CharacterRarity, Calculator } from '@mihoyo-kit/genshin-api/types';
 import { createMemo, createResource, createRoot } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { APIError } from '@mihoyo-kit/api';
@@ -69,7 +69,7 @@ function createStatStore() {
         saveRoleDataDb(unknown_roles);
       }
 
-      return data as GenshinGameStats;
+      return data as unknown as GenshinGameStats;
 
     }, e => {
       if (import.meta.env.MODE === 'pages' && e instanceof TypeError && (e.message === 'Failed to fetch' || e.message === 'NetworkError when attempting to fetch resource.')) {
@@ -126,7 +126,7 @@ function createStatStore() {
       return stats.loading;
     },
     get stats() {
-      return stats();
+      return stats() as GenshinGameStats;
     },
     get roles() {
       return roles();
@@ -169,8 +169,8 @@ function createStatStore() {
           roles.push({
             id: role.id,
             name: role.name.chs,
-            element: role.vision,
-            weapon_type: role.weapon,
+            element: role.vision as ExtendedGenshinRole['element'],
+            weapon_type: role.weapon as GenshinWeaponType,
             rarity: role.rarity % 10 as CharacterRarity,
             special_rarity: role.rarity > 10 ? role.rarity : 0,
             level: NaN,
