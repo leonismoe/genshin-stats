@@ -33,6 +33,9 @@ export interface WorldExploration extends ExplorationData {
   map_url: string;
   parent_id: number;
   strategy_url: string;
+  area_exploration_list: Array<{ name: string, explotation_percentage: number }>;
+  boss_list: Array<{ name: string, kill_num: number }>;
+  is_hot: boolean;
 }
 
 export interface Home {
@@ -53,6 +56,7 @@ export interface Statistics {
   /** 岩神瞳 */            geoculus_number: number;
   /** 雷神瞳 */            electroculus_number: number;
   /** 草神瞳 */            dendroculus_number: number;
+  /** 水神瞳 */            hydroculus_number: number;
   /** 获得角色数 */        avatar_number: number;
   /** 解锁传送点 */        way_point_number: number;
   /** 解锁秘境 */          domain_number: number;
@@ -62,6 +66,7 @@ export interface Statistics {
   /** 精致宝箱数 */        exquisite_chest_number: number;
   /** 普通宝箱数 */        common_chest_number: number;
   /** 奇馈宝箱数 */        magic_chest_number: number;
+  /** 大地图链接 */        field_ext_map: Record<string, { link: string, backup_link: string }>;
 }
 
 export interface GameRole {
@@ -69,6 +74,7 @@ export interface GameRole {
   level: number;
   nickname: string;
   region: string;
+  game_head_icon: string;
 }
 
 /**
@@ -81,6 +87,8 @@ export interface GameStats {
   /** 主城探索 */ city_explorations: CityExploration[];
   /** 世界探索 */ world_explorations: WorldExploration[];
   /** 壶中洞天 */ homes: Home[];
+  /** 归忆星旅 */ query_tool_link: string;
+  /** 归忆星旅 */ query_tool_image: string;
 }
 
 /**
