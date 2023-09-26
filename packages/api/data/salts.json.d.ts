@@ -5,6 +5,8 @@
 // DS2: APIClientType.ANDROID          : 2: x6
 // DS2: APIClientType.WEBVIEW (Mobile) : 5: x4
 
+// https://github.com/UIGF-org/mihoyo-api-collect/issues/1
+
 import { APIClientType, ValuesOfEnum } from '../typings';
 
 interface Salts {
