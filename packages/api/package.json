@@ -125,16 +125,16 @@
     }
   },
   "devDependencies": {
-    "@rollup/plugin-json": "^6.0.0",
-    "@rollup/plugin-node-resolve": "^15.2.1",
-    "@types/node": "^20.7.0",
+    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@types/node": "^20.9.0",
     "cross-env": "^7.0.3",
     "globby": "^13.2.2",
-    "rollup": "^3.29.3",
-    "rollup-plugin-typescript2": "^0.35.0",
+    "rollup": "^4.3.0",
+    "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
-    "undici": "^5.25.2"
+    "undici": "^5.27.2"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",

@@ -4,7 +4,7 @@ import { getDS, getDS2, getHTTPRequestHeaders } from './get-ds';
 import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, HTTPError, RequestOptions } from './request-common';
 import sleep from './sleep';
 
-export const fetch: typeof globalThis['fetch'] = function(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+export const fetch = function(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
   if (/^https?/.test(window.location.protocol) && !/\.(mihoyo|hoyolab)\.com|localhost$/.test(window.location.hostname) && window.fetch.toString().includes('native code')) {
     return sleep(1000).then(() => {
       if (window.fetch.toString().includes('native code')) {
@@ -15,7 +15,8 @@ export const fetch: typeof globalThis['fetch'] = function(input: RequestInfo | U
     });
   }
   return window.fetch(input, init);
-};
+} as typeof globalThis['fetch'];
+
 export const AbortController = window.AbortController;
 export const AbortSignal = window.AbortSignal;
 export const Headers = window.Headers;

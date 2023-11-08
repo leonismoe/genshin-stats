@@ -15,11 +15,11 @@
     "build:packages": "pnpm -r build"
   },
   "devDependencies": {
-    "@types/node": "^20.7.0",
-    "@typescript/lib-dom": "npm:@types/web@^0.0.115",
+    "@types/node": "^20.9.0",
+    "@typescript/lib-dom": "npm:@types/web@^0.0.119",
     "clean-publish": "^4.2.0",
-    "rimraf": "^5.0.4",
-    "tsx": "^3.13.0",
+    "rimraf": "^5.0.5",
+    "tsx": "^3.14.0",
     "typescript": "^5.2.2"
   }
 }

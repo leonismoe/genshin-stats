@@ -43,14 +43,14 @@
   },
   "dependencies": {
     "@mihoyo-kit/api": "workspace:^",
-    "undici": "^5.25.2"
+    "undici": "^5.27.2"
   },
   "optionalDependencies": {
     "find-chrome-bin": "^1.0.5",
-    "puppeteer-core": "^21.3.5"
+    "puppeteer-core": "^21.5.0"
   },
   "devDependencies": {
-    "@types/node": "^20.7.0",
+    "@types/node": "^20.9.0",
     "tslib": "^2.6.2"
   },
   "publishConfig": {
