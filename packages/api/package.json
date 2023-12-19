@@ -117,7 +117,7 @@
   "peerDependencies": {
     "@leonismoe/md5": "^1.2.1",
     "abort-controller": "^3.0.0",
-    "undici": "^5.8.0"
+    "undici": "^5.8.0 || ^6.0.0"
   },
   "peerDependenciesMeta": {
     "abort-controller": {
@@ -125,16 +125,16 @@
     }
   },
   "devDependencies": {
-    "@rollup/plugin-json": "^6.0.1",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/node": "^20.9.0",
+    "@types/node": "^20.10.5",
     "cross-env": "^7.0.3",
-    "globby": "^13.2.2",
-    "rollup": "^4.3.0",
+    "globby": "^14.0.0",
+    "rollup": "^4.9.1",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.2.2",
-    "undici": "^5.27.2"
+    "typescript": "^5.3.3",
+    "undici": "^6.0.1"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",

@@ -4,7 +4,7 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "pnpm@8.8.0",
+  "packageManager": "pnpm@8.12.1",
   "engines": {
     "node": ">=16.15.0",
     "pnpm": ">=7.4.0",
@@ -15,11 +15,11 @@
     "build:packages": "pnpm -r build"
   },
   "devDependencies": {
-    "@types/node": "^20.9.0",
-    "@typescript/lib-dom": "npm:@types/web@^0.0.119",
+    "@types/node": "^20.10.5",
+    "@typescript/lib-dom": "npm:@types/web@^0.0.128",
     "clean-publish": "^4.2.0",
     "rimraf": "^5.0.5",
-    "tsx": "^3.14.0",
-    "typescript": "^5.2.2"
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
   }
 }
