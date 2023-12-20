@@ -162,5 +162,38 @@
     }
   },
 
-  "latest": "2.60.1"
+  "2.61.1": {
+    "1": {
+      "2": "uTUzziiV9FazyGA7XgVIk287ZczinFRV",
+      "5": "L6ht0P18usSaC9c5Do3olmygiR4QX389"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "2.62.2": {
+    "1": {
+      "2": "pIlzNr5SAZhdnFW8ZxauW8UlxRdZc45r",
+      "5": "0wr0OpH2BNuekYrfeRwkiDdshvt10cTY"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "2.63.1": {
+    "1": {
+      "2": "BIPaooxbWZW02fGHZL1If26mYCljPgst",
+      "5": "9ttJY72HxbjwWRNHJvn0n2AYue47nYsK"
+    },
+    "2": {
+      "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
+      "5": "xV8v4Qu54lUKrEYFZkJhB8cuOh9Asafs"
+    }
+  },
+
+  "latest": "2.63.1"
 }
