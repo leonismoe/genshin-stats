@@ -18,6 +18,7 @@ export interface DailyNote {
   /** 洞天宝钱达上限时间 */   home_coin_recovery_time: string; // number (seconds)
   /** 可刷材料 Wiki 日历 */   calendar_url: string;
   /** 参量质变仪 */           transformer: TransformerStatus;
+  /** 每日任务 */             daily_task: DailyTask[];
 }
 
 interface Expedition {
@@ -44,3 +45,22 @@ interface TransformerRecoveryTime {
   /** 是否可用 */
   reached: boolean;
 }
+
+interface DailyTask {
+  total_num: number;
+  finished_num: number;
+  is_extra_task_reward_received: boolean;
+  task_rewards: DailyTaskRewardItem[];
+  attendance_rewards: DailyTaskAttendanceRewardItem[];
+  attendance_visible: boolean;
+}
+
+interface DailyTaskRewardItem {
+  status: 'TaskRewardStatusInvalid' | 'TaskRewardStatusTakenAward' | 'TaskRewardStatusFinished' | 'TaskRewardStatusUnfinished';
+}
+
+interface DailyTaskAttendanceRewardItem {
+  status: 'AttendanceRewardStatusInvalid' | 'AttendanceRewardStatusTakenAward' | 'AttendanceRewardStatusWaitTaken' | 'AttendanceRewardStatusUnfinished' | 'AttendanceRewardStatusFinishedNonReward' | 'AttendanceRewardStatusForbid';
+  progress: number;
+}
+
