@@ -5,8 +5,8 @@
     "action": {
       "type": "modifyHeaders",
       "requestHeaders": [
-        { "operation": "set", "header": "Origin", "value": "https://webstatic.mihoyo.com" },
-        { "operation": "set", "header": "Referer", "value": "https://webstatic.mihoyo.com/" }
+        { "operation": "set", "header": "sec-ch-ua-mobile", "value": "?0" },
+        { "operation": "set", "header": "sec-ch-ua-platform", "value": "\"Android\"" }
       ]
     },
     "condition": {
