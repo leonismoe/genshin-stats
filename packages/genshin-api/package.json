@@ -61,7 +61,7 @@
     "postpublish": "rimraf ./pkg-temp"
   },
   "peerDependencies": {
-    "@mihoyo-kit/api": "^0.4.0",
+    "@mihoyo-kit/api": "^0.5.0",
     "@mihoyo-kit/genshin-data": "^4.0.0"
   },
   "devDependencies": {
