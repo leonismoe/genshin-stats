@@ -1,6 +1,6 @@
 {
   "name": "@mihoyo-kit/genshin-api",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "license": "MIT",
   "description": "Provides some encapsulated utilities function for Genshin Impact.",
   "homepage": "https://github.com/leonismoe/genshin-stats/tree/main/packages/genshin-api",
