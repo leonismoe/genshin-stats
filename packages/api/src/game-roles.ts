@@ -1,4 +1,4 @@
-import { request, AbortController, RequestOptions } from './request';
+import { request, RequestOptions } from './request';
 import { APIClientType } from './constants';
 
 export interface UserGameRole {

@@ -23,7 +23,6 @@
     "@popperjs/core": "^2.11.8",
     "@primer/css": "^21.1.1",
     "solid-js": "^1.8.12",
-    "undici": "^6.5.0",
     "workbox-cacheable-response": "^7.0.0",
     "workbox-core": "^7.0.0",
     "workbox-expiration": "^7.0.0",

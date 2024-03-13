@@ -1,6 +1,6 @@
 export { APIClientType, DSServer } from './constants';
 export { default as hasOwn } from './utils/has-own';
-export { request, fetch, AbortController, AbortSignal, File, FormData, Headers, Request, Response } from './utils/request';
+export { request } from './utils/request';
 export { uuid } from './utils/uuid';
 export { getDS, calculateDS, getDS2, calculateDS2, normalizeQuery, getHTTPRequestHeaders, getUserAgent } from './utils/get-ds';
 export { getUserGameRolesByCookie, getUserGameRolesByLtoken, getUserGameRolesByCookieToken, getUserGameRoles } from './game-roles';

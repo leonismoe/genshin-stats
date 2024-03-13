@@ -111,13 +111,10 @@
     "postpublish": "rimraf ./pkg-temp"
   },
   "dependencies": {
-    "@leonismoe/md5": "^1.2.1",
-    "abort-controller": "^3.0.0"
+    "@leonismoe/md5": "^1.2.1"
   },
   "peerDependencies": {
-    "@leonismoe/md5": "^1.2.1",
-    "abort-controller": "^3.0.0",
-    "undici": "^5.8.0 || ^6.0.0"
+    "@leonismoe/md5": "^1.2.1"
   },
   "peerDependenciesMeta": {
     "abort-controller": {
@@ -133,8 +130,7 @@
     "rollup": "^4.9.6",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3",
-    "undici": "^6.5.0"
+    "typescript": "^5.3.3"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",

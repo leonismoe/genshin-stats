@@ -1,13 +1,10 @@
 import type { APIResponse, AccountAPIResponse, DSOptions, PromiseCookieJar } from '../typings';
 import { URL } from 'url';
-import { fetch, Headers, AbortController } from './fetch-undici';
 import { getDS, getDS2, getHTTPRequestHeaders, getUserAgent } from './get-ds';
 import { AbortError, APIError, buildQueryString, Cancelable, ExtensibleRequestFunction, extractUrlSearchParams, getCookie, HTTPError, RequestOptions } from './request-common';
 import hasOwn from './has-own';
 import { uuid } from './uuid';
 import { USER_AGENT_WINDOWS_CRHOME } from './user-agent';
-
-export { fetch, AbortSignal, AbortController, Headers, FormData, File, Request, Response } from './fetch-undici';
 
 export const request = function(url: string | URL, options?: RequestOptions): Cancelable<any> {
   if (options?.prefixUrl) {
