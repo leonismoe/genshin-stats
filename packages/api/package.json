@@ -124,13 +124,13 @@
   "devDependencies": {
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/node": "^20.11.11",
+    "@types/node": "^20.11.26",
     "cross-env": "^7.0.3",
-    "globby": "^14.0.0",
-    "rollup": "^4.9.6",
+    "globby": "^14.0.1",
+    "rollup": "^4.13.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",

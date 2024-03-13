@@ -68,12 +68,12 @@
     "@mihoyo-kit/api": "workspace:^",
     "@mihoyo-kit/genshin-data": "workspace:^",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "globby": "^14.0.0",
+    "globby": "^14.0.1",
     "mkdirp": "^3.0.1",
-    "rollup": "^4.9.6",
+    "rollup": "^4.13.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.2"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",
