@@ -1,8 +1,8 @@
 {
-  "2.69.1": {
+  "2.70.1": {
     "1": {
-      "2": "9XXf7BHajk1jwo3JAYncLjbYQizFEfoo",
-      "5": "ZPDcG5oaYUGWVcrImzWLzBLYOX9LpYd7"
+      "2": "S9Hrn38d2b55PamfIR9BNA3Tx9sQTOem",
+      "5": "sjdNFJB7XxyDWGIAk0eTV8AOCfMJmyEo"
     },
     "2": {
       "2": "t0qEgfub6cvueAPgR5m9aQWWVciEer7v",
@@ -10,5 +10,5 @@
     }
   },
 
-  "latest": "2.69.1"
+  "latest": "2.70.1"
 }
