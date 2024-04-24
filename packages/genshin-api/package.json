@@ -70,10 +70,10 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "globby": "^14.0.1",
     "mkdirp": "^3.0.1",
-    "rollup": "^4.13.0",
+    "rollup": "^4.16.4",
     "rollup-plugin-typescript2": "^0.36.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.5"
   },
   "publishConfig": {
     "types": "lib/index.d.ts",
