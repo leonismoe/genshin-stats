@@ -1,6 +1,7 @@
 import { spawnSync } from 'child_process';
 import { readFile } from 'fs/promises';
 import { resolve } from 'path';
+import { createRequire } from 'module';
 import { defineConfig, PluginOption } from 'vite';
 import { RollupOptions, OutputOptions } from 'rollup';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -65,6 +66,13 @@ export default defineConfig(async ({ command, mode }) => {
 
   return {
     base: process.env.BASE_URL || '/',
+
+    resolve: {
+      alias: [
+        // workaround for vite while importing `@primer/css/color-modes`
+        { find: /^@primer\/primitives\//, customResolver: id => createRequire(resolve(__dirname, 'node_modules/@primer/css/package.json')).resolve(id.replace(/^undefined/, '@primer/primitives/')) },
+      ],
+    },
 
     plugins: [
       nodeResolve({ modulesOnly: true, browser: true }),
