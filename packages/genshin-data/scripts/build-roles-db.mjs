@@ -78,7 +78,13 @@ const roles = avatars
       id: avatar.id,
       codename: avatar.iconName.slice(14),
       rarity: rarity_map[avatar.qualityType],
-      name: languages.reduce((dict, lang) => ((dict[lang] = TextMap[lang][avatar.nameTextMapHash]), dict), {}),
+      name: languages.reduce((dict, lang) => {
+        const value = TextMap[lang][avatar.nameTextMapHash];
+        if (value) {
+          dict[lang.replace(/_\d+$/, '')] = value;
+        }
+        return dict;
+      }, {}),
       assoc: info.avatarAssocType === 'ASSOC_TYPE_MAINACTOR' ? '' : ucfirst(info.avatarAssocType.slice(11)),
       weapon: weapon_map[avatar.weaponType],
       vision: TextMap.en[info.avatarVisionBeforTextMapHash],
